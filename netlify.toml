@@ -35,7 +35,7 @@ to = "/npmjs/"
 status = 200
 
 [[redirects]]
-  from = "/"
-  to = "https://well-made.uk
-  status = 302
-  force = true
+from = "/"
+to = "https://well-made.uk"
+status = 302
+force = true
