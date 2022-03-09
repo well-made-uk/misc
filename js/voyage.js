@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
   setTimeout(mobileMenu,200);
-  jQuery('.elementor-nav-menu').on('hover',setTimeout(desktopMenu,200));
+  jQuery('.elementor-nav-menu').on('hover',desktopMenu);
   jQuery(document).append('<style ="menuStyle"></style>');
   const styleStuff = jQuery("#menuStyle");
 })
