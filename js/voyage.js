@@ -1,29 +1,44 @@
-jQuery('document').ready(function($) {
-  $('.menu-toggler').click(setTimeout(mobileMenu,200));
-  $('.elementor-nav-menu').hover(setTimeout(desktopMenu,200));
+document.addEventListener("DOMContentLoaded", function() {
   
-  css = "<style id='menuStyle'></style>";
-  jQuery('body').append(css);
+  document.querySelector('.menu-toggler').addEventListener('click',setTimeout(mobileMenu,200));
+  document.querySelector('.elementor-nav-menu').addEventListener('mouseenter',setTimeout(desktopMenu,200));
+  
+  cssel = document.createElement('style', {id: 'menuStyle'});
+  document.body.appendChild(cssel);
 })
 
 function desktopMenu() {
   // Get height of elements
-  totalHeight = jQuery('.elementor-location-header').height();
+  totalHeight = document.querySelector('.elementor-location-header').offsetHeight();
         
   // Add CSS
-  css = "<style>#nav-menu-main .sub-menu[style] {top:" + totalHeight + "px!important}</style>";
-  jQuery('#menuStyle').html = css
+  css = "#nav-menu-main .sub-menu[style] {top:" + totalHeight + "px!important}";
+  document.getElementById('menuStyle').innerHTML = css
 }
 
 function mobileMenu() {
   // Add mobile menu icon
-  jQuery('#mobile-menu-nav .menu-item-has-children').prepend('<i style="display:none" class="fa fa-caret-down opener" onCLick="opener()"></i>');
+  i = document.createElement('i',{style: 'display:none',class: 'fa fa-caret-down opener',onClick: "opener"})
+  document.querySelector('#mobile-menu-nav .menu-item-has-children').insertBefore(i, document.querySelector('#mobile-menu-nav .menu-item-has-children').firstChild);
         
   // Hide mobile submenu by default
-  jQuery('#mobile-menu-nav .menu-item-has-children .sub-menu').hide();
+  document.querySelector('#mobile-menu-nav .menu-item-has-children .sub-menu').toggle(this);
 }
 
 // Function for opening the mobile submenu
 function opener() {
-    jQuery('#mobile-menu-nav .sub-menu').slideToggle(200);
+    document.querySelector('#mobile-menu-nav .menu-item-has-children .sub-menu').toggle(this);
 }
+
+function toggle(elem) {
+
+	// If the element is visible, hide it
+	if (window.getComputedStyle(elem).display === 'block') {
+		hide(elem);
+		return;
+	}
+
+	// Otherwise, show it
+	show(elem);
+
+};
