@@ -1,13 +1,13 @@
 jQuery(document).ready(function() {
   setTimeout(mobileMenu,200);
-  jQuery('.elementor-nav-menu').on('hover',desktopMenu);
+  jQuery('#nav-menu-main').on('hover',desktopMenu);
   jQuery('body').append('<style ="menuStyle"></style>');
   const styleStuff = jQuery("#menuStyle");
 })
 
 function desktopMenu() {
   // Get height of elements
-  totalHeight = $('.elementor-location-header').height();
+  totalHeight = jQuery('.elementor-location-header').height();
         
   // Add CSS
   css = "#nav-menu-main .sub-menu[style] {top:" + totalHeight + "px!important}";
