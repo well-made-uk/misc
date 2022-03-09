@@ -10,6 +10,7 @@ jQuery('document').ready(function($) {
 })
 
 function mobileMenu() {
+  console.log('hi');
   // Add mobile menu icon
   jQuery('#mobile-menu-nav .menu-item-281').prepend('<i style="display:none" class="fa fa-caret-down opener" onCLick="opener()"></i>');
         
