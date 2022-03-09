@@ -10,12 +10,11 @@ jQuery('document').ready(function($) {
 })
 
 function mobileMenu() {
-  console.log('hi');
   // Add mobile menu icon
-  jQuery('#mobile-menu-nav .menu-item-281').prepend('<i style="display:none" class="fa fa-caret-down opener" onCLick="opener()"></i>');
+  jQuery('#mobile-menu-nav .menu-item-has-children').prepend('<i style="display:none" class="fa fa-caret-down opener" onCLick="opener()"></i>');
         
   // Hide mobile submenu by default
-  jQuery('#mobile-menu-nav .sub-menu').hide();
+  jQuery('#mobile-menu-nav .menu-item-has-children .sub-menu').hide();
 }
 
 // Function for opening the mobile submenu
