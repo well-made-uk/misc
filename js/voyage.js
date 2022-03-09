@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-  
-  document.querySelector('.menu-toggler').addEventListener('click',setTimeout(mobileMenu,200));
-  document.querySelector('.elementor-nav-menu').addEventListener('mouseenter',setTimeout(desktopMenu,200));
+  jQuery('.menu-toggler').on('click',setTimeout(mobileMenu,200));
+  jQuery('.elementor-nav-menu').on('hover',setTimeout(desktopMenu,200));
   
   cssel = document.createElement('style', {id: 'menuStyle'});
   document.body.appendChild(cssel);
