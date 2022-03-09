@@ -1,6 +1,6 @@
 jQuery('document').ready(function($) {
   $('.menu-toggler').click(setTimeout(mobileMenu,200));
-  $('#nav-menu-main').click(setTimeout(desktopMenu,200));
+  $('#nav-menu-main').hover(setTimeout(desktopMenu,200));
 })
 
 function desktopMenu() {
