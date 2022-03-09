@@ -1,5 +1,0 @@
-[[redirects]]
-from = "/"
-to = "https://well-made.uk"
-status = 200
-force = true
