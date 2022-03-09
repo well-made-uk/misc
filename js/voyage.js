@@ -2,7 +2,7 @@ jQuery(document).ready(function() {
   setTimeout(mobileMenu,200);
   jQuery('#nav-menu-main').hover(desktopMenu);
   jQuery('body').append('<style ="menuStyle"></style>');
-  const styleStuff = jQuery("#menuStyle");
+  styleStuff = jQuery("#menuStyle");
 })
 
 function desktopMenu() {
