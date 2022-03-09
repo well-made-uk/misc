@@ -1,6 +1,6 @@
 jQuery('document').ready(function($) {
   
-  $('.menu-toggler').click(mobileMenu());
+  $('.menu-toggler').click(mobileMenu);
   // Get height of elements
   const totalHeight = $('.elementor-location-header').height();
         
