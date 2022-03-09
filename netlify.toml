@@ -3,13 +3,3 @@ from = "/"
 to = "https://well-made.uk"
 status = 200
 force = true
-
-[[headers]]
-for = "/*"
-  [headers.values]
-  Access-Control-Allow-Origin = ""
-  
-[[headers]]
-for = "/js/voyage.min.js"
-  [headers.values]
-  Access-Control-Allow-Origin = "https://voyagebranding.co.uk/"
