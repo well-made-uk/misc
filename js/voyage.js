@@ -1,13 +1,16 @@
 jQuery('document').ready(function($) {
-  
-  $('.menu-toggler').click(mobileMenu);
+  $('.menu-toggler').click(setTimeout(mobileMenu,200));
+  $('#nav-menu-main').click(setTimeout(desktopMenu,200));
+})
+
+function desktopMenu() {
   // Get height of elements
-  const totalHeight = $('.elementor-location-header').height();
+  totalHeight = jQuery('.elementor-location-header').height();
         
   // Add CSS
-  const css = "<style>#nav-menu-main .sub-menu[style] {top:" + totalHeight + "px!important}</style>";
-  $('body').append(css);
-})
+  css = "<style>#nav-menu-main .sub-menu[style] {top:" + totalHeight + "px!important}</style>";
+  jQuery('body').append(css);
+}
 
 function mobileMenu() {
   // Add mobile menu icon
