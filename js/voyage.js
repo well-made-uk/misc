@@ -1,18 +1,12 @@
 jQuery(document).ready(function() {
   setTimeout(mobileMenu,200);
-  setTimeout(desktopMenu,200);
-  jQuery('body').append('<style ="menuStyle"></style>');
-  styleStuff = jQuery("#menuStyle");
-})
-
-function desktopMenu() {
+  
   // Get height of elements
   totalHeight = jQuery('.elementor-location-header').height();
         
   // Add CSS
-  css = "#nav-menu-main .sub-menu[style] {top:" + totalHeight + "px!important}";
-  styleStuff.innerHTML = css;
-}
+  jQuery('body').append("<style ='menuStyle'>#nav-menu-main .sub-menu[style] {top:" + totalHeight + "px!important}</style>");
+})
 
 function mobileMenu() {
   // Add mobile menu icon
