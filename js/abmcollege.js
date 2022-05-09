@@ -131,15 +131,16 @@ $(()=>{
 
   let videoCodeOne = '<iframe class="youtube-source" width="560" height="315" src="https://www.youtube.com/embed/'
   let videoCodeTwo = '?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+
   $('.video-thumbnail').click(function() {
-	let videoId = $(this).attr('data-video-id')
+	   let videoId = $(this).attr('data-video-id')
     let videoHeight = $(this).height()
     let parent = $(this).parent()
     $(this).closest('.youtube-container').addClass('open')
     $(this).siblings().fadeOut(200)
   	$(this).replaceWith(videoCodeOne + videoId + videoCodeTwo)
     parent.find('iframe').height(videoHeight)
-
+  })
 
       // Add programs to Program menu
       $('#program-list .w-dyn-item').each(getCat);
