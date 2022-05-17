@@ -23,65 +23,65 @@ const isModifierKey = (event) => {
 const enforceFormat = (event) => {
     // Input must be of a valid number format or a modifier key, and not longer than ten digits
     if(!isNumericInput(event) && !isModifierKey(event)){
-        event.preventDefault();
+        event.preventDefault()
     }
 };
 
 const formatToPhone = (event) => {
-    if(isModifierKey(event)) {return;}
+    if(isModifierKey(event)) {return}
 
-    const input = event.target.value.replace(/\D/g,'').substring(0,10); // First ten digits of input only
-    const areaCode = input.substring(0,3);
-    const middle = input.substring(3,6);
-    const last = input.substring(6,10);
+    const input = event.target.value.replace(/\D/g,'').substring(0,10) // First ten digits of input only
+    const areaCode = input.substring(0,3)
+    const middle = input.substring(3,6)
+    const last = input.substring(6,10)
 
-    if(input.length > 6){event.target.value = `(${areaCode}) ${middle}-${last}`;}
-    else if(input.length > 3){event.target.value = `(${areaCode}) ${middle}`;}
-    else if(input.length > 0){event.target.value = `(${areaCode}`;}
+    if(input.length > 6){event.target.value = `(${areaCode}) ${middle}-${last}`}
+    else if(input.length > 3){event.target.value = `(${areaCode}) ${middle}`}
+    else if(input.length > 0){event.target.value = `(${areaCode}`}
 };
 
 /* Cookie scripts */
     function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    const d = new Date()
+    d.setTime(d.getTime() + (exdays*24*60*60*1000))
+    let expires = "expires="+ d.toUTCString()
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
   }
   function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
+    let name = cname + "="
+    let decodedCookie = decodeURIComponent(document.cookie)
+    let ca = decodedCookie.split(';')
     for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
+      let c = ca[i]
       while (c.charAt(0) == ' ') {
-        c = c.substring(1);
+        c = c.substring(1)
       }
       if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
+        return c.substring(name.length, c.length)
       }
     }
-    return "";
+    return ""
   }
   function checkCookie( cname, val ) {
     if (val) {
-    	setCookie(cname, val, 7);
+    	setCookie(cname, val, 7)
     }
-    let cookie = getCookie(cname);
-    $('.' + cname).val(cookie);
+    let cookie = getCookie(cname)
+    $('.' + cname).val(cookie)
   }
 
   // Countdown script
 
   function pad(num, size) {
         var s = "0" + num;
-        return s.substr(s.length - size);
+        return s.substr(s.length - size)
     }
 
     // fixes "Date.parse(date)" on safari
     function parseDate(date) {
-        const parsed = Date.parse(date);
+        const parsed = Date.parse(date)
         if (!isNaN(parsed)) return parsed
-        return Date.parse(date.replace(/-/g, '/').replace(/[a-z]+/gi, ' '));
+        return Date.parse(date.replace(/-/g, '/').replace(/[a-z]+/gi, ' '))
     }
 
     function getTimeRemaining(endtime) {
@@ -106,17 +106,18 @@ const formatToPhone = (event) => {
             if (time.total <= 0) {
                 clearInterval(timeinterval);
             } else {
-                days.innerHTML = pad(time.days, 2);
-                hours.innerHTML = pad(time.hours, 2);
-                minutes.innerHTML = pad(time.minutes, 2);
-                seconds.innerHTML = pad(time.seconds, 2);
+                days.innerHTML = pad(time.days, 2)
+                hours.innerHTML = pad(time.hours, 2)
+                minutes.innerHTML = pad(time.minutes, 2)
+                seconds.innerHTML = pad(time.seconds, 2)
             }
 
             $(()=>{$(days).closest('.js-clock').fadeIn({start: function () {$(this).css('display', 'flex')}})})
-          }, 1000);
+          }, 1000)
     }
 
-$(()=>{
+var Webflow = Webflow || []
+Webflow.push(function () {
   // Position the nav-bars etc
   if ($('.notification-bar')) {
     let heightOne = $('.notification-bar').outerHeight();
