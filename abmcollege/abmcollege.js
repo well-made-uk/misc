@@ -115,8 +115,7 @@ const formatToPhone = (event) => {
             $(()=>{$(days).closest('.js-clock').fadeIn({start: function () {$(this).css('display', 'flex')}})})
           }, 1000)
     }
-
-var Webflow = Webflow || []
+    
 Webflow.push(function () {
   // Position the nav-bars etc
   if ($('.notification-bar')) {
