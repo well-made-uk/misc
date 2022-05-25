@@ -191,6 +191,12 @@
         $('#message').show()
         $('#message').fadeOut(800)
       }
+      function copyCode() {
+        $("#codeArea").select();
+        document.execCommand('copy');
+        $('#copied').show()
+        $('#copied').fadeOut(800)
+      }
     </script>
     <style>
       /**
@@ -259,7 +265,7 @@ background-color:#bd3e3e;
 background-color:#ececdb;
 border-color:#d3d3b8;
 }
-#message {
+#message, #copied {
   display:none
 }
     </style>
@@ -282,7 +288,7 @@ border-color:#d3d3b8;
         <label for="linkedIn">LinkedIn</label>
         <input type="text" name="linkedIn" id="linkedIn" value="/linkedIn"/>
       </form>
-      <a style="text-decoration:underline;cursor:pointer;" onclick="genCode()">Generate Code</a><span style="padding-left:15px;" id="message">New code generated</span>
+      <a style="text-decoration:underline;cursor:pointer;" onclick="genCode()">Generate Code</a><a style="text-decoration:underline;cursor:pointer;padding-left:10px" onclick="copyCode()">Copy Code</a><span style="padding-left:15px;" id="message">New code generated</span><span style="padding-left:15px;" id="copied">Code copied</span>
       <textarea style="width:100%" id="codeArea"></textarea>
     </div>
     <div id="preview" style="margin-top:20px;"></div>
