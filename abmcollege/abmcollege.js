@@ -96,15 +96,14 @@ const formatToPhone = (event) => {
 
     function clock(id, endtime) {
   			let el = $('#' + id).closest('.js-clock')
-        console.log(el)
         let days = $(el).find('.js-days')
         let hours = $(el).find('.js-hours')
         let minutes = $(el).find('.js-minutes')
         let seconds = $(el).find('.js-seconds')
-        console.log(seconds)
 
         var timeinterval = setInterval(function () {
             var time = getTimeRemaining(endtime);
+            console.log(time)
 
             if (time.total <= 0) {
                 clearInterval(timeinterval);
