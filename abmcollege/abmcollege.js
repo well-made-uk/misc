@@ -95,10 +95,13 @@ const formatToPhone = (event) => {
     }
 
     function clock(id, endtime) {
-        let days = document.getElementById(id + '-days')
-        let hours = document.getElementById(id + '-hours')
-        let minutes = document.getElementById(id + '-minutes')
-        let seconds = document.getElementById(id + '-seconds')
+  			let el = $('#' + id).closest('.js-clock')
+        console.log(el)
+        let days = $(el).find('.js-days')
+        let hours = $(el).find('.js-hours')
+        let minutes = $(el).find('.js-minutes')
+        let seconds = $(el).find('.js-seconds')
+        console.log(seconds)
 
         var timeinterval = setInterval(function () {
             var time = getTimeRemaining(endtime);
@@ -110,12 +113,11 @@ const formatToPhone = (event) => {
                 hours.innerHTML = pad(time.hours, 2)
                 minutes.innerHTML = pad(time.minutes, 2)
                 seconds.innerHTML = pad(time.seconds, 2)
+                $(()=>{$(days).closest('.js-clock').fadeIn({start: function () {$(this).css('display', 'flex');console.log('lol')}})})
             }
-
-            $(()=>{$(days).closest('.js-clock').fadeIn({start: function () {$(this).css('display', 'flex')}})})
           }, 1000)
     }
-    
+
 Webflow.push(function () {
   // Position the nav-bars etc
   if ($('.notification-bar')) {
