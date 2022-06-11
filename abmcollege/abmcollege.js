@@ -108,11 +108,10 @@ const formatToPhone = (event) => {
              if (time.total <= 0) {
                  clearInterval(timeinterval);
              } else {
-                days.innerHTML = pad(time.days, 2)
-                hours.innerHTML = pad(time.hours, 2)
-                minutes.innerHTML = pad(time.minutes, 2)
-                seconds.innerHTML = pad(time.seconds, 2)
-                console.log(days.innerHTML)
+                days.text(pad(time.days, 2))
+                hours.text(pad(time.hours, 2))
+                minutes.text(pad(time.minutes, 2))
+                seconds.text(pad(time.seconds, 2))
              }
              $(()=>{$(days).closest('.js-clock').fadeIn({start: function () {$(this).css('display', 'flex')}})})
           }, 1000)
