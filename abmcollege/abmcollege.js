@@ -112,7 +112,7 @@ const formatToPhone = (event) => {
                 minutes.innerHTML = pad(time.minutes, 2)
                 seconds.innerHTML = pad(time.seconds, 2)
              }
-             $(()=>{$(days).closest('.js-clock').fadeIn({start: function () {$(this).css('display', 'flex');console.log('lol')}})})
+             $(()=>{$(days).closest('.js-clock').fadeIn({start: function () {$(this).css('display', 'flex')}})})
           }, 1000)
     }
 
