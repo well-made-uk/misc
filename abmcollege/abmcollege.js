@@ -100,10 +100,10 @@ const formatToPhone = (event) => {
         let hours = $(el).find('.js-hours')
         let minutes = $(el).find('.js-minutes')
         let seconds = $(el).find('.js-seconds')
-        console.log(days.innerHTML)
 
         var timeinterval = setInterval(function () {
             var time = getTimeRemaining(endtime);
+            console.log(total.days)
 
              if (time.total <= 0) {
                  clearInterval(timeinterval);
