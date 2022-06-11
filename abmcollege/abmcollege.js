@@ -103,7 +103,7 @@ const formatToPhone = (event) => {
 
         var timeinterval = setInterval(function () {
             var time = getTimeRemaining(endtime);
-            console.log(total.days)
+            console.log(time.days)
 
              if (time.total <= 0) {
                  clearInterval(timeinterval);
