@@ -108,7 +108,9 @@ const formatToPhone = (event) => {
              if (time.total <= 0) {
                  clearInterval(timeinterval);
              } else {
-                days.text(pad(time.days, 2))
+               if (time.days.length < 2) {
+                 days.text(pad(time.days, 2))
+               } else {days.text(time.days)}
                 hours.text(pad(time.hours, 2))
                 minutes.text(pad(time.minutes, 2))
                 seconds.text(pad(time.seconds, 2))
