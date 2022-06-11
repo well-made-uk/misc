@@ -100,6 +100,7 @@ const formatToPhone = (event) => {
         let hours = $(el).find('.js-hours')
         let minutes = $(el).find('.js-minutes')
         let seconds = $(el).find('.js-seconds')
+        console.log(days.innerHTML)
 
         var timeinterval = setInterval(function () {
             var time = getTimeRemaining(endtime);
@@ -111,6 +112,7 @@ const formatToPhone = (event) => {
                 hours.innerHTML = pad(time.hours, 2)
                 minutes.innerHTML = pad(time.minutes, 2)
                 seconds.innerHTML = pad(time.seconds, 2)
+                console.log(days.innerHTML)
              }
              $(()=>{$(days).closest('.js-clock').fadeIn({start: function () {$(this).css('display', 'flex')}})})
           }, 1000)
