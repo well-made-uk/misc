@@ -102,8 +102,7 @@ const formatToPhone = (event) => {
         let seconds = $(el).find('.js-seconds')
 
         var timeinterval = setInterval(function () {
-            var time = getTimeRemaining(endtime);
-            console.log(time.days)
+            var time = getTimeRemaining(endtime)
 
              if (time.total <= 0) {
                  clearInterval(timeinterval);
