@@ -201,4 +201,5 @@ Webflow.push(function () {
       	$('.team-left-info').css('top',height + 'px');
       	$('.sticky').css('top',height + 'px');
       	$('.anchor-offset').css('top','-' + height + 'px');
+        $('.anchor-adjusted').css('top','-' + height + 'px');
   })
