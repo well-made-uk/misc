@@ -149,7 +149,7 @@ Webflow.push(function () {
       function getCat() {
           const cat = $( this ).find('div').text();
           $( this ).find('div').remove();
-          $('#program-nav .navigationheadings:contains("' + cat + '")').closest('.w-dyn-item').append( this );
+          $('#program-nav .navigationheadings:contains("' + cat + '")').closest('.dropdown-toggle').siblings('.w-dropdown-list').append( this );
       }
 
       // Add phone number event listeners
