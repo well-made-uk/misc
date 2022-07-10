@@ -153,6 +153,13 @@ Webflow.push(function () {
           $('#program-nav .dropdown-item:contains("' + cat + '")').closest('.dropdown-toggle').siblings('.w-dropdown-list').append( this );
       }
 
+      $('#program-list-mobile .w-dyn-item').each(getCatMob);
+      function getCatMob() {
+        const cat = $( this ).find('div').text();
+        $( this ).find('div').remove();
+        $('#program-nav-mobile .dropdown-title:contains("' + cat + '")').closest('.mobile-toggle').siblings('.w-dropdown-list').append( this );
+      }
+
       // Add phone number event listeners
       $('input[type="tel"]').on('keydown',enforceFormat);
       $('input[type="tel"]').on('keyup',formatToPhone);
