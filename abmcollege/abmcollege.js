@@ -2,14 +2,14 @@
 
 // Format phone numbers
   const isNumericInput = (event) => {
-    const key = event.keyCode;
+    const key = event.keyCode
     return ((key >= 48 && key <= 57) || // Allow number line
         (key >= 96 && key <= 105) // Allow number pad
-    );
-};
+    )
+}
 
 const isModifierKey = (event) => {
-    const key = event.keyCode;
+    const key = event.keyCode
     return (event.shiftKey === true || key === 35 || key === 36) || // Allow Shift, Home, End
         (key === 8 || key === 9 || key === 13 || key === 46) || // Allow Backspace, Tab, Enter, Delete
         (key > 36 && key < 41) || // Allow left, up, right, down
@@ -18,14 +18,14 @@ const isModifierKey = (event) => {
             (event.ctrlKey === true || event.metaKey === true) &&
             (key === 65 || key === 67 || key === 86 || key === 88 || key === 90)
         )
-};
+}
 
 const enforceFormat = (event) => {
     // Input must be of a valid number format or a modifier key, and not longer than ten digits
     if(!isNumericInput(event) && !isModifierKey(event)){
         event.preventDefault()
     }
-};
+}
 
 const formatToPhone = (event) => {
     if(isModifierKey(event)) {return}
@@ -38,7 +38,7 @@ const formatToPhone = (event) => {
     if(input.length > 6){event.target.value = `(${areaCode}) ${middle}-${last}`}
     else if(input.length > 3){event.target.value = `(${areaCode}) ${middle}`}
     else if(input.length > 0){event.target.value = `(${areaCode}`}
-};
+}
 
 /* Cookie scripts */
     function setCookie(cname, cvalue, exdays) {
@@ -73,7 +73,7 @@ const formatToPhone = (event) => {
   // Countdown script
 
   function pad(num, size) {
-        var s = "0" + num;
+        var s = "0" + num
         return s.substr(s.length - size)
     }
 
@@ -85,13 +85,13 @@ const formatToPhone = (event) => {
     }
 
     function getTimeRemaining(endtime) {
-        let total = parseDate(endtime) - Date.parse(new Date(new Date().toLocaleString("en-US", {timeZone: "America/Boise"}))); // timezone ex: Asia/Jerusalem)
+        let total = parseDate(endtime) - Date.parse(new Date(new Date().toLocaleString("en-US", {timeZone: "America/Boise"}))) // timezone ex: Asia/Jerusalem)
         let seconds = Math.floor((total / 1000) % 60)
         let minutes = Math.floor((total / 1000 / 60) % 60)
         let hours = Math.floor((total / (1000 * 60 * 60)) % 24)
         let days = Math.floor(total / (1000 * 60 * 60 * 24))
 
-        return { total, days, hours, minutes, seconds };
+        return { total, days, hours, minutes, seconds }
     }
 
     function clock(id, endtime) {
@@ -105,7 +105,7 @@ const formatToPhone = (event) => {
             var time = getTimeRemaining(endtime)
 
              if (time.total <= 0) {
-                 clearInterval(timeinterval);
+                 clearInterval(timeinterval)
              } else {
                if (time.days.length < 2) {
                  days.text(pad(time.days, 2))
@@ -121,14 +121,14 @@ const formatToPhone = (event) => {
 Webflow.push(function () {
   // Position the nav-bars etc
   if ($('.notification-bar')) {
-    let heightOne = $('.notification-bar').outerHeight();
-    let heightTwo = $('.utility-bar').outerHeight();
-    $('.utility-bar').css('top',heightOne + 'px');
-    $('.nav-bar.w-nav').css('top',heightOne + heightTwo + 'px');
+    let heightOne = $('.notification-bar').outerHeight()
+    let heightTwo = $('.utility-bar').outerHeight()
+    $('.utility-bar').css('top',heightOne + 'px')
+    $('.nav-bar.w-nav').css('top',heightOne + heightTwo + 'px')
   } else {
-    let height = $('.utility-bar').outerHeight();
-    $('.utility-bar').css('top','0px');
-    $('.nav-bar.w-nav').css('top', height + 'px');
+    let height = $('.utility-bar').outerHeight()
+    $('.utility-bar').css('top','0px')
+    $('.nav-bar.w-nav').css('top', height + 'px')
   }
 
   let videoCodeOne = '<iframe class="youtube-source" width="560" height="315" src="https://www.youtube.com/embed/'
@@ -164,53 +164,53 @@ Webflow.push(function () {
       }
 
       // Add phone number event listeners
-      $('input[type="tel"]').on('keydown',enforceFormat);
-      $('input[type="tel"]').on('keyup',formatToPhone);
-      $('input[type="tel"]').attr('pattern','.{14}');
-      $('input[type="tel"]').attr('placeholder','(012) 345-6789');
+      $('input[type="tel"]').on('keydown',enforceFormat)
+      $('input[type="tel"]').on('keyup',formatToPhone)
+      $('input[type="tel"]').attr('pattern','.{14}')
+      $('input[type="tel"]').attr('placeholder','(012) 345-6789')
 
       // Info pack radio button stuff
       $('.info-pack input[type="radio"]').on('change',function() {
         if ($(this).closest('form').find('.require-study-permit').is(':checked')) {
-          $(this).closest('form').find('.international-students').show();
-          $(this).closest('form').find('.info-kit-button').hide();
+          $(this).closest('form').find('.international-students').show()
+          $(this).closest('form').find('.info-kit-button').hide()
         } else {
-          $(this).closest('form').find('.international-students').hide();
-          $(this).closest('form').find('.info-kit-button').show();
+          $(this).closest('form').find('.international-students').hide()
+          $(this).closest('form').find('.info-kit-button').show()
         }
       })
 
         // Get URL Parameters
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const gclid = urlParams.get('gclid');
-        const utm_source = urlParams.get('utm_source');
-        const utm_campaign = urlParams.get('utm_campaign');
-        const utm_medium = urlParams.get('utm_medium');
-        const utm_content = urlParams.get('utm_content');
-        const utm_term = urlParams.get('utm_term');
-        const utm_source_platform = urlParams.get('utm_source_platform');
-        const utm_creative_format = urlParams.get('utm_creative_format');
-        const utm_marketing_tactic = urlParams.get('utm_marketing_tactic');
+        const queryString = window.location.search
+        const urlParams = new URLSearchParams(queryString)
+        const gclid = urlParams.get('gclid')
+        const utm_source = urlParams.get('utm_source')
+        const utm_campaign = urlParams.get('utm_campaign')
+        const utm_medium = urlParams.get('utm_medium')
+        const utm_content = urlParams.get('utm_content')
+        const utm_term = urlParams.get('utm_term')
+        const utm_source_platform = urlParams.get('utm_source_platform')
+        const utm_creative_format = urlParams.get('utm_creative_format')
+        const utm_marketing_tactic = urlParams.get('utm_marketing_tactic')
 
         // Check/set cookies
-        checkCookie('utm_source',utm_source);
-        checkCookie('utm_campaign',utm_campaign);
-        checkCookie('utm_medium',utm_medium);
-        checkCookie('utm_content',utm_content);
-        checkCookie('utm_term',utm_term);
-        checkCookie('utm_source_platform',utm_source_platform);
-        checkCookie('utm_creative_format',utm_creative_format);
-        checkCookie('utm_marketing_tactic',utm_marketing_tactic);
-        checkCookie('gclid',gclid);
+        checkCookie('utm_source',utm_source)
+        checkCookie('utm_campaign',utm_campaign)
+        checkCookie('utm_medium',utm_medium)
+        checkCookie('utm_content',utm_content)
+        checkCookie('utm_term',utm_term)
+        checkCookie('utm_source_platform',utm_source_platform)
+        checkCookie('utm_creative_format',utm_creative_format)
+        checkCookie('utm_marketing_tactic',utm_marketing_tactic)
+        checkCookie('gclid',gclid)
 
       //Add date fields
-      $('.date').attr('type','date');
+      $('.date').attr('type','date')
 
       // Automatically correct the offset of sticky elements
-      const height = $('.section-4.notification-bar.wf-section').outerHeight(true) + $('.utility-bar.wf-section').outerHeight(true) + $('.nav-bar.w-nav').outerHeight(true) + 20;
-      	$('.team-left-info').css('top',height + 'px');
-      	$('.sticky').css('top',height + 'px');
-      	$('.anchor-offset').css('top','-' + height + 'px');
-        $('.anchor-adjusted').css('top','-' + height + 'px');
+      const height = $('.section-4.notification-bar.wf-section').outerHeight(true) + $('.utility-bar.wf-section').outerHeight(true) + $('.nav-bar.w-nav').outerHeight(true) + 20
+      	$('.team-left-info').css('top',height + 'px')
+      	$('.sticky').css('top',height + 'px')
+      	$('.anchor-offset').css('top','-' + height + 'px')
+        $('.anchor-adjusted').css('top','-' + height + 'px')
   })
