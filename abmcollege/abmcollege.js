@@ -150,7 +150,7 @@ Webflow.push(function () {
           const cat = $( this ).find('div').text();
           $( this ).find('div').remove();
           $('#program-nav .navigationheadings:contains("' + cat + '")').closest('.w-dyn-item').append( this );
-          $('#program-nav .dropdown-item:contains("' + cat + '")').closest('.dropdown-toggle').siblings('.w-dropdown-list').append( this );
+          $('#program-nav .dropdown-item:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this );
       }
 
       $('#program-list-mobile .w-dyn-item').each(getCatMob);
@@ -158,7 +158,7 @@ Webflow.push(function () {
         const cat = $( this ).find('.title').text();
         console.log(cat)
         $( this ).find('.title').remove();
-        $('#program-nav-mobile .dropdown-title:contains("' + cat + '")').closest('.mobile-toggle').siblings('.w-dropdown-list').append( this );
+        $('#program-nav-mobile .dropdown-title:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this );
       }
 
       // Add phone number event listeners
