@@ -155,9 +155,9 @@ Webflow.push(function () {
 
       $('#program-list-mobile .w-dyn-item').each(getCatMob);
       function getCatMob() {
-        const cat = $( this ).find('div').text();
+        const cat = $( this ).find('.title').text();
         console.log(cat)
-        $( this ).find('div').remove();
+        $( this ).find('.title').remove();
         $('#program-nav-mobile .dropdown-title:contains("' + cat + '")').closest('.mobile-toggle').siblings('.w-dropdown-list').append( this );
       }
 
