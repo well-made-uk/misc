@@ -145,20 +145,21 @@ Webflow.push(function () {
   })
 
       // Add programs to Program menu
-      $('#program-list .w-dyn-item').each(getCat);
+      $('#program-list .w-dyn-item').each(getCat)
       function getCat() {
-          const cat = $( this ).find('div').text();
-          $( this ).find('div').remove();
-          $('#program-nav .navigationheadings:contains("' + cat + '")').closest('.w-dyn-item').append( this );
-          $('#program-nav .dropdown-item:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this );
+          const cat = $( this ).find('div').text()
+          $( this ).find('div').remove()
+          $('#program-nav .navigationheadings:contains("' + cat + '")').closest('.w-dyn-item').append( this )
+          $('#program-nav .dropdown-item:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this )
       }
 
-      $('#program-list-mobile .w-dyn-item').each(getCatMob);
+      // .. Rinse and repeat for mobile (optimise this)
+      $('#program-list-mobile .w-dyn-item').each(getCatMob)
       function getCatMob() {
-        const cat = $( this ).find('.title').text();
-        console.log(cat)
-        $( this ).find('.title').remove();
-        $('#program-nav-mobile .dropdown-title:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this );
+        const cat = $( this ).find('.title').text()
+        $( this ).find('.title').remove()
+        console.log($('#program-nav-mobile .dropdown-title:contains("' + cat + '")'))
+        $('#program-nav-mobile .dropdown-title:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this )
       }
 
       // Add phone number event listeners
