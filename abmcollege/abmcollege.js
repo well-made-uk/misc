@@ -158,8 +158,9 @@ Webflow.push(function () {
       function getCatMob() {
         const cat = $( this ).find('.title').text()
         $( this ).find('.title').remove()
+        console.log(cat)
         console.log($('#program-nav-mobile .dropdown-title:contains("' + cat + '")'))
-        $('#program-nav-mobile .dropdown-title:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this )
+        $('#program-nav-mobile div:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this )
       }
 
       // Add phone number event listeners
