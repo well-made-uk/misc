@@ -150,7 +150,7 @@ Webflow.push(function () {
           const cat = $( this ).find('div').text()
           $( this ).find('div').remove()
           $('#program-nav .navigationheadings:contains("' + cat + '")').closest('.w-dyn-item').append( this )
-          $('#program-nav .dropdown-item:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this )
+          $('.dropdown-item:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this )
       }
 
       // .. Rinse and repeat for mobile (optimise this)
@@ -160,7 +160,7 @@ Webflow.push(function () {
         $( this ).find('.title').remove()
         console.log(cat)
         console.log($('#program-nav-mobile .dropdown-title:contains("' + cat + '")'))
-        $('#program-nav-mobile div:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this )
+        $('.dropdown-title:contains("' + cat + '")').closest('.w-dropdown-toggle').siblings('.w-dropdown-list').append( this )
       }
 
       // Add phone number event listeners
