@@ -120,16 +120,7 @@ const formatToPhone = (event) => {
 
 Webflow.push(function () {
   // Position the nav-bars etc
-  if ($('.notification-bar')) {
-    let heightOne = $('.notification-bar').outerHeight()
-    let heightTwo = $('.utility-bar').outerHeight()
-    $('.utility-bar').css('top',heightOne + 'px')
-    $('.nav-bar.w-nav').css('top',heightOne + heightTwo + 'px')
-  } else {
-    let height = $('.utility-bar').outerHeight()
-    $('.utility-bar').css('top','0px')
-    $('.nav-bar.w-nav').css('top', height + 'px')
-  }
+  let height = $('.nav-bar.w-nav').outerHeight()
 
   let videoCodeOne = '<iframe class="youtube-source" width="560" height="315" src="https://www.youtube.com/embed/'
   let videoCodeTwo = '?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
@@ -208,7 +199,6 @@ Webflow.push(function () {
       $('.date').attr('type','date')
 
       // Automatically correct the offset of sticky elements
-      const height = $('.section-4.notification-bar.wf-section').outerHeight(true) + $('.utility-bar.wf-section').outerHeight(true) + $('.nav-bar.w-nav').outerHeight(true) + 20
       	$('.team-left-info').css('top',height + 'px')
       	$('.sticky').css('top',height + 'px')
       	$('.anchor-offset').css('top','-' + height + 'px')
