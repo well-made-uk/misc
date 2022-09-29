@@ -120,7 +120,7 @@ const formatToPhone = (event) => {
 
 Webflow.push(function () {
   // Position the nav-bars etc
-  height = $('.nav-bar.w-nav').outerHeight()
+  height = $('.nav-bar.w-nav').outerHeight() * 1.5
 
   let videoCodeOne = '<iframe class="youtube-source" width="560" height="315" src="https://www.youtube.com/embed/'
   let videoCodeTwo = '?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
