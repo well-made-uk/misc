@@ -193,12 +193,19 @@ Webflow.push(function () {
         checkCookie('utm_marketing_tactic',utm_marketing_tactic)
         checkCookie('gclid',gclid)
 
-      //Add date fields
-      $('.date').attr('type','date')
+        //Add date fields
+        $('.date').attr('type','date')
 
-      // Automatically correct the offset of sticky elements
+        // Automatically correct the offset of sticky elements
       	$('.team-left-info').css('top',height + 'px')
       	$('.sticky').css('top',height + 'px')
       	$('.anchor-offset').css('top','-' + height + 'px')
         $('.anchor-adjusted').css('top','-' + height + 'px')
+
+        // Freeze background scrolling when mobile menu is open
+        $('.menu-mob-2').on('click',function() {
+           if ($(this).hasClass("w--open")) {
+             $('.page-wrapper').css('overflow-y','hidden')
+           } else {$('.page-wrapper').css('overflow-y','auto')}
+        })
   })
