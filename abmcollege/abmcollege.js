@@ -201,13 +201,5 @@ Webflow.push(function () {
       	$('.sticky').css('top',height + 'px')
       	$('.anchor-offset').css('top','-' + height + 'px')
         $('.anchor-adjusted').css('top','-' + height + 'px')
-
-        // Freeze background scrolling when mobile menu is open
-        $('.menu-mob-2').on('click',function() {
-           if ($(this).hasClass("w--open")) {
-             $('.page-wrapper').css('overflow-y','auto').css('max-height','unset')
-           } else {
-             $('.page-wrapper').css('overflow-y','hidden').css('max-height','calc(100vh - ' + height + 'px')
-           }
         })
   })
