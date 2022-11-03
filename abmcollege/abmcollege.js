@@ -205,9 +205,9 @@ Webflow.push(function () {
         // Freeze background scrolling when mobile menu is open
         $('.menu-mob-2').on('click',function() {
            if ($(this).hasClass("w--open")) {
-             $('body').css('overflow-y','auto').css('max-height','unset')
+             $('.page-wrapper').css('overflow-y','auto').css('max-height','unset')
            } else {
-             $('body').css('overflow-y','hidden').css('max-height','100vh')
+             $('.page-wrapper').css('overflow-y','hidden').css('max-height','calc(100vh - ' + height + 'px')
            }
         })
   })
