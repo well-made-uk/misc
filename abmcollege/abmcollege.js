@@ -202,4 +202,3 @@ Webflow.push(function () {
       	$('.anchor-offset').css('top','-' + height + 'px')
         $('.anchor-adjusted').css('top','-' + height + 'px')
         })
-  })
