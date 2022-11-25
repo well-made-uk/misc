@@ -193,6 +193,10 @@ Webflow.push(function () {
         checkCookie('utm_marketing_tactic',utm_marketing_tactic)
         checkCookie('gclid',gclid)
 
+        if (typeof typeform === "function") {
+          typeform()
+        }
+
         //Add date fields
         $('.date').attr('type','date')
 
