@@ -125,6 +125,8 @@ Webflow.push(function () {
   $( '#mobile-button' ).click( ()=>{
     if (mobMenuState == 0) {
       $('body').css('overflow-y','hidden')
+      let offset = $('#mobile-nav').offset().top
+      $('#mobile-nav').css('max-height',`calc(100vh - ${offset}`)
       mobMenuState = 1
     } else {
       $('body').css('overflow-y','scroll')
