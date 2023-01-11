@@ -119,6 +119,20 @@ const formatToPhone = (event) => {
     }
 
 Webflow.push(function () {
+
+  // Fix the page when mobile menu is open
+  let mobMenuState = 0
+  $( '#mobile-button' ).click( ()=>{
+    if (mobMenuState == 0) {
+      $('body').css('overflow-y','hidden')
+      mobMenuState = 1
+    } else {
+      $('body').css('overflow-y','scroll')
+      mobMenuState = 0
+    }
+  })
+
+
   // Position the nav-bars etc
   height = $('.nav-bar.w-nav').outerHeight() * 1.5
 
