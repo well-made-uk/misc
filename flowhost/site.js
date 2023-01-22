@@ -99,6 +99,6 @@ function submit() {
     } else {
       val = $(el).val()
     }
-    console.log(`El: ${el}. Type: ${type}. Val: ${val}`)
+    return `El: ${el}. Type: ${type}. Val: ${val}`
   })
 }
