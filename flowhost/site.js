@@ -1,7 +1,7 @@
 const id = getUrlVars()["id"]
-let changes = 0
 
 Webflow.push(() => {
+  let changes = 0
   // Hide changes count
   $('#changes-count-container').css('display','flex')
   $('#changes-count-container').hide()
@@ -88,17 +88,29 @@ Webflow.push(() => {
 })
 
 // Submit settings
-function submit() {
+function collectChanges() {
+  let changes = []
+  // Collect changes
   $('input.changed').each(function() {
     const el = $(this)
-    console.log(el)
     const type = $(el).attr('type')
     let val = ''
+    let msCat = ''
+    let msKey = ''
     if (type == 'checkbox') {
-      if ($(el).is(':checked')) {val = 'on'} else {val = 'off'}
+      val = $(el).is(':checked')
+      msCat = 'clicks'
+      msKey = $(el).siblings('[data-fh-click]').attr('data-fh-click')
     } else {
       val = $(el).val()
+      msCat = 'textfields'
+      msKey = $(el).attr('data-fh-textfield')
     }
-    return `El: ${el}. Type: ${type}. Val: ${val}`
+    changes.push({
+      category: msCat,
+      setting: msKey,
+      value: val
+    })
   })
+  return changes
 }
