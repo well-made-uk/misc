@@ -39,11 +39,6 @@ Webflow.push(() => {
 			}
 		}
 
-    // Watch for changes
-    $('input').change((event)=>{
-      if (!(changes.includes(event.trigger))) {changes.push(event.trigger)}
-    })
-
 		// Set site textfields
 		for (var i = 0; i < Object.keys(textfields).length; i++) {
 			if (Object.values(textfields)[i]) {
@@ -51,6 +46,14 @@ Webflow.push(() => {
 			}
 		}
 	})
+
+  // Watch for changes
+  $('input').change((event)=>{
+    if (!(changes.includes(event.trigger))) {
+      changes.push(event.trigger)
+      console.log(changes)
+    } else {console.log('Already in changes')}
+  })
 
   // Submit page "Settings"
   function submitSettings() {
