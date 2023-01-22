@@ -27,6 +27,7 @@ Webflow.push(() => {
 						break;
 					case 'A':
 						el.attr('href', `https://${Object.values(info)[i]}`)
+            el.text(Object.values(info)[i])
 						break;
 					default:
 						el.text(Object.values(info)[i])
@@ -86,7 +87,7 @@ Webflow.push(() => {
 
     // Remove loader
     window.setTimeout($('.loader').fadeOut(500), 300)
-    
+
 	}) // End MemberStack Fetch
 
 })
