@@ -128,7 +128,7 @@ function nfPackage(ms) {
   let package = {
     "processing_settings": {
       "css": {
-        "bundle": Object.values(settings.clicks.bundle_css),
+        "bundle": settings.clicks.bundle_css,
         "minify": Object.values(settings.clicks.minify_css)
       },
       "js": {
