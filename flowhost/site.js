@@ -1,4 +1,5 @@
 const id = getUrlVars()["id"]
+// let site =
 
 Webflow.push(() => {
   // Give an empty origin value to all inputs
@@ -12,6 +13,7 @@ Webflow.push(() => {
 		const settings = site.settings
 		const clicks = settings.clicks
 		const textfields = settings.textfields
+    console.log(site)
 
 		// Set site data
 		for (var i = 0; i < Object.keys(info).length; i++) {
@@ -41,14 +43,6 @@ Webflow.push(() => {
         $(el).siblings('input').attr('data-origin', 'true')
 			}
 		}
-
-    // Set site textfields
-		/*for (var i = 0; i < Object.keys(textfields).length; i++) {
-			if (Object.values(textfields)[i]) {
-				$(`[data-fh-textfield=${Object.keys(textfields)[i]}]`).val(Object.values(textfields)[i])
-        $(el).attr('data-origin', values(textfields)[i])
-			}
-		}*/
 
 		// Set site textfields
 		for (var i = 0; i < Object.keys(textfields).length; i++) {
