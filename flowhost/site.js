@@ -1,5 +1,5 @@
 const id = getUrlVars()["id"]
-let changes = []
+let changes = 0
 
 Webflow.push(() => {
 
@@ -52,19 +52,31 @@ Webflow.push(() => {
       el = e.target
       if ($(el).val() == $(el).attr('data-origin')) {
         $(el).removeClass('changed')
+        changes -= 1
       } else {
         $(el).addClass('changed')
+        changes += 1
       }
+      $('#changes-count > div').text(`${changes} changes pending`)
+      if ($('input.changed')) {
+        $('#changes-count').show()
+      } else {$('#changes-count').show()}
     })
     $('input:checkbox').change(function(e) {
       el = e.target
       if ( ($(el).is(':checked') && $(el).attr('data-origin') == 'on') || (!($(el).is(':checked')) && $(el).attr('data-origin') == 'off') ) {
         $(el).removeClass('changed')
         $(el).parent().removeClass('changed')
+        changes -= 1
       } else {
         $(el).addClass('changed')
         $(el).parent().addClass('changed')
+        changes += 1
       }
+      $('#changes-count > div').text(`${changes} changes pending`)
+      if ($('input.changed')) {
+        $('#changes-count').show()
+      } else {$('#changes-count').show()}
     })
 
 	}) // End MemberStack Fetch
