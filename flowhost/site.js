@@ -49,6 +49,7 @@ Webflow.push(() => {
     $('input').change(function() {
       if (!(changes.includes($(this)))) {
         changes.push($(this).attr(id))
+        console.log(changes)
       }
     })
 	})
