@@ -17,13 +17,13 @@ Webflow.push(() => {
 			if (el) {
 				switch (el.prop('nodeName')) {
 					case 'IMG':
-						el.attr('src', Object.values(info)[i]).attr('origin', Object.values(info)[i]).removeAttr('srcset')
+						el.attr('src', Object.values(info)[i]).removeAttr('srcset')
 						break;
 					case 'A':
-						el.attr('href', `https://${Object.values(info)[i]}`).attr('origin', Object.values(info)[i]).text(Object.values(info)[i])
+						el.attr('href', `https://${Object.values(info)[i]}`)
 						break;
 					default:
-						el.attr('origin', Object.values(info)[i]).text(Object.values(info)[i])
+						el.text(Object.values(info)[i])
 				}
 			}
 		}
@@ -34,14 +34,18 @@ Webflow.push(() => {
 		// Set site clicks
 		for (var i = 0; i < Object.keys(clicks).length; i++) {
 			if (Object.values(clicks)[i]) {
-				$(`[data-fh-click=${Object.keys(clicks)[i]}]`).click()
+        const el = $(`[data-fh-click=${Object.keys(clicks)[i]}]`)
+				$(el).click()
+        $(el).attr('data-origin', 'true')
 			}
 		}
 
 		// Set site textfields
 		for (var i = 0; i < Object.keys(textfields).length; i++) {
 			if (Object.values(textfields)[i]) {
-				$(`[data-fh-textfield=${Object.keys(textfields)[i]}]`).val(Object.values(textfields)[i]).attr('origin', values(textfields)[i])
+        const el = $(`[data-fh-textfield=${Object.keys(textfields)[i]}]`)
+				$(el).val(Object.values(textfields)[i])
+        $(el).attr('data-origin', values(textfields)[i])
 			}
 		}
 
