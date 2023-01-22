@@ -17,14 +17,13 @@ Webflow.push(() => {
 			if (el) {
 				switch (el.prop('nodeName')) {
 					case 'IMG':
-						el.attr('src', Object.values(info)[i]).removeAttr('srcset')
+						el.attr('src', Object.values(info)[i]).attr('origin', Object.values(info)[i]).removeAttr('srcset')
 						break;
 					case 'A':
-						el.attr('href', `https://${Object.values(info)[i]}`)
-						el.text(Object.values(info)[i])
+						el.attr('href', `https://${Object.values(info)[i]}`).attr('origin', Object.values(info)[i]).text(Object.values(info)[i])
 						break;
 					default:
-						el.text(Object.values(info)[i])
+						el.attr('origin', Object.values(info)[i]).text(Object.values(info)[i])
 				}
 			}
 		}
@@ -42,20 +41,19 @@ Webflow.push(() => {
 		// Set site textfields
 		for (var i = 0; i < Object.keys(textfields).length; i++) {
 			if (Object.values(textfields)[i]) {
-				$(`[data-fh-textfield=${Object.keys(textfields)[i]}]`).val(Object.values(textfields)[i])
+				$(`[data-fh-textfield=${Object.keys(textfields)[i]}]`).val(Object.values(textfields)[i]).attr('origin', values(textfields)[i])
 			}
 		}
+
     // Watch for changes
     $('input').change(function() {
-      if (!(changes.includes($(this)))) {
-        changes.push($(this).attr(id))
-        console.log(changes)
-      }
+        changes.push($(this))
     })
 	})
 
-  // Submit page "Settings"
-  function submitSettings() {
-
-  }
 })
+
+// Submit page "Settings"
+function submit() {
+
+}
