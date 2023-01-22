@@ -2,6 +2,9 @@ const id = getUrlVars()["id"]
 let changes = 0
 
 Webflow.push(() => {
+  // Hide changes count
+  $('#changes-count-container').css('display','flex')
+  $('#changes-count-container').hide()
 
   // Get site data from MemberStack
 	$memberstackDom.getMemberJSON().then((meta) => {
@@ -57,10 +60,10 @@ Webflow.push(() => {
         $(el).addClass('changed')
         changes += 1
       }
-      $('#changes-count > div').text(`${changes} changes pending`)
+      $('#changes-count').text(`${changes} changes pending`)
       if (changes < 1) {
-        $('#changes-count').hide()
-      } else {$('#changes-count').show()}
+        $('#changes-count-container').hide()
+      } else {$('#changes-count-container').show()}
     })
     $('input:checkbox').change(function(e) {
       el = e.target
@@ -73,10 +76,10 @@ Webflow.push(() => {
         $(el).parent().addClass('changed')
         changes += 1
       }
-      $('#changes-count > div').text(`${changes} changes pending`)
+      $('#changes-count').text(`${changes} changes pending`)
       if (changes < 1) {
-        $('#changes-count').hide()
-      } else {$('#changes-count').show()}
+        $('#changes-count-container').hide()
+      } else {$('#changes-count-container').show()}
     })
 
 	}) // End MemberStack Fetch
