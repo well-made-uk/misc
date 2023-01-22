@@ -38,8 +38,11 @@ Webflow.push(() => {
 				$(`[data-fh-click=${Object.keys(clicks)[i]}]`).click()
         $(`[data-fh-click=${Object.keys(clicks)[i]}]`).siblings('input').on('change',(event)=>{
           const id = Object.keys(clicks)[i]
-          const state = $(event.trigger).checked
-          changes.push({id: state})
+          const state = $(event.trigger).is(':checked')
+          changes.push({
+            id: id,
+            state: state
+          })
           console.log(changes)
         })
 			}
