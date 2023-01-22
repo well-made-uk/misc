@@ -1,4 +1,5 @@
 const id = getUrlVars()["id"]
+let changes = []
 
 Webflow.push(() => {
   // Give an empty origin value to all inputs
@@ -29,9 +30,6 @@ Webflow.push(() => {
 				}
 			}
 		}
-
-    // Create active settings array
-    let changes = []
 
 		// Set site clicks
 		for (var i = 0; i < Object.keys(clicks).length; i++) {
