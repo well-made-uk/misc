@@ -46,7 +46,7 @@ Webflow.push(() => {
 			}
 		}
     // Watch for changes
-    $('input').change((event)=>{
+    $('input').change(function() {
       if (!(changes.includes($(this)))) {
         changes.push($(this))
         console.log(changes)
