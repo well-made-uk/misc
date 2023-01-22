@@ -120,6 +120,6 @@ function nfSubmit() {
 
 function msSubmit(changes) {
   for (var i = 0; i < Object.keys(changes).length; i++) {
-    site.settings[changes[i].category][changes[i].setting] = value
+    site.settings[changes[i].category][changes[i].setting] = changes[i].value
   }
 }
