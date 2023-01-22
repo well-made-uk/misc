@@ -117,13 +117,34 @@ function collectChanges() {
     })
   })
   const ms = msPackage(arr)
-  return ms
-  // const nf = nfPackage(arr)
+  const nf = nfPackage(ms)
+  return nf
   // submit(ms,nf)
 }
 
-function nfPackage(arr) {
-
+function nfPackage(ms) {
+  const settings = ms.data.sites[id].settings
+  let package = {
+    "processing_settings": {
+      "css": {
+        "bundle": Objects.values(settings.clicks.bundle_css),
+        "minify": Objects.values(settings.clicks.minify_css)
+      },
+      "js": {
+        "bundle": Objects.values(settings.clicks.bundle_js),
+        "minify": Objects.values(settings.clicks.minify_js)
+      },
+      "images": {
+        "optimize": Objects.values(settings.clicks.optimize_images)
+      }
+    },
+    "build_settings": {
+      "env": {
+        "optimize_fonts": Objects.values(settings.clicks.optimize_fonts)
+      }
+    }
+  }
+  return package
 }
 
 function msPackage(arr) {
