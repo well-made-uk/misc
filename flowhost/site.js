@@ -1,5 +1,4 @@
 const id = getUrlVars()["id"]
-// let site =
 
 Webflow.push(() => {
   // Give an empty origin value to all inputs
@@ -7,13 +6,12 @@ Webflow.push(() => {
 
   // Get site data from MemberStack
 	$memberstackDom.getMemberJSON().then((meta) => {
-		const json = meta.data
-		const site = json.sites[id]
+		ms = meta.data
+		const site = ms.sites[id]
     const info = site.info
 		const settings = site.settings
 		const clicks = settings.clicks
 		const textfields = settings.textfields
-    console.log(site)
 
 		// Set site data
 		for (var i = 0; i < Object.keys(info).length; i++) {
