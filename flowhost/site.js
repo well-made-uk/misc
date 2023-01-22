@@ -45,15 +45,14 @@ Webflow.push(() => {
 				$(`[data-fh-textfield=${Object.keys(textfields)[i]}]`).val(Object.values(textfields)[i])
 			}
 		}
+    // Watch for changes
+    $('input').change((event)=>{
+      if (!(changes.includes(event.trigger))) {
+        changes.push(event.trigger)
+        console.log(changes)
+      } else {console.log('Already in changes')}
+    })
 	})
-
-  // Watch for changes
-  $('input').change((event)=>{
-    if (!(changes.includes(event.trigger))) {
-      changes.push(event.trigger)
-      console.log(changes)
-    } else {console.log('Already in changes')}
-  })
 
   // Submit page "Settings"
   function submitSettings() {
