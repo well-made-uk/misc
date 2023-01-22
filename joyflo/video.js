@@ -1,3 +1,5 @@
+/*! Created by well-made.uk | GPL 3.0 License: https://choosealicense.com/licenses/gpl-3.0/ */
+
 function videoScroller(id,targetWidth,targetHeight) {
 
     const ogth = targetHeight

@@ -1,3 +1,5 @@
+/*! Created by well-made.uk | GPL 3.0 License: https://choosealicense.com/licenses/gpl-3.0/ */
+
 /* Phone number scripts */
 
 // Format phone numbers
