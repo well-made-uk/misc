@@ -8,8 +8,9 @@ Webflow.push(() => {
 
   // Get site data from MemberStack
 	$memberstackDom.getMemberJSON().then((meta) => {
+    msPackage = meta
 		const ms = meta.data
-		site = ms.sites[id]
+		const site = ms.sites[id]
     const info = site.info
 		const settings = site.settings
 		const clicks = settings.clicks
@@ -110,15 +111,18 @@ function collectChanges() {
       value: val
     })
   })
-  msSubmit(changes)
+  msPackage(changes)
+  // nfPackage()
   // return changes
 }
 
-function nfSubmit() {
-  if (!changes) {return}
+function nfPackage() {
+  
 }
 
-function msSubmit(changes) {
+function msPackage(changes) {
+  const package = msPackage
+  const site = msPackage.data.sites[id]
   for (var i = 0; i < Object.keys(changes).length; i++) {
     site.settings[changes[i].category][changes[i].setting] = changes[i].value
   }
