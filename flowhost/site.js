@@ -47,9 +47,10 @@ Webflow.push(() => {
 		}
     // Watch for changes
     $('input').change((event)=>{
-      if (!(changes.includes(event.trigger))) {
-        changes.push(event.trigger)
+      if (!(changes.includes($(this)))) {
+        changes.push($(this))
         console.log(changes)
+        console.log($(this))
       } else {console.log('Already in changes')}
     })
 	})
