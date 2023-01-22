@@ -51,21 +51,19 @@ Webflow.push(() => {
     $('input:not(:checkbox)').change(function(e) {
       el = e.target
       if ($(el).val() == $(el).attr('data-origin')) {
-        console.log('Matches origin')
         $(el).removeClass('changed')
       } else {
-        console.log('Does not match origin')
         $(el).addClass('changed')
       }
     })
     $('input:checkbox').change(function(e) {
       el = e.target
       if ( ($(el).is(':checked') && $(el).attr('data-origin') == 'on') || (!($(el).is(':checked')) && $(el).attr('data-origin') == 'off') ) {
-        console.log('Matches origin')
         $(el).removeClass('changed')
+        $(el).parent().removeClass('changed')
       } else {
-        console.log('Does not match origin')
         $(el).addClass('changed')
+        $(el).parent().addClass('changed')
       }
     })
 
