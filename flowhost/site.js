@@ -63,7 +63,11 @@ Webflow.push(() => {
         $(el).addClass('changed')
         changes += 1
       }
-      $('#changes-count').text(`${changes} changes pending.`)
+      let noun = 'change'
+      if (changes > 1) {
+        noun = 'changes'
+      }
+      $('#changes-count').text(`${changes} ${noun} pending.`)
       if (changes < 1) {
         $('#changes-count-container').hide()
       } else {$('#changes-count-container').fadeIn(200)}
@@ -79,7 +83,11 @@ Webflow.push(() => {
         $(el).parent().addClass('changed')
         changes += 1
       }
-      $('#changes-count').text(`${changes} changes pending.`)
+      let noun = 'change'
+      if (changes > 1) {
+        noun = 'changes'
+      }
+      $('#changes-count').text(`${changes} ${noun} pending.`)
       if (changes < 1) {
         $('#changes-count-container').hide()
       } else {$('#changes-count-container').fadeIn(200)}
@@ -124,9 +132,8 @@ function collectChanges() {
 
 function nfPackage(ms) {
   const settings = ms.data.sites[id].settings
-  console.log(settings)
   let package = {
-    "notifications_email": settings.textfields.notification_email,
+    "notification_email": settings.textfields.notification_email,
     "processing_settings": {
       "css": {
         "bundle": settings.clicks.bundle_css,
