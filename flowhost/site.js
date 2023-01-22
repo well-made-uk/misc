@@ -62,7 +62,7 @@ Webflow.push(() => {
       }
       $('#changes-count').text(`${changes} changes pending.`)
       if (changes < 1) {
-        $('#changes-count-container').fadeOut(50)
+        $('#changes-count-container').hide()
       } else {$('#changes-count-container').fadeIn(200)}
     })
     $('input:checkbox').change(function(e) {
@@ -78,7 +78,7 @@ Webflow.push(() => {
       }
       $('#changes-count').text(`${changes} changes pending.`)
       if (changes < 1) {
-        $('#changes-count-container').fadeOut(50)
+        $('#changes-count-container').hide()
       } else {$('#changes-count-container').fadeIn(200)}
     })
 
