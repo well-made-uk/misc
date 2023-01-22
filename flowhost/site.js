@@ -8,8 +8,8 @@ Webflow.push(() => {
 
   // Get site data from MemberStack
 	$memberstackDom.getMemberJSON().then((meta) => {
-		ms = meta.data
-		const site = ms.sites[id]
+		const ms = meta.data
+		site = ms.sites[id]
     const info = site.info
 		const settings = site.settings
 		const clicks = settings.clicks
@@ -87,10 +87,8 @@ Webflow.push(() => {
 
 })
 
-// Submit settings
 function collectChanges() {
   let changes = []
-  // Collect changes
   $('input.changed').each(function() {
     const el = $(this)
     const type = $(el).attr('type')
@@ -112,5 +110,17 @@ function collectChanges() {
       value: val
     })
   })
-  return changes
+  msSubmit()
+  // return changes
+}
+
+function nfSubmit() {
+  if (!changes) {return}
+}
+
+function msSubmit() {
+  if (!changes) {return}
+  for (var i = 0; i < Object.keys(settings.clicks).length; i++) {
+    console.log(Object.values(settings.clicks)[i])
+  }
 }
