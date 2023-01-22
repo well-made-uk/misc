@@ -87,8 +87,7 @@ Webflow.push(() => {
 
   // Submit settings
   function submit() {
-    const fields = $('input.changed')
-    $(fields).each((e)=>{
+    $('input.changed').each((e)=>{
       const el = e.target
       const type = $(el).attr('type')
       if (type == 'password' || type == 'text' || type == 'textarea') {
