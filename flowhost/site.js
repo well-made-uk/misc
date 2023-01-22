@@ -126,13 +126,15 @@ function collectChanges() {
   })
   const ms = msPackage(arr)
   const nf = nfPackage(ms)
-  return nf
+  patchNetlify(nf)
+  // patchMemberstack(ms)
   // submit(ms,nf)
 }
 
 function nfPackage(ms) {
   const settings = ms.data.sites[id].settings
-  let package = {
+  let data = {
+    "id": id,
     "notification_email": settings.textfields.notification_email,
     "processing_settings": {
       "css": {
@@ -160,14 +162,28 @@ function nfPackage(ms) {
       }
     }
   }
-  return package
+  return data
 }
 
 function msPackage(arr) {
-  const package = msMeta
+  const data = msMeta
   const site = msMeta.data.sites[id]
   for (var i = 0; i < Object.keys(arr).length; i++) {
     site.settings[arr[i].category][arr[i].setting] = arr[i].value
   }
-  return package
+  return data
+}
+
+function patchNetlify(data) {
+  fetch('https://fh-functions.netlify.app/.netlify/functions/site', {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then((response) => response.json())
+  .then(return 'done lol')
 }
