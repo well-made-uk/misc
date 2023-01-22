@@ -124,6 +124,7 @@ function collectChanges() {
 
 function nfPackage(ms) {
   const settings = ms.data.sites[id].settings
+  console.log(settings)
   let package = {
     "processing_settings": {
       "css": {
