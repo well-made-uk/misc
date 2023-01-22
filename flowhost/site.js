@@ -92,7 +92,7 @@ Webflow.push(() => {
       const type = $(el).attr('type')
       if (type == 'password' || type == 'text' || type == 'textarea') {
         const val = $(el).val()
-      } else (type == 'checkbox') {
+      } else if (type == 'checkbox') {
         const val = $(el).checked()
       }
       console.log(`El: ${el}. Type: ${type}. Val: ${val}`)
