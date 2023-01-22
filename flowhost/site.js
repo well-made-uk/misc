@@ -57,12 +57,12 @@ Webflow.push(() => {
     if ($(el).val() == $(el).attr('data-origin')) {
       $(el).removeClass('changed')
       if ($(el).is(':checkbox')) {
-        $(el).parent().removeClass('changed')
+        $(el).siblings('.fs_checkbox-5_mask').removeClass('changed')
       }
     } else {
       $(el).addClass('changed')
       if ($(el).is(':checkbox')) {
-        $(el).parent().addClass('changed')
+        $(el).siblings('.fs_checkbox-5_mask').addClass('changed')
       }
     }
 
