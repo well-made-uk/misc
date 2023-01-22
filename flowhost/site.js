@@ -48,10 +48,8 @@ Webflow.push(() => {
     // Watch for changes
     $('input').change(function() {
       if (!(changes.includes($(this)))) {
-        changes.push($(this))
-        console.log(changes)
-        console.log($(this))
-      } else {console.log('Already in changes')}
+        changes.push($(this).attr(id))
+      }
     })
 	})
 
