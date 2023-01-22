@@ -1,6 +1,8 @@
 const id = getUrlVars()["id"]
 
 Webflow.push(() => {
+
+  // Get site data from MemberStack
 	$memberstackDom.getMemberJSON().then((meta) => {
 		const json = meta.data
 		const site = json.sites[id]
@@ -9,7 +11,7 @@ Webflow.push(() => {
 		const clicks = settings.clicks
 		const textfields = settings.textfields
 
-		// Site data
+		// Set site data
 		for (var i = 0; i < Object.keys(info).length; i++) {
 			const el = $(`[data-fh-site=${Object.keys(info)[i]}]`)
 			if (el) {
@@ -27,18 +29,32 @@ Webflow.push(() => {
 			}
 		}
 
-		// Settings: clicks
+    // Create active settings array
+    let changes = []
+
+		// Set site clicks
 		for (var i = 0; i < Object.keys(clicks).length; i++) {
 			if (Object.values(clicks)[i]) {
 				$(`[data-fh-click=${Object.keys(clicks)[i]}]`).click()
+        $(`[data-fh-click=${Object.keys(clicks)[i]}]`).on('change',(event)=>{
+          const id = Object.keys(clicks)[i]
+          const state = $(event.trigger).siblings(input).checked
+          changes.push({id: state})
+          console.log(changes)
+        })
 			}
 		}
 
-		// Settings: textfields
+		// Set site textfields
 		for (var i = 0; i < Object.keys(textfields).length; i++) {
 			if (Object.values(textfields)[i]) {
 				$(`[data-fh-textfield=${Object.keys(textfields)[i]}]`).val(Object.values(textfields)[i])
 			}
 		}
 	})
+
+  // Submit page "Settings"
+  function submitSettings() {
+
+  }
 })
