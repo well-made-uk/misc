@@ -60,10 +60,10 @@ Webflow.push(() => {
         $(el).addClass('changed')
         changes += 1
       }
-      $('#changes-count').text(`${changes} changes pending`)
+      $('#changes-count').text(`${changes} changes pending.`)
       if (changes < 1) {
         $('#changes-count-container').hide()
-      } else {$('#changes-count-container').show()}
+      } else {$('#changes-count-container').fadeIn(200)}
     })
     $('input:checkbox').change(function(e) {
       el = e.target
@@ -76,10 +76,10 @@ Webflow.push(() => {
         $(el).parent().addClass('changed')
         changes += 1
       }
-      $('#changes-count').text(`${changes} changes pending`)
+      $('#changes-count').text(`${changes} changes pending.`)
       if (changes < 1) {
         $('#changes-count-container').hide()
-      } else {$('#changes-count-container').show()}
+      } else {$('#changes-count-container').fadeIn(100)}
     })
 
 	}) // End MemberStack Fetch
