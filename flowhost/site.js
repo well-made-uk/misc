@@ -36,9 +36,9 @@ Webflow.push(() => {
 		for (var i = 0; i < Object.keys(clicks).length; i++) {
 			if (Object.values(clicks)[i]) {
 				$(`[data-fh-click=${Object.keys(clicks)[i]}]`).click()
-        $(`[data-fh-click=${Object.keys(clicks)[i]}]`).on('change',(event)=>{
+        $(`[data-fh-click=${Object.keys(clicks)[i]}]`).siblings(input).on('change',(event)=>{
           const id = Object.keys(clicks)[i]
-          const state = $(event.trigger).siblings(input).checked
+          const state = $(event.trigger).checked
           changes.push({id: state})
           console.log(changes)
         })
