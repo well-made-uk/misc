@@ -8,7 +8,7 @@ Webflow.push(() => {
 
   // Get site data from MemberStack
 	$memberstackDom.getMemberJSON().then((meta) => {
-    msPackage = meta
+    msMeta = meta
 		const ms = meta.data
 		const site = ms.sites[id]
     const info = site.info
@@ -117,11 +117,11 @@ function collectChanges() {
 }
 
 function nfPackage() {
-  
+
 }
 
 function msPackage(changes) {
-  const package = msPackage
+  const package = msMeta
   const site = msPackage.data.sites[id]
   for (var i = 0; i < Object.keys(changes).length; i++) {
     site.settings[changes[i].category][changes[i].setting] = changes[i].value
