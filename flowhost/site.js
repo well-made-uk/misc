@@ -85,18 +85,20 @@ Webflow.push(() => {
 
 	}) // End MemberStack Fetch
 
-  // Submit settings
-  function submit() {
-    $('input.changed').each((e)=>{
-      const el = e.target
-      const type = $(el).attr('type')
-      if (type == 'password' || type == 'text' || type == 'textarea') {
-        const val = $(el).val()
-      } else if (type == 'checkbox') {
-        const val = $(el).checked()
-      }
-      console.log(`El: ${el}. Type: ${type}. Val: ${val}`)
-    })
-  }
-
 })
+
+// Submit settings
+function submit() {
+  $('input.changed').each(function() {
+    const el = $(this)
+    console.log(el)
+    const type = $(el).attr('type')
+    let val = ''
+    if (type == 'checkbox') {
+      if ($(el).is(':checked')) {val = 'on'} else {val = 'off'}
+    } else {
+      val = $(el).val()
+    }
+    console.log(`El: ${el}. Type: ${type}. Val: ${val}`)
+  })
+}
