@@ -41,7 +41,7 @@ Webflow.push(() => {
 
     // Watch for changes
     $('input').change((event)=>{
-      if (!changes.includes(event.trigger)) {changes.push(event.trigger)}
+      if (!(changes.includes(event.trigger))) {changes.push(event.trigger)}
     })
 
 		// Set site textfields
