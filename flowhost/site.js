@@ -122,7 +122,7 @@ function nfPackage() {
 
 function msPackage(changes) {
   const package = msMeta
-  const site = msPackage.data.sites[id]
+  const site = msMeta.data.sites[id]
   for (var i = 0; i < Object.keys(changes).length; i++) {
     site.settings[changes[i].category][changes[i].setting] = changes[i].value
   }
