@@ -127,3 +127,10 @@ function msPackage(changes) {
     site.settings[changes[i].category][changes[i].setting] = changes[i].value
   }
 }
+
+function resetChanges() {
+  changes = 0
+  $('#changes-count').text(`${changes} changes pending.`)
+  $('.changed').removeClass('changed')
+  $('#changes-count-container').hide()
+}
