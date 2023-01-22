@@ -119,7 +119,7 @@ function nfSubmit() {
 }
 
 function msSubmit(changes) {
-  for (var i = 0; i < Object.keys(settings.clicks).length; i++) {
-    console.log(Object.values(settings.clicks)[i])
+  for (var i = 0; i < Object.keys(changes).length; i++) {
+    site.settings[changes[i].category][changes[i].setting] = value
   }
 }
