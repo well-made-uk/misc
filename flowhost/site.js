@@ -36,7 +36,7 @@ Webflow.push(() => {
 			if (Object.values(clicks)[i]) {
         const el = $(`[data-fh-click=${Object.keys(clicks)[i]}]`)
 				$(el).click()
-        $(el).siblings('input').attr('data-origin', 'true')
+        $(el).siblings('input').attr('data-origin', 'on')
 			}
 		}
 
@@ -45,7 +45,7 @@ Webflow.push(() => {
 			if (Object.values(textfields)[i]) {
         const el = $(`[data-fh-textfield=${Object.keys(textfields)[i]}]`)
 				$(el).val(Object.values(textfields)[i])
-        $(el).attr('data-origin', Object.values(textfields)[i])
+        $(el).attr('data-origin', $(el).val())
 			}
 		}
 
@@ -56,9 +56,16 @@ Webflow.push(() => {
     el = e.target
     if ($(el).val() == $(el).attr('data-origin')) {
       $(el).removeClass('changed')
+      if ($(el).is(':checkbox')) {
+        $(el).parent().removeClass('changed')
+      }
     } else {
       $(el).addClass('changed')
+      if ($(el).is(':checkbox')) {
+        $(el).parent().addClass('changed')
+      }
     }
+
   })
 
 })
