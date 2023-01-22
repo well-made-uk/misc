@@ -36,7 +36,7 @@ Webflow.push(() => {
 			if (Object.values(clicks)[i]) {
         const el = $(`[data-fh-click=${Object.keys(clicks)[i]}]`)
 				$(el).click()
-        $(el).siblings(input).attr('data-origin', 'true')
+        $(el).siblings('input').attr('data-origin', 'true')
 			}
 		}
 
