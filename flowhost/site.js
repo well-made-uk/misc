@@ -84,7 +84,9 @@ Webflow.push(() => {
       } else {$('#changes-count-container').fadeIn(200)}
     })
 
-
+    // Remove loader
+    window.setTimeout($('.loader').fadeOut(500), 300)
+    
 	}) // End MemberStack Fetch
 
 })
