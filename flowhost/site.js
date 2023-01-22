@@ -58,8 +58,8 @@ Webflow.push(() => {
         changes += 1
       }
       $('#changes-count > div').text(`${changes} changes pending`)
-      if ($('input.changed')) {
-        $('#changes-count').show()
+      if (changes < 1) {
+        $('#changes-count').hide()
       } else {$('#changes-count').show()}
     })
     $('input:checkbox').change(function(e) {
@@ -74,8 +74,8 @@ Webflow.push(() => {
         changes += 1
       }
       $('#changes-count > div').text(`${changes} changes pending`)
-      if ($('input.changed')) {
-        $('#changes-count').show()
+      if (changes < 1) {
+        $('#changes-count').hide()
       } else {$('#changes-count').show()}
     })
 
