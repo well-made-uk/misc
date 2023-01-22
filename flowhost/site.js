@@ -53,8 +53,10 @@ Webflow.push(() => {
     $('input').change(function(e) {
       el = e.target
       if ($(el).val() == $(el).attr('data-origin')) {
+        console.log('Does not match origin')
         $(el).removeClass('changed')
       } else {
+        console.log('Matches origin')
         $(el).addClass('changed')
       }
 
