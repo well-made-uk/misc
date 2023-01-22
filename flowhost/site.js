@@ -110,7 +110,7 @@ function collectChanges() {
       value: val
     })
   })
-  msSubmit()
+  msSubmit(changes)
   // return changes
 }
 
@@ -118,8 +118,7 @@ function nfSubmit() {
   if (!changes) {return}
 }
 
-function msSubmit() {
-  if (!changes) {return}
+function msSubmit(changes) {
   for (var i = 0; i < Object.keys(settings.clicks).length; i++) {
     console.log(Object.values(settings.clicks)[i])
   }
