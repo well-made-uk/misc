@@ -36,17 +36,13 @@ Webflow.push(() => {
 		for (var i = 0; i < Object.keys(clicks).length; i++) {
 			if (Object.values(clicks)[i]) {
 				$(`[data-fh-click=${Object.keys(clicks)[i]}]`).click()
-        $(`[data-fh-click=${Object.keys(clicks)[i]}]`).siblings('input').on('change',(event)=>{
-          const id = Object.keys(clicks)[i]
-          const state = $(event.trigger).is(':checked')
-          changes.push({
-            id: id,
-            state: state
-          })
-          console.log(changes)
-        })
 			}
 		}
+
+    // Watch for changes
+    $('input').change((event)=>{
+      if (!changes.includes(event.trigger)) {changes.push(event.trigger)}
+    })
 
 		// Set site textfields
 		for (var i = 0; i < Object.keys(textfields).length; i++) {
