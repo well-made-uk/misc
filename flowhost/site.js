@@ -185,5 +185,4 @@ function patchNetlify(data) {
     body: JSON.stringify(data)
   })
   .then((response) => response.json())
-  .then(return 'done lol')
 }
