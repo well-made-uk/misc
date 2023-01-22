@@ -10,3 +10,16 @@
   pretty_urls = false
 [build.processing.images]
   compress = true
+
+  [[redirects]]
+    from = "/"
+    to = "https://well-made.uk"
+    status = 301
+  [[redirects]]
+    from = "/index"
+    to = "https://well-made.uk"
+    status = 301
+  [[redirects]]
+    from = "/index/"
+    to = "https://well-made.uk"
+    status = 301
