@@ -82,11 +82,22 @@ Webflow.push(() => {
       } else {$('#changes-count-container').fadeIn(200)}
     })
 
+
 	}) // End MemberStack Fetch
 
+  // Submit settings
+  function submit() {
+    const fields = $('input.changed')
+    $(fields).each((e)=>{
+      const el = e.target
+      const type = $(el).attr('type')
+      if (type == 'password' || type == 'text' || type == 'textarea') {
+        const val = $(el).val()
+      } else (type == 'checkbox') {
+        const val = $(el).checked()
+      }
+      console.log(`El: ${el}. Type: ${type}. Val: ${val}`)
+    })
+  }
+
 })
-
-// Submit page "Settings"
-function submit() {
-
-}
