@@ -36,16 +36,24 @@ Webflow.push(() => {
 			if (Object.values(clicks)[i]) {
         const el = $(`[data-fh-click=${Object.keys(clicks)[i]}]`)
 				$(el).click()
-        $(el).attr('data-origin', 'true')
+        $(el).siblings(input).attr('data-origin', 'true')
 			}
 		}
+
+    // Set site textfields
+		/*for (var i = 0; i < Object.keys(textfields).length; i++) {
+			if (Object.values(textfields)[i]) {
+				$(`[data-fh-textfield=${Object.keys(textfields)[i]}]`).val(Object.values(textfields)[i])
+        $(el).attr('data-origin', values(textfields)[i])
+			}
+		}*/
 
 		// Set site textfields
 		for (var i = 0; i < Object.keys(textfields).length; i++) {
 			if (Object.values(textfields)[i]) {
         const el = $(`[data-fh-textfield=${Object.keys(textfields)[i]}]`)
 				$(el).val(Object.values(textfields)[i])
-        $(el).attr('data-origin', values(textfields)[i])
+        $(el).attr('data-origin', Object.values(textfields)[i])
 			}
 		}
 
