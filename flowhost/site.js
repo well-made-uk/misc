@@ -52,8 +52,13 @@ Webflow.push(() => {
 	}) // End MemberStack Fetch
 
   // Watch for changes
-  $('input').change(function() {
-      changes.push($(this))
+  $('input').change(function(e) {
+    el = e.target
+    if ($(el).val() == $(el).attr('data-origin')) {
+      $(el).removeClass('changed')
+    } else {
+      $(el).addClass('changed')
+    }
   })
 
 })
