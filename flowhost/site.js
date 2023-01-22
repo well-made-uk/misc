@@ -126,22 +126,30 @@ function nfPackage(ms) {
   const settings = ms.data.sites[id].settings
   console.log(settings)
   let package = {
+    "notifications_email": settings.textfields.notification_email,
     "processing_settings": {
       "css": {
         "bundle": settings.clicks.bundle_css,
-        "minify": Object.values(settings.clicks.minify_css)
+        "minify": settings.clicks.minify_css
       },
       "js": {
-        "bundle": Object.values(settings.clicks.bundle_js),
-        "minify": Object.values(settings.clicks.minify_js)
+        "bundle": settings.clicks.bundle_js,
+        "minify": settings.clicks.minify_js
       },
       "images": {
-        "optimize": Object.values(settings.clicks.optimize_images)
+        "optimize": settings.clicks.optimize_images
       }
     },
     "build_settings": {
       "env": {
-        "optimize_fonts": Object.values(settings.clicks.optimize_fonts)
+        "optimize_fonts": settings.clicks.optimize_fonts,
+        "auto_noopener": settings.clicks.auto_noopener,
+        "auto_icon": settings.clicks.auto_icon,
+        "auto_blank": settings.clicks.auto_blank,
+        "auto_relative": settings.clicks.auto_relative,
+        "accessibe": settings.textfields.accessibe,
+        "formspree": settings.textfields.formspree,
+        "plausible": settings.textfields.plausible
       }
     }
   }
