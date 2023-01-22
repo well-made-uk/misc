@@ -2,8 +2,6 @@ const id = getUrlVars()["id"]
 let changes = []
 
 Webflow.push(() => {
-  // Give an empty origin value to all inputs
-  $('input').attr('data-origin','')
 
   // Get site data from MemberStack
 	$memberstackDom.getMemberJSON().then((meta) => {
@@ -50,16 +48,25 @@ Webflow.push(() => {
 		}
 
     // Watch for changes
-    $('input').change(function(e) {
+    $('input:not(:checkbox)').change(function(e) {
       el = e.target
       if ($(el).val() == $(el).attr('data-origin')) {
-        console.log('Does not match origin')
+        console.log('Matches origin')
         $(el).removeClass('changed')
       } else {
-        console.log('Matches origin')
+        console.log('Does not match origin')
         $(el).addClass('changed')
       }
-
+    })
+    $('input:checkbox').change(function(e) {
+      el = e.target
+      if ( ($(el):is(':checked') && $(el).attr('data-origin') == 'on') || (!($(el):is(':checked')) && $(el).attr('data-origin') == 'off') ) {
+        console.log('Matches origin')
+        $(el).removeClass('changed')
+      } else {
+        console.log('Does not match origin')
+        $(el).addClass('changed')
+      }
     })
 
 	}) // End MemberStack Fetch
