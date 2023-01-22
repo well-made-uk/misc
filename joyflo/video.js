@@ -45,8 +45,62 @@ Webflow.push(function () {
   }
 
 
+  $('.video-inner').css('width',window.innerWidth).css('height',window.innerHeight)
 
+videoScroller = function (id,targetWidth,targetHeight) {
 
-  // Set the section height
-  // $('.video-parallax').css('height','calc(225vh + 560px + 4rem)')
+    const ogth = targetHeight
+
+    // Get elements
+    const container = $('[data-video-id='+id+']').closest('.section-layout')
+    const video = $(container).find('.video-inner')
+
+    var videoWidth = 0
+    var videoHeight = 0
+    var maxScrollDistance = 0
+    var widthDiff = 0
+    var heightDiff = 0
+    var pixelsPerScrollX = 0
+    var pixelsPerScrollY = 0
+
+    function calc() {
+            // Get dimensions
+        videoWidth = window.innerWidth
+        videoHeight = window.innerHeight
+
+        // distance over which zoom effect takes place
+        maxScrollDistance = $('.video-parallax').height() / 2;
+
+        // Is screen more than double the height of the target height?
+        if ($(window).width() < 480 || $(window).height() < 480) {
+    targetHeight = window.innerHeight / 2
+} else {targetHeight = ogth}
+
+        // calculate diff and how many pixels to zoom per pixel scrolled
+        widthDiff = videoWidth - targetWidth;
+        heightDiff = videoHeight - targetHeight
+        pixelsPerScrollX =(widthDiff / maxScrollDistance);
+        pixelsPerScrollY =(heightDiff / maxScrollDistance);
+    }
+
+    window.onresize = calc;
+    calc()
+
+    $(window).scroll(function () {
+        // the currently scrolled-to position - max-out at maxScrollDistance
+        var scrollTopPos = Math.min($(document).scrollTop(), maxScrollDistance);
+
+        // how many pixels to adjust by
+        var scrollChangePxX =  Math.floor(scrollTopPos * pixelsPerScrollX);
+        var scrollChangePxY =  Math.floor(scrollTopPos * pixelsPerScrollY);
+
+        // calculate the new sizes
+        var zoomedWidth = videoWidth - scrollChangePxX;
+        var zoomedHeight = videoHeight - scrollChangePxY;
+
+        // set the sizes
+        video.css('width', zoomedWidth).css('height',zoomedHeight);
+    });
+}
+
 });
