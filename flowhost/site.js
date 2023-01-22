@@ -1,6 +1,8 @@
 const id = getUrlVars()["id"]
 
 Webflow.push(() => {
+  // Give an empty origin value to all inputs
+  $('input').attr('data-origin','')
 
   // Get site data from MemberStack
 	$memberstackDom.getMemberJSON().then((meta) => {
@@ -57,11 +59,12 @@ Webflow.push(() => {
 			}
 		}
 
-    // Watch for changes
-    $('input').change(function() {
-        changes.push($(this))
-    })
-	})
+	}) // End MemberStack Fetch
+
+  // Watch for changes
+  $('input').change(function() {
+      changes.push($(this))
+  })
 
 })
 
