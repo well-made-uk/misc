@@ -127,20 +127,20 @@ function nfPackage(ms) {
   let package = {
     "processing_settings": {
       "css": {
-        "bundle": Objects.values(settings.clicks.bundle_css),
-        "minify": Objects.values(settings.clicks.minify_css)
+        "bundle": Object.values(settings.clicks.bundle_css),
+        "minify": Object.values(settings.clicks.minify_css)
       },
       "js": {
-        "bundle": Objects.values(settings.clicks.bundle_js),
-        "minify": Objects.values(settings.clicks.minify_js)
+        "bundle": Object.values(settings.clicks.bundle_js),
+        "minify": Object.values(settings.clicks.minify_js)
       },
       "images": {
-        "optimize": Objects.values(settings.clicks.optimize_images)
+        "optimize": Object.values(settings.clicks.optimize_images)
       }
     },
     "build_settings": {
       "env": {
-        "optimize_fonts": Objects.values(settings.clicks.optimize_fonts)
+        "optimize_fonts": Object.values(settings.clicks.optimize_fonts)
       }
     }
   }
