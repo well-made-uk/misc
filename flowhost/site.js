@@ -1,7 +1,8 @@
 const id = getUrlVars()["id"]
+let changes = 0
 
 Webflow.push(() => {
-  let changes = 0
+
   // Hide changes count
   $('#changes-count-container').css('display','flex')
   $('#changes-count-container').hide()
@@ -89,7 +90,7 @@ Webflow.push(() => {
 })
 
 function collectChanges() {
-  let changes = []
+  let arr = []
   $('input.changed').each(function() {
     const el = $(this)
     const type = $(el).attr('type')
@@ -105,32 +106,28 @@ function collectChanges() {
       msCat = 'textfields'
       msKey = $(el).attr('data-fh-textfield')
     }
-    changes.push({
+    arr.push({
+      el: el,
       category: msCat,
       setting: msKey,
       value: val
     })
   })
-  msPackage(changes)
-  // nfPackage()
-  // return changes
+  const ms = msPackage(arr)
+  return ms
+  // const nf = nfPackage(arr)
+  // submit(ms,nf)
 }
 
-function nfPackage() {
+function nfPackage(arr) {
 
 }
 
-function msPackage(changes) {
+function msPackage(arr) {
   const package = msMeta
   const site = msMeta.data.sites[id]
-  for (var i = 0; i < Object.keys(changes).length; i++) {
-    site.settings[changes[i].category][changes[i].setting] = changes[i].value
+  for (var i = 0; i < Object.keys(arr).length; i++) {
+    site.settings[arr[i].category][arr[i].setting] = arr[i].value
   }
-}
-
-function resetChanges() {
-  changes = 0
-  $('#changes-count').text(`${changes} changes pending.`)
-  $('.changed').removeClass('changed')
-  $('#changes-count-container').hide()
+  return package
 }
