@@ -176,7 +176,7 @@ function msPackage(arr) {
 
 function patchNetlify(data) {
   fetch('https://fh-functions.netlify.app/.netlify/functions/site', {
-    method: 'POST',
+    method: 'GET',
     mode: 'no-cors',
     cache: 'no-cache',
     headers: {
@@ -185,4 +185,7 @@ function patchNetlify(data) {
     body: JSON.stringify(data)
   })
   .then((response) => response.json())
+  .then((result) => {
+    console.log('Success:', result);
+  })
 }
