@@ -132,7 +132,6 @@ function collectChanges() {
 }
 
 function nfPackage(ms) {
-  console.log('ms '+ms)
   const settings = ms.data.sites[id].settings
   let data = {
     "id": id,
@@ -177,8 +176,13 @@ function msPackage(arr) {
 }
 
 function patchNetlify(data) {
+
+  /*fetch('http://example.com/movies.json')
+  .then((response) => response.json())
+  .then((data) => console.log(data));*/
+
   console.log(data)
-  fetch('https://fh-functions.netlify.app/.netlify/functions/site', {
+  /*fetch('https://fh-functions.netlify.app/.netlify/functions/site', {
     method: 'POST',
     mode: 'no-cors',
     cache: 'no-cache',
@@ -189,6 +193,6 @@ function patchNetlify(data) {
   })
   .then((response) => response.json())
   .then((result) => {
-    console.log('Success:', result);
-  })
+    console.log('Success:', JSON.parse(result);
+  })*/
 }
