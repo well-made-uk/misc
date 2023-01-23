@@ -22,7 +22,11 @@ function videoScroller(id,targetWidth,targetHeight) {
         videoHeight = window.innerHeight
 
         // distance over which zoom effect takes place
-        maxScrollDistance = $('.video-parallax').height() / 2;
+        if (window.innerHeight < 1200) {
+          maxScrollDistance = $('.video-parallax').height() / 2;
+        } else {
+          maxScrollDistance = $('.video-parallax').height();
+        }
 
         // Is screen more than double the height of the target height?
         if ($(window).width() < 480 || $(window).height() < 480) {
