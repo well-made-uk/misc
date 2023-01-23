@@ -105,11 +105,13 @@ Webflow.push(function () {
     $(play).on('click',()=>{
         $(video).trigger('play')
         $(ended).fadeOut(300)
+        $(video).animate({opacity: 1}, 300);
     })
 
     // End of video function
     $(video).on('ended',()=>{
-          $(ended).fadeIn(300)
+        $(ended).fadeIn(300)
+        $(video).animate({opacity: 0}, 300);
     });
   }
 
