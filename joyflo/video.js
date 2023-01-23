@@ -61,7 +61,7 @@ function videoScroller(id,targetWidth,targetHeight) {
         if (window.innerHeight > 950) {
           marginOffset = (scrollTopPos * 0.1) * (window.innerHeight / 1080)
           bottomOffset = 0 - marginOffset
-        }
+        } else {marginOffset = 0;bottomOffset = 0}
 
         // set the sizes
         video.css('width', zoomedWidth).css('height',zoomedHeight).css('margin-bottom',marginOffset);
