@@ -15,6 +15,7 @@ function videoScroller(id,targetWidth,targetHeight) {
     var heightDiff = 0
     var pixelsPerScrollX = 0
     var pixelsPerScrollY = 0
+    var videoMargin = false
 
     function calc() {
             // Get dimensions
@@ -24,8 +25,10 @@ function videoScroller(id,targetWidth,targetHeight) {
         // distance over which zoom effect takes place
         if (window.innerHeight < 1200) {
           maxScrollDistance = $('.video-parallax').height() / 2;
+          videoMargin = false
         } else {
           maxScrollDistance = $('.video-parallax').height() / 1.75;
+          videoMargin = true
         }
 
         // Is screen more than double the height of the target height?
@@ -54,9 +57,14 @@ function videoScroller(id,targetWidth,targetHeight) {
         // calculate the new sizes
         var zoomedWidth = videoWidth - scrollChangePxX;
         var zoomedHeight = videoHeight - scrollChangePxY;
+        var marginOffset = 0
+
+        if (videoMargin) {
+          marginOffset = scrollTopPos * 0.1
+        }
 
         // set the sizes
-        video.css('width', zoomedWidth).css('height',zoomedHeight);
+        video.css('width', zoomedWidth).css('height',zoomedHeight).css('margin-bottom',marginOffset);
     });
 }
 
