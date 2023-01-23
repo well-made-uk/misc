@@ -177,7 +177,7 @@ function msPackage(arr) {
 function patchNetlify(data) {
   fetch('https://fh-functions.netlify.app/.netlify/functions/site', {
     method: 'POST',
-    mode: 'no-cors',
+    mode: 'cors',
     cache: 'no-cache',
     headers: {
       'Content-Type': 'application/json'
