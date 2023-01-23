@@ -58,8 +58,8 @@ function videoScroller(id,targetWidth,targetHeight) {
         var marginOffset = 0
 
         if (window.innerHeight > 1079) {
-          marginOffset = (scrollTopPos * 0.15) * (window.innerHeight / 1080)
-          console.log(marginOffset)
+          marginOffset = (scrollTopPos * 0.1) * (window.innerHeight / 1080)
+          // console.log(marginOffset)
         }
 
         // set the sizes
