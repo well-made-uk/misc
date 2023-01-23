@@ -163,7 +163,8 @@ function nfPackage(ms) {
       }
     }
   }
-  return data
+  const dataZ = JSON.stringify(data)
+  return dataZ
 }
 
 function msPackage(arr) {
@@ -184,7 +185,7 @@ function patchNetlify(data) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(data)
+    body: data
   })
   .then((response) => response.json())
   .then((result) => {
