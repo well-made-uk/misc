@@ -58,7 +58,7 @@ function videoScroller(id,targetWidth,targetHeight) {
         var marginOffset = 0
 
         if (window.innerHeight > 1199) {
-          marginOffset = scrollTopPos * 0.1
+          marginOffset = (scrollTopPos * 0.1) * (window.innerHeight / 1400)
           console.log(marginOffset)
         }
 
