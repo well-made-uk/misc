@@ -25,13 +25,13 @@ function videoScroller(id,targetWidth,targetHeight) {
         if (window.innerHeight < 1200) {
           maxScrollDistance = $('.video-parallax').height() / 2;
         } else {
-          maxScrollDistance = $('.video-parallax').height();
+          maxScrollDistance = $('.video-parallax').height() / 1.75;
         }
 
         // Is screen more than double the height of the target height?
         if ($(window).width() < 480 || $(window).height() < 480) {
-    targetHeight = window.innerHeight / 2
-} else {targetHeight = ogth}
+            targetHeight = window.innerHeight / 2
+        } else {targetHeight = ogth}
 
         // calculate diff and how many pixels to zoom per pixel scrolled
         widthDiff = videoWidth - targetWidth;
