@@ -23,7 +23,7 @@ function videoScroller(id,targetWidth,targetHeight) {
         videoHeight = window.innerHeight
 
         // distance over which zoom effect takes place
-        if (window.innerHeight < 1200) {
+        if (window.innerHeight < 1080) {
           maxScrollDistance = $('.video-parallax').height() / 2;
         } else {
           maxScrollDistance = $('.video-parallax').height() / 1.75;
@@ -57,8 +57,8 @@ function videoScroller(id,targetWidth,targetHeight) {
         var zoomedHeight = videoHeight - scrollChangePxY;
         var marginOffset = 0
 
-        if (window.innerHeight > 1199) {
-          marginOffset = (scrollTopPos * 0.15) * (window.innerHeight / 1400)
+        if (window.innerHeight > 1079) {
+          marginOffset = (scrollTopPos * 0.15) * (window.innerHeight / 1080)
           console.log(marginOffset)
         }
 
