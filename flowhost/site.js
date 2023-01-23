@@ -132,6 +132,7 @@ function collectChanges() {
 }
 
 function nfPackage(ms) {
+  console.log('ms '+ms)
   const settings = ms.data.sites[id].settings
   let data = {
     "id": id,
@@ -175,6 +176,7 @@ function msPackage(arr) {
 }
 
 function patchNetlify(data) {
+  console.log('data: '+data)
   fetch('https://fh-functions.netlify.app/.netlify/functions/site', {
     method: 'POST',
     mode: 'no-cors',
