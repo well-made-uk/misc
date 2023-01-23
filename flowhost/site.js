@@ -177,11 +177,17 @@ function msPackage(arr) {
 
 function patchNetlify(data) {
 
-  /*fetch('http://example.com/movies.json')
+  fetch('https://fh-functions.netlify.app/.netlify/functions/site', {
+    method: 'POST',
+    mode: 'no-cors',
+    cache: 'no-cache',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: data
+  })
   .then((response) => response.json())
-  .then((data) => console.log(data));*/
-
-  console.log(data)
+  .then((netlify) => console.log(netlify));
   /*fetch('https://fh-functions.netlify.app/.netlify/functions/site', {
     method: 'POST',
     mode: 'no-cors',
