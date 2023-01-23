@@ -56,16 +56,16 @@ function videoScroller(id,targetWidth,targetHeight) {
         var zoomedWidth = videoWidth - scrollChangePxX;
         var zoomedHeight = videoHeight - scrollChangePxY;
         var marginOffset = 0
+        var bottomOsset = 0
 
         if (window.innerHeight > 1079) {
           marginOffset = (scrollTopPos * 0.1) * (window.innerHeight / 1080)
           bottomOffset = 0 - marginOffset
-          $(container).css('bottom',bottomOffset)
-          // console.log(marginOffset)
         }
 
         // set the sizes
         video.css('width', zoomedWidth).css('height',zoomedHeight).css('margin-bottom',marginOffset);
+        $(container).css('bottom',bottomOffset)
     });
 }
 
