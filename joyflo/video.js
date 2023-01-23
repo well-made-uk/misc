@@ -39,12 +39,15 @@ function videoScroller(id,targetWidth,targetHeight) {
         heightDiff = videoHeight - targetHeight
         pixelsPerScrollX =(widthDiff / maxScrollDistance);
         pixelsPerScrollY =(heightDiff / maxScrollDistance);
+        scroll()
     }
 
     window.onresize = calc;
     calc()
 
-    $(window).scroll(function () {
+    $(window).scroll(scroll())
+
+      function scroll() {
         // the currently scrolled-to position - max-out at maxScrollDistance
         var scrollTopPos = Math.min($(document).scrollTop(), maxScrollDistance);
 
@@ -66,7 +69,7 @@ function videoScroller(id,targetWidth,targetHeight) {
         // set the sizes
         video.css('width', zoomedWidth).css('height',zoomedHeight).css('margin-bottom',marginOffset);
         $(container).css('bottom',bottomOffset)
-    });
+    };
 }
 
 var Webflow = Webflow || [];
