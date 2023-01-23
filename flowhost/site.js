@@ -94,7 +94,7 @@ Webflow.push(() => {
     })
 
     // Remove loader
-    window.setTimeout($('.loader').fadeOut(500), 300)
+    $('.loader').fadeOut(500)
 
 	}) // End MemberStack Fetch
 
