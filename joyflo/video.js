@@ -61,7 +61,7 @@ function videoScroller(id,targetWidth,targetHeight) {
       var marginOffset = 0
       var bottomOsset = 0
 
-      if (window.innerHeight > 950) {
+      if (window.innerHeight > 1080) {
         marginOffset = (scrollTopPos * 0.1) * (window.innerHeight / 1080)
         bottomOffset = 0 - marginOffset
       } else {marginOffset = 0;bottomOffset = 0}
