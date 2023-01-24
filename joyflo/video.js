@@ -119,10 +119,12 @@ Webflow.push(function () {
     $(video).on('ended',()=>{
         $(ended).fadeIn(300)
         $(video).animate({opacity: 0}, 300);
+        console.log('Video ended')
         if (Window.scrollY < containerHeight) {
+          console.log('Scrolling...')
           const scroll = containerHeight - Window.innerHeight
           window.scrollBy(0,scroll)
-        }
+        } else {console.log('no need to scroll')}
     });
   }
 
