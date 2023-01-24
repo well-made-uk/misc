@@ -77,8 +77,8 @@ Webflow.push(function () {
   const videos = $('[data-video-id]')
   for (let i = 0; i < videos.length; i++) {
     const videoParent = videos[i]
-    const container = videoParent.closest('.section-layout')
-    const containerHeight = $(container).height() + container.offsetTop
+    const container = $(videoParent).closest('.section-layout')
+    const containerHeight = $(container).height()
     const video = $(videoParent).children('video')
     const id = $(videoParent).attr('data-video-id')
     const ended = $(`[data-video-ended=${id}]`)
@@ -120,9 +120,9 @@ Webflow.push(function () {
         $(ended).fadeIn(300)
         $(video).animate({opacity: 0}, 300);
         console.log('Video ended...')
-        console.log(`Scroll = ${Window.scrollY}, containerHeight = ${containerHeight}`)
-        if (Window.scrollY < containerHeight) {
-          const scroll = containerHeight - Window.innerHeight
+        console.log(`Scroll = ${window.scrollY}, containerHeight = ${containerHeight}`)
+        if (window.scrollY < containerHeight) {
+          const scroll = containerHeight - window.innerHeight
           window.scrollBy(0,scroll)
         } else {console.log('no need to scroll')}
     });
