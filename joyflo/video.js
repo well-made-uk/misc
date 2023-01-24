@@ -124,7 +124,7 @@ Webflow.push(function () {
           // window.scrollBy(0,scroll)
           $('html, body').stop().animate({
             scrollTop: scroll
-          }, 1000 );
+          }, 1000, "ease" );
         }
     });
   }
