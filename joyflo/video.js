@@ -126,7 +126,7 @@ Webflow.push(function () {
           // window.scrollBy(0,scroll)
           $('html, body').stop().animate({
             scrollTop: scroll
-          }, 600 );
+          }, 1000 );
         } else {console.log('no need to scroll')}
     });
   }
