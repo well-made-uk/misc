@@ -123,7 +123,10 @@ Webflow.push(function () {
         console.log(`Scroll = ${window.scrollY}, containerHeight = ${containerHeight}`)
         if (window.scrollY < containerHeight) {
           const scroll = containerHeight - window.innerHeight
-          window.scrollBy(0,scroll)
+          // window.scrollBy(0,scroll)
+          $('html, body').stop().animate({
+            scrollTop: scroll
+          }, 600 );
         } else {console.log('no need to scroll')}
     });
   }
