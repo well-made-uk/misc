@@ -77,6 +77,8 @@ Webflow.push(function () {
   const videos = $('[data-video-id]')
   for (let i = 0; i < videos.length; i++) {
     const videoParent = videos[i]
+    const container = videoParent.closest('.section-layout')
+    const containerHeight = $(container).height() + container.offsetTop
     const video = $(videoParent).children('video')
     const id = $(videoParent).attr('data-video-id')
     const ended = $(`[data-video-ended=${id}]`)
@@ -117,6 +119,10 @@ Webflow.push(function () {
     $(video).on('ended',()=>{
         $(ended).fadeIn(300)
         $(video).animate({opacity: 0}, 300);
+        if (Window.scrollY < containerHeight) {
+          const scroll = containerHeight - Window.innerHeight
+          window.scrollBy(0,scroll)
+        }
     });
   }
 
