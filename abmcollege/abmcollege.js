@@ -224,4 +224,5 @@ Webflow.push(function () {
       	$('.anchor-offset').css('top','-' + height + 'px')
         $('.anchor-adjusted').css('top','-' + height + 'px')
         $('.nav-bar').css('top',$('.notification-bar').height())
+        $('.navigation-wrap').css('top',$('.notification-bar').height())
         })
