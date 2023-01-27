@@ -228,6 +228,6 @@ Webflow.push(function () {
           $('.nav-bar').css('top',$('.notification-bar').height())
           $('.navigation-wrap').css('top',$('.notification-bar').height())
         }
-          navBarHeight()
-          $('window').resize(navBarHeight)
+        navBarHeight()
+        $('window').resize(navBarHeight)
         })
