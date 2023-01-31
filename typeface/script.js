@@ -4,7 +4,7 @@ let highSpeed = true
 
 let speedTest = window.setTimeout( function() {
   highSpeed = false
-}, 500 );
+}, 10 );
 
 window.addEventListener( 'load', function() {
   window.clearTimeout( speedTest );
