@@ -1,3 +1,16 @@
+// Detect slow connections
+
+let highSpeed = true
+
+let speedTest = window.setTimeout( function() {
+  highSpeed = false
+}, 500 );
+
+window.addEventListener( 'load', function() {
+  window.clearTimeout( speedTest );
+}, false );
+
+
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
   $(image).replaceWith(`<video aria-label="Video" autoplay muted style="width:100%;height:100%;background:black;object-fit:cover">
@@ -112,4 +125,5 @@ Webflow.push(function () {
   const videoContentOffset = $('.video-heading').outerHeight()
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
   $('body').append(`<style>.video-inner {opacity:1;top:${navOffset+videoContentOffset}px;transition:all 0.5s ease;}</style>`)
+  console.log('highspeed: ' + highSpeed)
 })
