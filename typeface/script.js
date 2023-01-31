@@ -42,6 +42,7 @@ function expandVideo(container,button) {
   if (button) {
     $(button).hide()
     $(button).siblings().show()
+  }
 
   console.log($(container).closest('.section-layout').get(0))
   $(container).closest('.section-layout').get(0).scrollIntoView();
