@@ -14,6 +14,7 @@ function initVideo(image) {
       $(videoInner).find('.video-wrap').fadeOut(300)
       $(videoInner).css('height','50px')
       $(section).css('padding-bottom','0px')
+      $('.as-seen-on').slideUp(300)
       minifyVideo(video)
   });
 }
