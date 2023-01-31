@@ -8,50 +8,64 @@ function initVideo(image) {
     	<source src="${src}" type="video/mp4">
     	Your browser does not support the video tag.
     </video>`)
-    const newVideo = $(`[src="${src}"]`)
+    const newVideo = $(`video[src="${src}"]`)
+    console.log(newVideo)
     $(newVideo).on('ended',()=>{
         $(ended).fadeIn(300)
         $(video).animate({opacity: 0}, 300)
         $(section).css('padding-bottom','0px')
+        minifyVideo(video)
     });
 }
 
 function playVideo(video,button) {
   $(video).trigger('play')
-  $(button).hide()
-  $(button).siblings().show()
+  if (button) {
+    $(button).hide()
+    $(button).siblings().show()
+  }
 }
 
 function pauseVideo(video,button) {
   $(video).trigger('pause')
-  $(button).hide()
-  $(button).siblings().show()
+  if (button) {
+    $(button).hide()
+    $(button).siblings().show()
+  }
 }
 
 function expandVideo(container,button) {
   $(container).addClass('expanded')
-  $(button).hide()
-  $(button).siblings().show()
-  $(button).closest('.section-layout').css('min-height','100vh')
+  if (button) {
+    $(button).hide()
+    $(button).siblings().show()
+    $(button).closest('.section-layout').css('min-height','100vh')
+  }
 }
 
 function minifyVideo(container,button) {
   $(container).removeClass('expanded')
-  $(button).hide()
-  $(button).siblings().show()
-  $(button).closest('.section-layout').css('min-height','1vh')
+  if (button) {
+    $(button).hide()
+    $(button).siblings().show()
+    $(button).closest('.section-layout').css('min-height','1vh')
+  }
 }
 
 function muteVideo(video,button) {
   $(video).prop('muted',true);
-  $(button).hide()
-  $(button).siblings().show()
+  if (button) {
+    $(button).hide()
+    $(button).siblings().show()
+  }
 }
 
 function unmuteVideo(video,button) {
   $(video).prop('muted',false);
-  $(button).hide()
-  $(button).siblings().show()
+  if (button) {
+    $(button).hide()
+    $(button).siblings().show()
+  }
 }
 
 
