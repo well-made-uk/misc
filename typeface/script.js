@@ -1,12 +1,3 @@
-// Detect slow connections
-
-let highSpeed = true
-
-let speedTest = window.setTimeout( function() {
-  highSpeed = false
-  console.log('Timed out')
-}, 10 );
-
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
