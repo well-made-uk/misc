@@ -19,12 +19,30 @@ Webflow.push(function () {
     const container = $(button).closest('.video-inner')
     minifyVideo(container,button)
   })
+
+  // Play/Pause buttons
+  $('[data-transport-play]').click((e)=>{
+    const button = e.target
+    const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
+    if ($(videoContainer).find(video)) {
+      playVideo($(videoContainer).find(video),button)
+    } else {
+      initVideo($(videoContainer).find(img))
+      playVideo($(videoContainer).find(video),button)
+    }
+
+  })
+  $('[data-transport-pause]').click((e)=>{
+    const button = e.target
+    const container = $(button).closest('.video-inner').find(video)
+    minifyVideo(video,button)
+  })
 })
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
   $(image).replace(```
-    <video aria-label="Video" autoplay muted style="width:100%;height:100%;background:black;object-fit:cover;transition:all 0.4s ease">
+    <video aria-label="Video" autoplay muted style="width:100%;height:100%;background:black;object-fit:cover">
     	<source src="${src}" type="video/mp4">
     	Your browser does not support the video tag.
     </video>
