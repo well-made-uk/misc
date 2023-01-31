@@ -25,7 +25,7 @@ Webflow.push(function () {
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     console.log($(videoContainer).find('video').length)
-    if ($(videoContainer).find('video').length() > 0) {
+    if ($(videoContainer).find('video').length) {
       playVideo($(videoContainer).find('video'),button)
     } else {
       initVideo($(videoContainer).find(img))
