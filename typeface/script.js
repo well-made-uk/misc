@@ -148,8 +148,13 @@ Webflow.push(function () {
   })
   $('[data-open-modal]').click((e)=>{
     if (!$('#video-modal').find('video').length) {
-      initVideo($('#video-modal').find('img'))
-      playVideo($('#video-modal').find('video'),button)
+      const image = $('#video-modal').find('img')
+      const src = image.attr('data-video-url')
+      $(image).replaceWith(`<video aria-label="Video" muted style="width:100%;height:100%;background:black;object-fit:cover">
+        	<source src="${src}" type="video/mp4">
+        	Your browser does not support the video tag.
+        </video>`)
+      playVideo($('#video-modal').find('video'))
     }
     $('#video-modal').fadeIn(200)
   })
