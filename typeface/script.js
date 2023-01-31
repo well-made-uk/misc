@@ -148,7 +148,7 @@ Webflow.push(function () {
   })
   $('[data-open-modal]').click((e)=>{
     if (!$('#video-modal').find('video').length) {
-      const image = $('#video-modal').find('img')
+      const image = $('#video-modal').find('[data-video-url]')
       const src = image.attr('data-video-url')
       $(image).replaceWith(`<video aria-label="Video" style="width:100%;height:100%;background:black;object-fit:cover">
         	<source src="${src}" type="video/mp4">
