@@ -167,7 +167,7 @@ Webflow.push(function () {
   console.log(connection + ' connection detected.')
 
   if (connection == 'fast') {
-    $('[data-transport-expand]').click()
-    $('[data-transport-play]').click()
+    $('[data-video-id=main] [data-transport-expand]').click()
+    $('[data-video-id=main] [data-transport-play]').click()
   }
 })
