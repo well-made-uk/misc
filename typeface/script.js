@@ -43,7 +43,7 @@ function expandVideo(container,button) {
     $(button).hide()
     $(button).siblings().show()
   }
-  $(container).scroll()
+  $(container).get(0).scrollIntoView({behavior: 'smooth'});
 }
 
 function minifyVideo(container,button) {
