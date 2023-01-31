@@ -30,7 +30,7 @@ function playVideo(video,button) {
 
 function pauseVideo(video,button) {
   $(video).trigger('pause')
-  if (button && !$(button).attr('[data-close-modal]')) {
+  if (button && !$(button).is('[data-close-modal]')) {
     $(button).hide()
     $(button).siblings().show()
   }
