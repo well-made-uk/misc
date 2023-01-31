@@ -1,4 +1,4 @@
-const videoPostOffset = 100
+let videoPostOffset = 100
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
