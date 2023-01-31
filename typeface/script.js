@@ -24,7 +24,7 @@ Webflow.push(function () {
   $('[data-transport-play]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if ($(videoContainer).find('video')) {
+    if ($(videoContainer).find('video').length() > 0) {
       playVideo($(videoContainer).find('video'),button)
     } else {
       initVideo($(videoContainer).find(img))
@@ -34,7 +34,7 @@ Webflow.push(function () {
   $('[data-transport-pause]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if ($(videoContainer).find('video')) {
+    if ($(videoContainer).find('video').length() > 0) {
       pauseVideo($(videoContainer).find('video'),button)
     } else {
       initVideo($(videoContainer).find(img))
