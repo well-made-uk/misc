@@ -116,4 +116,9 @@ Webflow.push(function () {
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
   $('body').append(`<style>.video-inner {opacity:1;top:${navOffset+videoContentOffset}px;transition:all 0.5s ease;}</style>`)
   console.log(connection + ' connection detected.')
+
+  if (connection == 'fast') {
+    $('[data-video-expand]').each(click())
+    $('[data-video-play]').each(click())
+  }
 })
