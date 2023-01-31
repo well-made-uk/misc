@@ -37,19 +37,19 @@ function pauseVideo(video,button) {
 
 function expandVideo(container,button) {
   $(container).addClass('expanded')
+  $(container).closest('.section-layout').css('min-height','100vh')
   if (button) {
     $(button).hide()
     $(button).siblings().show()
-    $(button).closest('.section-layout').css('min-height','100vh')
   }
 }
 
 function minifyVideo(container,button) {
   $(container).removeClass('expanded')
+  $(container).closest('.section-layout').css('min-height','1vh')
   if (button) {
     $(button).hide()
     $(button).siblings().show()
-    $(button).closest('.section-layout').css('min-height','1vh')
   }
 }
 
