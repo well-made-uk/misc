@@ -54,15 +54,25 @@ Webflow.push(function () {
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
   $('body').append(`<style>.video-inner {padding-top:${navOffset+videoContentOffset}px}`)
 
+  
+
   // Expand/Minify buttons
   $('[data-transport-expand]').click((e)=>{
     const button = e.target
     const container = $(button).closest('.video-inner')
+    const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
+    if (!$(videoContainer).find('video').length) {
+      initVideo($(videoContainer).find('img'))
+    }
     expandVideo(container,button)
   })
   $('[data-transport-minify]').click((e)=>{
     const button = e.target
     const container = $(button).closest('.video-inner')
+    const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
+    if (!$(videoContainer).find('video').length) {
+      initVideo($(videoContainer).find('img'))
+    }
     minifyVideo(container,button)
   })
 
@@ -70,43 +80,35 @@ Webflow.push(function () {
   $('[data-transport-mute]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if ($(videoContainer).find('video').length) {
-      muteVideo($(videoContainer).find('video'),button)
-    } else {
+    if (!$(videoContainer).find('video').length) {
       initVideo($(videoContainer).find('img'))
-      muteVideo($(videoContainer).find('video'),button)
     }
+    muteVideo($(videoContainer).find('video'),button)
   })
   $('[data-transport-unmute]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if ($(videoContainer).find('video').length) {
-      unmuteVideo($(videoContainer).find('video'),button)
-    } else {
+    if (!$(videoContainer).find('video').length) {
       initVideo($(videoContainer).find('img'))
-      unmuteVideo($(videoContainer).find('video'),button)
     }
+    unmuteVideo($(videoContainer).find('video'),button)
   })
 
   // Play/Pause buttons
   $('[data-transport-play]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if ($(videoContainer).find('video').length) {
-      playVideo($(videoContainer).find('video'),button)
-    } else {
+    if (!$(videoContainer).find('video').length) {
       initVideo($(videoContainer).find('img'))
-      playVideo($(videoContainer).find('video'),button)
     }
+    playVideo($(videoContainer).find('video'),button)
   })
   $('[data-transport-pause]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if ($(videoContainer).find('video').length) {
-      pauseVideo($(videoContainer).find('video'),button)
-    } else {
+    if (!$(videoContainer).find('video').length) {
       initVideo($(videoContainer).find('img'))
-      pauseVideo($(videoContainer).find('video'),button)
     }
+    pauseVideo($(videoContainer).find('video'),button)
   })
 })
