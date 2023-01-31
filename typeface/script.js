@@ -45,6 +45,7 @@ Webflow.push(function () {
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
+  console.log(image)
   $(image).replaceWith(```
     <video aria-label="Video" autoplay muted style="width:100%;height:100%;background:black;object-fit:cover">
     	<source src="${src}" type="video/mp4">
