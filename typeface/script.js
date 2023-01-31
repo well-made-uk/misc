@@ -30,12 +30,16 @@ Webflow.push(function () {
       initVideo($(videoContainer).find(img))
       playVideo($(videoContainer).find('video'),button)
     }
-
   })
   $('[data-transport-pause]').click((e)=>{
     const button = e.target
-    const container = $(button).closest('.video-inner').find(video)
-    minifyVideo(video,button)
+    const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
+    if ($(videoContainer).find('video')) {
+      pauseVideo($(videoContainer).find('video'),button)
+    } else {
+      initVideo($(videoContainer).find(img))
+      pauseVideo($(videoContainer).find('video'),button)
+    }
   })
 })
 
