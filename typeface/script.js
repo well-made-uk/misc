@@ -4,10 +4,12 @@ let highSpeed = true
 
 let speedTest = window.setTimeout( function() {
   highSpeed = false
+  console.log('Starting timer')
 }, 10 );
 
 window.addEventListener( 'load', function() {
   window.clearTimeout( speedTest );
+  console.log('Stopping timer')
 }, false );
 
 
