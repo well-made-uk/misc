@@ -41,7 +41,7 @@ Webflow.push(function () {
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
-  $(image).replace(```
+  $(image).replaceWith(```
     <video aria-label="Video" autoplay muted style="width:100%;height:100%;background:black;object-fit:cover">
     	<source src="${src}" type="video/mp4">
     	Your browser does not support the video tag.
@@ -52,13 +52,13 @@ function initVideo(image) {
 function playVideo(video,button) {
   $(video).trigger('play')
   $(button).hide()
-  $(button).siblings().hide()
+  $(button).siblings().show()
 }
 
 function pauseVideo(video,button) {
   $(video).trigger('pause')
   $(button).hide()
-  $(button).siblings().hide()
+  $(button).siblings().show()
 }
 
 function expandVideo(container,button) {
