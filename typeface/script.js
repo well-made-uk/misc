@@ -25,10 +25,10 @@ Webflow.push(function () {
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if ($(videoContainer).find(video)) {
-      playVideo($(videoContainer).find(video),button)
+      playVideo($(videoContainer).find('video'),button)
     } else {
       initVideo($(videoContainer).find(img))
-      playVideo($(videoContainer).find(video),button)
+      playVideo($(videoContainer).find('video'),button)
     }
 
   })
