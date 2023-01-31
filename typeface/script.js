@@ -43,6 +43,7 @@ function expandVideo(container,button) {
     $(button).hide()
     $(button).siblings().show()
   }
+  $(container).scroll()
 }
 
 function minifyVideo(container,button) {
