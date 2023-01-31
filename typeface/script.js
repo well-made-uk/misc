@@ -11,7 +11,7 @@ function initVideo(image) {
   const video = $(videoInner).find('video')
   $(video).on('ended',()=>{
       $(ended).fadeIn(300)
-      $(videoInner).find('video-wrap').fadeOut(300)
+      $(videoInner).find('.video-wrap').fadeOut(300)
       $(videoInner).css('height','50px')
       $(section).css('padding-bottom','0px')
       minifyVideo(video)
