@@ -54,7 +54,7 @@ Webflow.push(function () {
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
   $('body').append(`<style>.video-inner {padding-top:${navOffset+videoContentOffset}px}`)
 
-  
+
 
   // Expand/Minify buttons
   $('[data-transport-expand]').click((e)=>{
@@ -111,4 +111,6 @@ Webflow.push(function () {
     }
     pauseVideo($(videoContainer).find('video'),button)
   })
+
+  $('.video-inner').css('height','520px')
 })
