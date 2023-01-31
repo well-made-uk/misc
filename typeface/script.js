@@ -64,7 +64,7 @@ Webflow.push(function () {
 
   window.clearTimeout( speedTest );
   console.log('Stopping timer');
-  if (window.navigator.connection.effectiveType.endsWith("2g") {
+  if (window.navigator.connection.effectiveType.endsWith("2g")) {
     highSpeed = false
   }
 
