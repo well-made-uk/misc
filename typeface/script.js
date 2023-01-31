@@ -39,18 +39,18 @@ function pauseVideo(video,button) {
 function expandVideo(container,button) {
   $(container).addClass('expanded')
   $(container).closest('.section-layout').css('min-height','100vh')
+  $('.w-nav').slideDown(500)
   if (button) {
     $(button).hide()
     $(button).siblings().show()
   }
-
-  console.log($(container).closest('.section-layout').get(0))
   $(container).closest('.section-layout').get(0).scrollIntoView();
 }
 
 function minifyVideo(container,button) {
   $(container).removeClass('expanded')
   $(container).closest('.section-layout').css('min-height','1vh')
+  $('.w-nav').slideUp(500)
   if (button) {
     $(button).hide()
     $(button).siblings().show()
