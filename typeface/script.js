@@ -84,6 +84,8 @@ Webflow.push(function () {
   window.clearTimeout( speedTest );
   $('.video-post-wrap').css('display','flex')
   $('.video-post-wrap').hide()
+  $('.video-modal').css('display','flex')
+  $('.video-modal').hide()
   // Expand/Minify buttons
   $('[data-transport-expand]').click((e)=>{
     const button = e.target
