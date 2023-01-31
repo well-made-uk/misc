@@ -140,6 +140,18 @@ Webflow.push(function () {
     pauseVideo($(videoContainer).find('video'),button)
   })
 
+  // Close modal
+  $('[data-close-modal]').click((e)=>{
+    $('#video-modal').fadeOut(200)
+  })
+  $('[data-open-modal]').click((e)=>{
+    if (!$('#video-modal').find('video').length) {
+      initVideo($('#video-modal').find('img'))
+      playVideo($('#video-modal').find('video'),button)
+    }
+    $('#video-modal').fadeIn(200)
+  })
+
   const navOffset = $('.w-nav').outerHeight()
   const videoContentOffset = $('.video-heading').outerHeight()
   videoPostOffset = $('.video-post-wrap').outerHeight()
