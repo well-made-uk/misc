@@ -11,18 +11,48 @@ Webflow.push(function () {
   // Expand/Minify buttons
   $('[data-transport-expand]').click((e)=>{
     const button = e.target
-    const videoID = $(button).attr('data-transport-expand')
-    $(`[data-video-id=${videoID}]`).addClass('expanded')
-    $(button).hide()
-    $(button).siblings().show()
-    $(button).closest('.section-layout').css('min-height','100vh')
+    const container = $(button).closest('.video-inner')
+    expandVideo(container,button)
   })
   $('[data-transport-minify]').click((e)=>{
     const button = e.target
-    const videoID = $(button).attr('data-transport-minify')
-    $(`[data-video-id=${videoID}]`).removeClass('expanded')
-    $(button).hide()
-    $(button).siblings().show()
-    $(button).closest('.section-layout').css('min-height','1vh')
+    const container = $(button).closest('.video-inner')
+    minifyVideo(container,button)
   })
 })
+
+function initVideo(image) {
+  const src = $(image).attr('data-video-url')
+  $(image).replace(```
+    <video aria-label="Video" autoplay muted style="width:100%;height:100%;background:black;object-fit:cover;transition:all 0.4s ease">
+    	<source src="${src}" type="video/mp4">
+    	Your browser does not support the video tag.
+    </video>
+  ```)
+}
+
+function playVideo(video,button) {
+  $(video).trigger('play')
+  $(button).hide()
+  $(button).siblings().hide()
+}
+
+function pauseVideo(video,button) {
+  $(video).trigger('pause')
+  $(button).hide()
+  $(button).siblings().hide()
+}
+
+function expandVideo(container,button) {
+  $(container).addClass('expanded')
+  $(button).hide()
+  $(button).siblings().show()
+  $(button).closest('.section-layout').css('min-height','100vh')
+}
+
+function minifyVideo(container,button) {
+  $(container).removeClass('expanded')
+  $(button).hide()
+  $(button).siblings().show()
+  $(button).closest('.section-layout').css('min-height','1vh')
+}
