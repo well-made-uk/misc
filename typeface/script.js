@@ -1,3 +1,4 @@
+const videoPostOffset = 100
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
@@ -15,8 +16,7 @@ function initVideo(image) {
       $(videoInner).css('height','auto')
       $(section).css('padding-bottom',videoPostOffset)
       $('.as-seen-on').slideUp(300)
-      $(videoInner).removeClass('expanded')
-      $(videoInner).closest('.section-layout').css('min-height','1vh')
+      minifyVideo(videoInner)
   });
 }
 
@@ -139,7 +139,7 @@ Webflow.push(function () {
 
   const navOffset = $('.w-nav').outerHeight()
   const videoContentOffset = $('.video-heading').outerHeight()
-  const videoPostOffset = $('.video-post-wrap').outerHeight()
+  videoPostOffset = $('.video-post-wrap').outerHeight()
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
   $('body').append(`<style>.video-inner {opacity:1;top:${navOffset+videoContentOffset}px;transition:all 0.5s ease;}</style>`)
   console.log(connection + ' connection detected.')
