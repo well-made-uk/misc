@@ -108,7 +108,7 @@ Webflow.push(function () {
     pauseVideo($(videoContainer).find('video'),button)
   })
 
-  const navOffset = $('.w-nav').height()
+  const navOffset = $('.w-nav').outerHeight()
   const videoContentOffset = $('#video-content').outerHeight()
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
   $('body').append(`<style>.video-inner {opacity:1;padding-top:${navOffset+videoContentOffset}px;transition:all 0.5s ease;}</style>`)
