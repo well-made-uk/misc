@@ -8,14 +8,14 @@ function initVideo(image) {
     	<source src="${src}" type="video/mp4">
     	Your browser does not support the video tag.
     </video>`)
-    const newVideo = $(`video[src="${src}"]`)
-    console.log(newVideo)
-    $(newVideo).on('ended',()=>{
-        $(ended).fadeIn(300)
-        $(video).animate({opacity: 0}, 300)
-        $(section).css('padding-bottom','0px')
-        minifyVideo(video)
-    });
+  const newVideo = $(`video[src="${src}"]`)
+  console.log(newVideo)
+  $(newVideo).on('ended',()=>{
+      $(ended).fadeIn(300)
+      $(video).animate({opacity: 0}, 300)
+      $(section).css('padding-bottom','0px')
+      minifyVideo(video)
+  });
 }
 
 function playVideo(video,button) {
