@@ -15,7 +15,8 @@ function initVideo(image) {
       $(videoInner).css('height','auto')
       $(section).css('padding-bottom',videoPostOffset)
       $('.as-seen-on').slideUp(300)
-      minifyVideo(videoInner)
+      $(videoInner).removeClass('expanded')
+      $(videoInner).closest('.section-layout').css('min-height','1vh')
   });
 }
 
