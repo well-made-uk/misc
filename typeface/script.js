@@ -1,10 +1,19 @@
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
+  const ended = $(image).closest('.video-wrap').siblings('.video-post-wrap')
+  const video = $(image).closest('.video-inner')
+  const section = $(image).closest('.section-layout')
   $(image).replaceWith(`<video aria-label="Video" autoplay muted style="width:100%;height:100%;background:black;object-fit:cover">
     	<source src="${src}" type="video/mp4">
     	Your browser does not support the video tag.
     </video>`)
+    const newVideo = $(`[src="${src}"]`)
+    $(newVideo).on('ended',()=>{
+        $(ended).fadeIn(300)
+        $(video).animate({opacity: 0}, 300)
+        $(section).css('padding-bottom','0px')
+    });
 }
 
 function playVideo(video,button) {
@@ -54,7 +63,8 @@ Webflow.push(function () {
 
 
   window.clearTimeout( speedTest );
-
+  $('.video-post-wrap').css('display','flex')
+  $('.video-post-wrap').hide()
   // Expand/Minify buttons
   $('[data-transport-expand]').click((e)=>{
     const button = e.target
