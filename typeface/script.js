@@ -15,6 +15,7 @@ Webflow.push(function () {
     $(`[data-video-id=${videoID}]`).addClass('expanded')
     $(button).hide()
     $(button).siblings().show()
+    $(button).closest('.section-layout').css('min-height','100vh')
   })
   $('[data-transport-minify]').click((e)=>{
     const button = e.target
@@ -22,5 +23,6 @@ Webflow.push(function () {
     $(`[data-video-id=${videoID}]`).removeClass('expanded')
     $(button).hide()
     $(button).siblings().show()
+    $(button).closest('.section-layout').css('min-height','1vh')
   })
 })
