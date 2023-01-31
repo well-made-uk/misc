@@ -156,10 +156,10 @@ Webflow.push(function () {
         	<source src="${src}" type="video/mp4">
         	Your browser does not support the video tag.
         </video>`)
+      }
       playVideo($('#video-modal').find('video'))
-    }
-    $('#video-modal').fadeIn(200)
-    $('#video-modal').find('video').on('ended',()=>{
+      $('#video-modal').fadeIn(200)
+      $('#video-modal').find('video').on('ended',()=>{
       pauseVideo($('#video-modal').find('video'))
       $('#video-modal').fadeOut(200)
     })
