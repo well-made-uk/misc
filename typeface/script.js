@@ -54,7 +54,6 @@ Webflow.push(function () {
 
 
   window.clearTimeout( speedTest );
-  console.log('Stopping timer');
 
   // Expand/Minify buttons
   $('[data-transport-expand]').click((e)=>{
@@ -116,5 +115,5 @@ Webflow.push(function () {
   const videoContentOffset = $('.video-heading').outerHeight()
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
   $('body').append(`<style>.video-inner {opacity:1;top:${navOffset+videoContentOffset}px;transition:all 0.5s ease;}</style>`)
-  console.log('highspeed: ' + highSpeed)
+  console.log(connection + ' connection detected.')
 })
