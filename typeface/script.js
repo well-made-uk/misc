@@ -28,7 +28,7 @@ Webflow.push(function () {
     if ($(videoContainer).find('video').length) {
       playVideo($(videoContainer).find('video'),button)
     } else {
-      initVideo($(videoContainer).find(img))
+      initVideo($(videoContainer).find('img'))
       playVideo($(videoContainer).find('video'),button)
     }
   })
@@ -38,7 +38,7 @@ Webflow.push(function () {
     if ($(videoContainer).find('video').length) {
       pauseVideo($(videoContainer).find('video'),button)
     } else {
-      initVideo($(videoContainer).find(img))
+      initVideo($(videoContainer).find('img'))
       pauseVideo($(videoContainer).find('video'),button)
     }
   })
