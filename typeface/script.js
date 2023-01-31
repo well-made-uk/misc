@@ -39,7 +39,7 @@ function pauseVideo(video,button) {
 function expandVideo(container,button) {
   $(container).addClass('expanded')
   $(container).closest('.section-layout').css('min-height','100vh')
-  $('.w-nav').slideDown(500)
+  $('.w-nav').slideUp(500)
   if (button) {
     $(button).hide()
     $(button).siblings().show()
@@ -50,7 +50,7 @@ function expandVideo(container,button) {
 function minifyVideo(container,button) {
   $(container).removeClass('expanded')
   $(container).closest('.section-layout').css('min-height','1vh')
-  $('.w-nav').slideUp(500)
+  $('.w-nav').slideDown(500)
   if (button) {
     $(button).hide()
     $(button).siblings().show()
