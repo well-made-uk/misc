@@ -4,13 +4,8 @@ let highSpeed = true
 
 let speedTest = window.setTimeout( function() {
   highSpeed = false
-  console.log('Starting timer')
+  console.log('Timed out')
 }, 10 );
-
-window.addEventListener( 'load', function() {
-  window.clearTimeout( speedTest );
-  console.log('Stopping timer')
-}, false );
 
 
 function initVideo(image) {
@@ -66,6 +61,12 @@ var Webflow = Webflow || [];
 Webflow.push(function () {
 
 
+
+  window.clearTimeout( speedTest );
+  console.log('Stopping timer');
+  if (window.navigator.connection.effectiveType.endsWith("2g") {
+    highSpeed = false
+  }
 
   // Expand/Minify buttons
   $('[data-transport-expand]').click((e)=>{
