@@ -4,6 +4,23 @@
 var Webflow = Webflow || [];
 Webflow.push(function () {
   const navOffset = $('.w-nav').height()
-  $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset} + 2rem)`)
-  console.log(`calc(${navOffset} + 2rem)`)
+  const videoContentOffset = $('#video-content').height()
+  $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
+  $('body').append(`<style>.video-inner {padding-top:${navOffset+videoContentOffset}px}`)
+
+  // Expand/Minify buttons
+  $('[data-transport-expand]').click((e)=>{
+    const button = e.target
+    const videoID = $(button).attr('data-transport-expand')
+    $(`[data-video-id=${videoID}]`).addClass('expanded')
+    $(button).hide()
+    $(button).siblings().show()
+  })
+  $('[data-transport-minify]').click((e)=>{
+    const button = e.target
+    const videoID = $(button).attr('data-transport-minify')
+    $(`[data-video-id=${videoID}]`).removeClass('expanded')
+    $(button).hide()
+    $(button).siblings().show()
+  })
 })
