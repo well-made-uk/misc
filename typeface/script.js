@@ -111,5 +111,5 @@ Webflow.push(function () {
   const navOffset = $('.w-nav').outerHeight()
   const videoContentOffset = $('#video-content').outerHeight()
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
-  $('body').append(`<style>.video-inner {opacity:1;padding-top:${navOffset+videoContentOffset}px;transition:all 0.5s ease;}</style>`)
+  $('body').append(`<style>.video-inner {opacity:1;padding-bottom:${navOffset+videoContentOffset+520}px;padding-top:${navOffset+videoContentOffset}px;transition:all 0.5s ease;}</style>`)
 })
