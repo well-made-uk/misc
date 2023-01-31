@@ -49,10 +49,6 @@ function unmuteVideo(video,button) {
 // Start document.loaded stuff
 var Webflow = Webflow || [];
 Webflow.push(function () {
-  const navOffset = $('.w-nav').height()
-  const videoContentOffset = $('#video-content').height()
-  $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
-  $('body').append(`<style>.video-inner {padding-top:${navOffset+videoContentOffset}px}`)
 
 
 
@@ -112,5 +108,8 @@ Webflow.push(function () {
     pauseVideo($(videoContainer).find('video'),button)
   })
 
-  $('.video-inner').css('height','520px')
+  const navOffset = $('.w-nav').height()
+  const videoContentOffset = $('#video-content').height()
+  $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
+  $('body').append(`.video-inner {height:520px;padding-top:${navOffset+videoContentOffset}px;transition:all 0.5s ease}`)
 })
