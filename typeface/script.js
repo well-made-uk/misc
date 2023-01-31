@@ -1,19 +1,17 @@
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
-  const ended = $(image).closest('.video-wrap').siblings('.video-post-wrap')
   const videoInner = $(image).closest('.video-inner')
-  console.log(videoInner)
+  const ended = $(videoInner).find('.video-post-wrap')
   const section = $(image).closest('.section-layout')
   $(image).replaceWith(`<video aria-label="Video" autoplay muted style="width:100%;height:100%;background:black;object-fit:cover">
     	<source src="${src}" type="video/mp4">
     	Your browser does not support the video tag.
     </video>`)
   const video = $(videoInner).find('video')
-  console.log(video)
   $(video).on('ended',()=>{
       $(ended).fadeIn(300)
-      $(video).animate({opacity: 0}, 300)
+      $(video).fadeOut(300)
       $(section).css('padding-bottom','0px')
       minifyVideo(video)
   });
