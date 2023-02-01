@@ -148,7 +148,7 @@ Webflow.push(function () {
     $('#video-modal').fadeOut(200)
   })
   $('[data-open-modal]').click((e)=>{
-    if (!$('#video-modal').find('video').length) {
+    if ($('#video-modal').find('video').length == 0) {
       const image = $('#video-modal').find('[data-video-url]')
       const src = image.attr('data-video-url')
       $(image).replaceWith(`<video aria-label="Video" style="width:100%;height:100%;background:black;object-fit:cover">
@@ -160,8 +160,7 @@ Webflow.push(function () {
           $('#video-modal').fadeOut(200)
         })
     }
-    $('#video-modal').find('[data-transport-play]').click()
-    $('#video-modal').fadeIn(200)
+    $('#video-modal').fadeIn(200,()=>{$('#video-modal').find('[data-transport-play]').click()})
   })
 
   const navOffset = $('.w-nav').outerHeight()
