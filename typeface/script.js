@@ -144,7 +144,7 @@ Webflow.push(function () {
 
   // Close modal
   $('[data-close-modal]').click((e)=>{
-    $('#video-modal').find('[data-transport-pause]').click()
+    $('#video-modal').find('[data-transport-pause]')[0].click()
     $('#video-modal').fadeOut(200)
   })
   $('[data-open-modal]').click((e)=>{
@@ -156,7 +156,7 @@ Webflow.push(function () {
         	Your browser does not support the video tag.
         </video>`)
         $('#video-modal').find('video').on('ended',()=>{
-          $('#video-modal').find('[data-transport-pause]').click()
+          $('#video-modal').find('[data-transport-pause]')[0].click()
           $('#video-modal').fadeOut(200)
         })
     }
