@@ -159,7 +159,6 @@ Webflow.push(function () {
     $('#video-modal').fadeIn(200, ()=>{$('#video-modal').find('[data-transport-play]').click()})
     $('#video-modal').find('video').on('ended',()=>{
       $('#video-modal').fadeOut(200, ()=>{$('#video-modal').find('[data-transport-pause]').click()})
-      });
     })
   })
 
