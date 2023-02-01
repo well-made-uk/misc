@@ -86,8 +86,6 @@ Webflow.push(function () {
   window.clearTimeout( speedTest );
   $('.video-post-wrap').css('display','flex')
   $('.video-post-wrap').hide()
-  $('.video-modal').css('display','flex')
-  $('.video-modal').hide()
   // Expand/Minify buttons
   $('[data-transport-expand]').click((e)=>{
     const button = e.target
@@ -146,8 +144,13 @@ Webflow.push(function () {
 
   // Close modal
   $('[data-close-modal]').click((e)=>{
-    $('#video-modal').fadeOut(200)
-    $('#video-modal').find('[data-transport-pause]').click()
+    $('#video-modal').animate({
+      opacity: 0,
+      display: 'none'
+    }, 200, ()=>{
+      $('#video-modal').css('display','none')
+      $('#video-modal').find('[data-transport-pause]').click()
+    });
   })
   $('[data-open-modal]').click((e)=>{
     if (!$('#video-modal').find('video').length) {
@@ -159,10 +162,19 @@ Webflow.push(function () {
         </video>`)
     }
     $('#video-modal').find('[data-transport-play]').click()
-    $('#video-modal').fadeIn(200)
+    $('#video-modal').css('display','flex')
+    $('#video-modal').animate({
+      opacity: 1
+    }, 200);
     $('#video-modal').find('video').on('ended',()=>{
       $('#video-modal').find('[data-transport-pause]').click()
-      $('#video-modal').fadeOut(200)
+      $('#video-modal').animate({
+        opacity: 0,
+        display: 'none'
+      }, 200, ()=>{
+        $('#video-modal').css('display','none')
+        $('#video-modal').find('[data-transport-pause]').click()
+      });
     })
   })
 
