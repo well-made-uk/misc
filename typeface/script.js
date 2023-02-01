@@ -144,7 +144,8 @@ Webflow.push(function () {
 
   // Close modal
   $('[data-close-modal]').click((e)=>{
-    $('#video-modal').fadeOut(200, ()=>{$('#video-modal').find('[data-transport-pause]').click()})
+    $('#video-modal').find('[data-transport-pause]').click()
+    $('#video-modal').fadeOut(200)
   })
   $('[data-open-modal]').click((e)=>{
     if (!$('#video-modal').find('video').length) {
@@ -154,11 +155,13 @@ Webflow.push(function () {
         	<source src="${src}" type="video/mp4">
         	Your browser does not support the video tag.
         </video>`)
+        $('#video-modal').find('video').on('ended',()=>{
+          $('#video-modal').find('[data-transport-pause]').click()
+          $('#video-modal').fadeOut(200)
+        })
     }
-    $('#video-modal').fadeIn(200, ()=>{$('#video-modal').find('[data-transport-play]').click()})
-    $('#video-modal').find('video').on('ended',()=>{
-      $('#video-modal').fadeOut(200, ()=>{$('#video-modal').find('[data-transport-pause]').click()})
-    })
+    $('#video-modal').find('[data-transport-play]').click()
+    $('#video-modal').fadeIn(200)
   })
 
   const navOffset = $('.w-nav').outerHeight()
