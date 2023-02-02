@@ -12,7 +12,7 @@ function initVideo(image) {
   const video = $(videoInner).find('video')
   $(video).on('ended',()=>{
       $(ended).fadeIn(300)
-      $(videoInner).find('.video-wrap').fadeOut(300)
+      $(videoInner).find('.video-wrap').fadeOut(300,()=>{$(videoInner).find('.video-wrap').remove()})
       $(videoInner).css('height','auto')
       $(section).css('padding-bottom',videoPostOffset)
       $('.as-seen-on').slideUp(300)
