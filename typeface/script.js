@@ -176,7 +176,7 @@ Webflow.push(function () {
   if (connection == 'fast' && window.innerWidth > 767) {
     $('[data-video-id=main] [data-transport-expand]').click()
     $('[data-video-id=main] [data-transport-play]').click()
-  } else (window.innerWidth < 767) {
+  } else if (window.innerWidth < 767) {
     $('#video-modal').find('[data-transport-play]').click()
   }
 })
