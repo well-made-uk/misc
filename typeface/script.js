@@ -178,5 +178,6 @@ Webflow.push(function () {
     $('[data-video-id=main] [data-transport-play]').click()
   } else if (window.innerWidth < 767) {
     $('#video-modal').find('[data-transport-play]').click()
+    $('[data-video-ended]').css('display','flex')
   }
 })
