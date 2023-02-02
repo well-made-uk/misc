@@ -177,6 +177,6 @@ Webflow.push(function () {
     $('[data-video-id=main] [data-transport-expand]').click()
     $('[data-video-id=main] [data-transport-play]').click()
   } else (window.innerWidth < 767) {
-    $('#video-modal').fadeIn(200,()=>{$('#video-modal').find('[data-transport-play]').click()})
+    $('#video-modal').find('[data-transport-play]').click()
   }
 })
