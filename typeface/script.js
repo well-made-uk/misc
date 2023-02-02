@@ -14,10 +14,10 @@ function initVideo(image) {
       $(ended).fadeIn(300)
       if (window.innerWidth > 767) {
         $(videoInner).find('.video-wrap').fadeOut(300,()=>{$(videoInner).find('.video-wrap').remove()})
+        $(videoInner).css('height','auto')
+        $('.as-seen-on').slideUp(300)
       }
-      $(videoInner).css('height','auto')
       $(section).css('padding-bottom',videoPostOffset)
-      $('.as-seen-on').slideUp(300)
       minifyVideo(videoInner)
   });
 }
@@ -181,5 +181,9 @@ Webflow.push(function () {
   } else if (window.innerWidth < 767) {
     $('#video-modal').find('[data-transport-play]').click()
     $('[data-video-ended]').css('display','flex')
+    $('#video-modal').find('video').on('ended',()=>{
+      $('#video-modal').find('[data-transport-pause]')[0].click()
+      $('#video-modal').fadeOut(200)
+    })
   }
 })
