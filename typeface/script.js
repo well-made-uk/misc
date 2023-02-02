@@ -180,7 +180,7 @@ Webflow.push(function () {
     $('[data-video-id=main] [data-transport-play]').click()
   } else if (window.innerWidth < 767) {
     const src = $('#video-modal').find('[data-video-url]').attr('data-video-url')
-    $('#video-modal').find('[data-video-url]').replaceWith(`<video aria-label="Video" muted style="width:100%;height:100%;background:black;object-fit:cover">
+    $('#video-modal').find('[data-video-url]').replaceWith(`<video aria-label="Video" autoplay style="width:100%;height:100%;background:black;object-fit:cover">
       	<source src="${src}" type="video/mp4">
       	Your browser does not support the video tag.
       </video>`)
