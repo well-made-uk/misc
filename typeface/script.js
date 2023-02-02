@@ -173,7 +173,7 @@ Webflow.push(function () {
   $('body').append(`<style>.video-inner {opacity:1;top:${navOffset+videoContentOffset}px;transition:all 0.5s ease;}</style>`)
   console.log(connection + ' connection detected.')
 
-  if (connection == 'fast') {
+  if (connection == 'fast' && window.innerWidth > 767) {
     $('[data-video-id=main] [data-transport-expand]').click()
     $('[data-video-id=main] [data-transport-play]').click()
   }
