@@ -10,16 +10,14 @@ function initVideo(image) {
     	Your browser does not support the video tag.
     </video>`)
   const video = $(videoInner).find('video')
-  if ( !$(video).attr('data-video-id','modal') ) {
-    $(video).on('ended',()=>{
-        $(ended).fadeIn(300)
-        $(videoInner).find('.video-wrap').fadeOut(300,()=>{$(videoInner).find('.video-wrap').remove()})
-        $(videoInner).css('height','auto')
-        $(section).css('padding-bottom',videoPostOffset)
-        $('.as-seen-on').slideUp(300)
-        minifyVideo(videoInner)
-    });
-  }
+  $(video).on('ended',()=>{
+      $(ended).fadeIn(300)
+      $(videoInner).find('.video-wrap').fadeOut(300,()=>{$(videoInner).find('.video-wrap').remove()})
+      $(videoInner).css('height','auto')
+      $(section).css('padding-bottom',videoPostOffset)
+      $('.as-seen-on').slideUp(300)
+      minifyVideo(videoInner)
+  });
 }
 
 function playVideo(video,button) {
