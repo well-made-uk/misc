@@ -141,6 +141,9 @@ Webflow.push(function () {
     }
     pauseVideo($(videoContainer).find('video'),button)
   })
+  $('.data-learn-more-button').click((e)=>{
+    $('[data-transport-minify]').click()
+  })
 
   // Close modal
   $('[data-close-modal]').click((e)=>{
