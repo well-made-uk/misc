@@ -10,7 +10,7 @@ function initVideo(image) {
     	Your browser does not support the video tag.
     </video>`)
   const video = $(videoInner).find('video')
-  $(video).on('ended',()=>{
+  $(video+':not([data-video-id=modal])').on('ended',()=>{
       $(ended).fadeIn(300)
       $(videoInner).find('.video-wrap').fadeOut(300,()=>{$(videoInner).find('.video-wrap').remove()})
       $(videoInner).css('height','auto')
