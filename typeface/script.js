@@ -10,7 +10,7 @@ function initVideo(image) {
     	<source src="${src}" type="video/mp4">
     	Your browser does not support the video tag.
     </video>`)
-  const video = $(videoInner)
+  const video = $(videoInner).find('video')
   $(video).on('ended',()=>{
       $(ended).fadeIn(300)
       if (window.innerWidth > 767) {
