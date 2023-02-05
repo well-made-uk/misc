@@ -2,7 +2,7 @@ let videoPostOffset = 100
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
-  console.log(src)
+  console.log(image)
   const videoInner = $(image).closest('.video-inner')
   const ended = $(videoInner).find('.video-post-wrap')
   const section = $(image).closest('.section-layout')
@@ -94,7 +94,7 @@ Webflow.push(function () {
     const button = e.target
     const container = $(button).closest('.video-inner')
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if ($(videoContainer).length < 1) {
+    if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
     }
     expandVideo(container,button)
@@ -103,7 +103,7 @@ Webflow.push(function () {
     const button = e.target
     const container = $(button).closest('.video-inner')
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if ($(videoContainer).length < 1) {
+    if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
     }
     minifyVideo(container,button)
@@ -113,7 +113,7 @@ Webflow.push(function () {
   $('[data-transport-mute]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if ($(videoContainer).length < 1) {
+    if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
     }
     muteVideo(videoContainer,button)
@@ -121,7 +121,7 @@ Webflow.push(function () {
   $('[data-transport-unmute]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if ($(videoContainer).length < 1) {
+    if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
     }
     unmuteVideo(videoContainer,button)
@@ -140,7 +140,7 @@ Webflow.push(function () {
   $('[data-transport-pause]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if ($(videoContainer).length < 1) {
+    if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
     }
     pauseVideo(videoContainer,button)
