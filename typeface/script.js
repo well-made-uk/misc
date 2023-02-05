@@ -103,7 +103,7 @@ function heroSetup() {
         function heroEnd() {
           $(postVideo).show()
           $(links).fadeOut(500)
-          $('#video-hero').animate({'padding-bottom':'0'}, 500)
+          $('#video-hero').animate({'padding-bottom':'0','min-height':'0'}, 500)
           $(videoInner).fadeOut(500,()=>{
             $(videoInner).remove()
             $('.w-nav').css('z-index','101')
