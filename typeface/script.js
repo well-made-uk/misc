@@ -24,6 +24,7 @@ function initVideo(image) {
 }
 
 function playVideo(video,button) {
+  console.log(video)
   $(video).trigger('play')
   if (button) {
     $(button).hide()
@@ -34,7 +35,7 @@ function playVideo(video,button) {
 function pauseVideo(video,button) {
   $(video).trigger('pause')
   if (button) {
-    if ($(button).is('[data-close-modal]')) {} else {
+    if (!$(button).is('[data-close-modal]')) {
       $(button).hide()
       $(button).siblings().show()
     }
@@ -131,7 +132,6 @@ Webflow.push(function () {
   $('[data-transport-play]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    console.log(videoContainer)
     if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
     }
