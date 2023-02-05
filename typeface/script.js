@@ -26,7 +26,7 @@ function heroSetup() {
     </video>`)
     video = $(hero).find('.video-container')
     if (muted) {$(video).prop('muted','true')}
-    $(video).trigger('play')
+    $(hero).find('[control=play]').click()
   }
 
   if (connection == 'fast' && !heroLoaded) {
