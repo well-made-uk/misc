@@ -18,15 +18,50 @@ function heroSetup() {
   videoSize()
   $(window).resize(videoSize)
 
-
   function loadVideo(muted) {
     $(image).replaceWith(`<video class="video-container">
       <source src="${videosrc}" type="video/mp4">
       Your browser does not support the video tag.
     </video>`)
     video = $(hero).find('.video-container')
-    if (muted) {$(video).prop('muted','true')}
-    $(hero).find('[control=play]').click()
+
+    // Set controls
+    $(controls).each(function(i, obj) {
+      const control = $(obj).attr('control')
+      switch(control) {
+        case 'play':
+          $(obj).click(()=>{
+            $(video).trigger('play')
+            $(obj).hide()
+            $(obj).siblings().show()
+          })
+        break;
+        case 'pause':
+          $(obj).click(()=>{
+            $(video).trigger('pause')
+            $(obj).hide()
+            $(obj).siblings().show()
+          })
+        break;
+        case 'mute':
+          $(obj).click(()=>{
+            $(video).prop('muted',true)
+            $(obj).hide()
+            $(obj).siblings().show()
+          })
+        break;
+        case 'unmute':
+          $(obj).click(()=>{
+            $(video).prop('muted',false)
+            $(obj).hide()
+            $(obj).siblings().show()
+          })
+        }
+        if (muted) {$(video).prop('muted','true')}
+        $(hero).find('[control=play]').click()
+      })
+    })
+    }
   }
 
   if (connection == 'fast' && !heroLoaded) {
