@@ -1,5 +1,6 @@
 let modalSetupComplete = false
 let heroSetupComplete = false
+let heroLoaded = false
 
 function heroSetup() {
   const hero = $('#video-hero')
@@ -7,6 +8,7 @@ function heroSetup() {
   const controls = $(hero).find('[control]')
   const image = $(hero).find('.video-container')
   const videosrc = $(image).attr('video')
+  let video = $(body)
 
   // Improved video sizing
   $('body').append(`<style id='dys'>.expanded {width:100vw;height:100vh}</style>`)
@@ -17,15 +19,18 @@ function heroSetup() {
   $(window).resize(videoSize)
 
 
-  function loadVideo() {
+  function loadVideo(muted) {
     $(image).replaceWith(`<video class="video-container">
       <source src="${videosrc}" type="video/mp4">
       Your browser does not support the video tag.
     </video>`)
+    video = $(hero).find('.video-container')
+    if (muted) {$(video).prop('muted','true')}
+    $(video).trigger('play')
   }
 
-  if (connection == 'fast') {
-    $(hero).find('[control=play]').click()
+  if (connection == 'fast' && !heroLoaded) {
+    loadVideo(true)
   }
 }
 
