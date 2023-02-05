@@ -150,16 +150,15 @@ function heroSetupMobile() {
       })
     }
   })
-  $('[control=open-modal]').click(()=>{
-    if ( $(modal).find('.video-container').length < 1 ) {
-      loadVideo()
+  $('[control=open-modal]').click((e)=>{
+    loadVideo()
+    const el = $(e.target).attr('type')
+    if (el == 'modal')
       const video = $(modal).find('.video-container')
       $(video).trigger('play')
     } else {
-      const video = $(modal).find('.video-container')
-      $(modal).fadeIn(150,()=>{
-        $(video).trigger('play')
-      })
+      const video = $('#video-hero').find('.video-container')
+      $(video).trigger('play')
     }
   })
 }
