@@ -242,7 +242,7 @@ Webflow.push(function () {
   if ( jQuery.browser.mobile ) {
     if ( $('#video-hero').length > 0 ) {
       $('.video-inner').remove()
-      $('.video-post-inner').show()
+      $('#video-hero .video-post-inner').css('display','block').css('opacity','1')
       $('.w-nav').css('z-index','101')
     }
     if ( $('#video-modal-mobile').length > 0 ) {
