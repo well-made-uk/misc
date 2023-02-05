@@ -3,6 +3,8 @@ let heroSetupComplete = false
 let heroLoaded = false
 
 function heroSetup() {
+  if (heroLoaded) {return}
+
   const hero = $('#video-hero')
   const videoInner = $(hero).find('.video-inner')
   const controls = $(hero).find('[control]')
