@@ -168,7 +168,7 @@ Webflow.push(function () {
         	<source src="${src}" type="video/mp4">
         	Your browser does not support the video tag.
         </video>`)
-        $('#video-modal').on('ended',()=>{
+        $('#video-modal video').on('ended',()=>{
           $('#video-modal').find('[data-transport-pause]')[0].click()
           $('#video-modal').fadeOut(200)
         })
