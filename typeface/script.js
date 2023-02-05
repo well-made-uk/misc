@@ -152,10 +152,9 @@ function heroSetupMobile() {
   })
   $('[control=open-modal]').click(()=>{
     if ( $(modal).find('.video-container').length < 1 ) {
-      const video = loadVideo()
-      $(modal).fadeIn(150,()=>{
-        $(video).trigger('play')
-      })
+      loadVideo()
+      const video = $(modal).find('.video-container')
+      $(video).trigger('play')
     } else {
       const video = $(modal).find('.video-container')
       $(modal).fadeIn(150,()=>{
