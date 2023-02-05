@@ -10,6 +10,13 @@ function heroSetup() {
   }
   videoSize()
   $(window).resize(videoSize)
+
+
+
+
+  if (connection == 'fast' && window.innerWidth > 767) {
+    $('[data-video-id=main] [data-transport-play]').click()
+  }
 }
 
 function modalSetup() {
@@ -76,6 +83,6 @@ Webflow.push(function () {
   $('[control=open-modal]').click(()=>{
     if ( !modalSetupComplete ) {modalSetup()}
   })
-  if ( $('#video-hero').legnth > 0  && !heroSetupComplete ) {heroSetup()}
+  if ( $('#video-hero').length > 0  && !heroSetupComplete ) {heroSetup()}
 
 })
