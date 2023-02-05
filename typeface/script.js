@@ -21,7 +21,7 @@ function modalSetup() {
         break;
         case 'mute':
           $(obj).click(()=>{
-            $(video).prop('muted',false)
+            $(video).prop('muted',true)
             $(obj).hide()
             $(obj).siblings().show()
           })
