@@ -131,6 +131,7 @@ function heroSetupMobile() {
   const image = $(modal).find('.video-post-inner')
 
   function loadVideo(e) {
+    console.log(e)
     $(e).replaceWith(`<video controls autoplay class="video-container" style="max-width:100%;height:auto">
       <source src="${videosrc}" type="video/mp4">
       Your browser does not support the video tag.
