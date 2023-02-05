@@ -151,7 +151,7 @@ Webflow.push(function () {
     }
     pauseVideo(videoContainer,button)
   })
-  $('.data-learn-more-button').click((e)=>{
+  $('[data-learn-more-button]').click((e)=>{
     const button = e.target
     const minify = $(button).closest('.video-links').siblings('.video-transport').find('[data-transport-minify]')
     $(minify).click()
@@ -187,13 +187,12 @@ Webflow.push(function () {
   // console.log(connection + ' connection detected.')
 
   function videoExpandedSize() {
-    console.log('Resized')
     const x = window.innerWidth
     const y = window.innerHeight
     $('#mod').replaceWith(`<style id="mod">.video-inner.expanded {width${x}px;height:${y}px}</style>`)
   }
   videoExpandedSize()
-  $('window').resize(videoExpandedSize)
+  $(window).resize(videoExpandedSize)
 
   if (connection == 'fast' && window.innerWidth > 767) {
     $('[data-video-id=main] [data-transport-play]').click()
