@@ -83,7 +83,7 @@ function unmuteVideo(video,button) {
 var Webflow = Webflow || [];
 Webflow.push(function () {
 
-
+/*
 
   window.clearTimeout( speedTest );
   $('.video-post-wrap').css('display','flex')
@@ -211,7 +211,7 @@ Webflow.push(function () {
 
 
 
-
+*/
 
 
 
