@@ -205,4 +205,54 @@ Webflow.push(function () {
       $('#video-modal').fadeOut(200)
     })
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  function modalSetup() {
+    const modal = $('#video-modal')
+    const video = $(modal).find('video')
+    const controls = $(modal).find('[control]')
+    $(controls).each(function(i, obj) {
+      const control = $(obj).attr('control')
+      switch(control) {
+        case 'play':
+          $(video).trigger('play')
+          $(obj).hide()
+          $(obj).siblings().show()
+          break;
+        case 'pause':
+          $(video).trigger('pause')
+          $(obj).hide()
+          $(obj).siblings().show()
+          break;
+        case 'mute':
+          $(video).prop('muted',true)
+          $(obj).hide()
+          $(obj).siblings().show()
+          break;
+        case 'unmute':
+          $(video).prop('muted',false)
+          $(obj).hide()
+          $(obj).siblings().show()
+          break;
+        case 'close':
+          $(video).trigger('pause')
+          $(modal).fadeOut(200)
+          break;
+      }
+    })
+  }
+  modalSetup()
+
+
 })
