@@ -94,7 +94,7 @@ Webflow.push(function () {
     const container = $(button).closest('.video-inner')
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if (!$(videoContainer).length) {
-      initVideo($(videoContainer))
+      initVideo(videoContainer)
     }
     expandVideo(container,button)
   })
@@ -103,7 +103,7 @@ Webflow.push(function () {
     const container = $(button).closest('.video-inner')
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if (!$(videoContainer).length) {
-      initVideo($(videoContainer))
+      initVideo(videoContainer)
     }
     minifyVideo(container,button)
   })
@@ -113,17 +113,17 @@ Webflow.push(function () {
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if (!$(videoContainer).length) {
-      initVideo($(videoContainer))
+      initVideo(videoContainer)
     }
-    muteVideo($(videoContainer),button)
+    muteVideo(videoContainer,button)
   })
   $('[data-transport-unmute]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if (!$(videoContainer).length) {
-      initVideo($(videoContainer))
+      initVideo(videoContainer)
     }
-    unmuteVideo($(videoContainer),button)
+    unmuteVideo(videoContainer,button)
   })
 
   // Play/Pause buttons
@@ -131,18 +131,17 @@ Webflow.push(function () {
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if (!$(videoContainer).length) {
-      console.log($(videoContainer))
-      initVideo($(videoContainer))
+      initVideo(videoContainer)
     }
-    playVideo($(videoContainer),button)
+    playVideo(videoContainer,button)
   })
   $('[data-transport-pause]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if (!$(videoContainer).length) {
-      initVideo($(videoContainer))
+      initVideo(videoContainer)
     }
-    pauseVideo($(videoContainer),button)
+    pauseVideo(videoContainer,button)
   })
   $('.data-learn-more-button').click((e)=>{
     $('[data-transport-minify]').click()
