@@ -8,7 +8,7 @@ function heroSetup() {
   const controls = $(hero).find('[control]')
   const image = $(hero).find('.video-container')
   const videosrc = $(image).attr('video')
-  let video = $(body)
+  let video = $('body')
 
   // Improved video sizing
   $('body').append(`<style id='dys'>.expanded {width:100vw;height:100vh}</style>`)
