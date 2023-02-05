@@ -150,7 +150,8 @@ function heroSetupMobile() {
   })
   $('[control=open-modal]').click((e)=>{
     loadVideo()
-    if ( $(e.target).closest('#video-modal-mobile').length > 0 ) {
+    console.log($(e.target).is('.modal'))
+    if ( $(e.target).is('.modal') ) {
       $(modal).find('.video-container').trigger('play')
     } else {
       $('#video-hero').find('.video-container').trigger('play')
