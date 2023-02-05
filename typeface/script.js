@@ -151,7 +151,7 @@ function heroSetupMobile() {
     if ( $(e.target).hasClass('modal') ) {
       $(modal).find('.video-container').trigger('play')
     } else {
-      $('.video-container')[0].trigger('play')
+      $('.video-container').get(0).trigger('play')
     }
   })
 }
