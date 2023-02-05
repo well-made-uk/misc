@@ -70,7 +70,7 @@ function heroSetup() {
           case 'minify':
             $(obj).click(()=>{
               $(videoInner).removeClass('expanded')
-              $(links).slideDown(200)
+              $(links).fadeOut(200)
               $('.w-nav').css('z-index','101')
               if ($(obj).siblings().length) {
                 $(obj).hide()
@@ -81,7 +81,7 @@ function heroSetup() {
           case 'expand':
             $(obj).click(()=>{
               $(videoInner).addClass('expanded')
-              $(links).slideUp(300)
+              $(links).fadeIn(300)
               $('.w-nav').css('z-index','99')
               if ($(obj).siblings().length) {
                 $(obj).hide()
