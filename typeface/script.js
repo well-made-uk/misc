@@ -101,7 +101,8 @@ function heroSetup() {
 
         // Set ended
         function heroEnd() {
-          $(postVideo).show(300)
+          $(postVideo).show()
+          $('.as-seen-on').hide()
           $('#video-hero').css('padding-bottom','0').css('min-height','0')
           $(links).fadeOut(500)
           $(videoInner).fadeOut(500,()=>{
