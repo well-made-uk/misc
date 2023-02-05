@@ -27,17 +27,22 @@ function heroSetup() {
 }
 
 function modalSetup() {
+    if (modalSetupComplete) {return}
+
     const section = $('#video-modal')
     const image = $(section).find('.video-container')
     const videosrc = $(image).attr('video')
+
     // Set video
     $(image).replaceWith(`<video class="video-container">
       <source src="${videosrc}" type="video/mp4">
       Your browser does not support the video tag.
     </video>`)
 
-    const video = $(section).find('video')
+    const video = $(section).find('.video-container')
     const controls = $(section).find('[control]')
+
+    // Set controls
     $(controls).each(function(i, obj) {
       const control = $(obj).attr('control')
       switch(control) {
@@ -71,12 +76,12 @@ function modalSetup() {
         break;
         case 'close':
           $(obj).click(()=>{
-            $(video).trigger('pause')
+            $(section).find('[control=pause]').click()
             $(section).fadeOut(200)
           })
       }
       $('[control=open-modal]').click(()=>{
-        $(section).fadeIn(300,()=>{$(video).trigger('play')})
+        $(section).fadeIn(300,()=>{$(section).find('[control=play]').click()})
       })
     })
     modalSetupComplete = true
