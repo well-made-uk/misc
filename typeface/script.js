@@ -57,6 +57,13 @@ function heroSetup() {
             $(obj).hide()
             $(obj).siblings().show()
           })
+        break;
+        case 'minify':
+          $(obj).click(()=>{
+            $(videoInner).removeClass('expanded')
+            $(obj).hide()
+            $(obj).siblings().show()
+          })
         }
 
         // Set ended
