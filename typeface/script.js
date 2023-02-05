@@ -220,10 +220,14 @@ Webflow.push(function () {
 
   function modalSetup() {
     const modal = $('#video-modal')
+    console.log(modal)
     const video = $(modal).find('video')
+    console.log(video)
     const controls = $(modal).find('[control]')
+    console.log(controls)
     $(controls).each(function(i, obj) {
       const control = $(obj).attr('control')
+      console.log(obj)
       switch(control) {
         case 'play':
           $(video).trigger('play')
