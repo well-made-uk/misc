@@ -57,6 +57,13 @@ function heroSetup() {
             $(obj).siblings().show()
           })
         }
+
+        // Set ended
+        function heroEnd() {
+          $(videoInner).fadeOut(500,()=>{$(videoInner).remove()})
+        }
+        $(video).ended(heroEnd)
+
         if (muted) {$(video).prop('muted','true')}
         $(hero).find('[control=play]').click()
       })
