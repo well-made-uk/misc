@@ -130,6 +130,7 @@ function heroSetupMobile() {
   const modal = $('#video-modal-mobile')
   const controls = $(modal).find('[control]')
   const image = $(modal).find('.video-post-inner')
+  const videosrc = $(image).attr('video')
 
   function loadVideo() {
     $(image).replaceWith(`<video class="video-container">
