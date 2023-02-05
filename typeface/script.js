@@ -2,6 +2,7 @@ let videoPostOffset = 100
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
+  consoloe.log(src)
   const videoInner = $(image).closest('.video-inner')
   const ended = $(videoInner).find('.video-post-wrap')
   const section = $(image).closest('.section-layout')
@@ -177,7 +178,6 @@ Webflow.push(function () {
   // console.log(connection + ' connection detected.')
 
   if (connection == 'fast' && window.innerWidth > 767) {
-    $('[data-video-id=main] [data-transport-expand]').click()
     $('[data-video-id=main] [data-transport-play]').click()
   } else if (window.innerWidth < 767) {
     const src = $('#video-modal').find('[data-video-url]').attr('data-video-url')
