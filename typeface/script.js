@@ -220,6 +220,7 @@ Webflow.push(function () {
   if ( $('#video-hero').length > 0 && window.innerWidth > 476 && window.innerHeight > 476 ) {
     if ( !heroSetupComplete) {heroSetup()}
   } else if ( $('#video-hero').length > 0 ) {
+    $('#video-modal').remove()
     if ( !heroSetupComplete) {heroSetupMobile()}
   }
 })
