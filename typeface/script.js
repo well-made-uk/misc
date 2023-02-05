@@ -6,6 +6,7 @@ function heroSetup() {
   const hero = $('#video-hero')
   const videoInner = $(hero).find('.video-inner')
   const controls = $(hero).find('[control]')
+  const links = $(hero).find('[link]')
   const image = $(hero).find('.video-container')
   const videosrc = $(image).attr('video')
   const postVideo = $(hero).find('.video-post-inner')
@@ -69,6 +70,7 @@ function heroSetup() {
         // Set ended
         function heroEnd() {
           $(postVideo).show()
+          $(links).fadeOut(500)
           $(videoInner).fadeOut(500,()=>{
             $(videoInner).remove()
             $('.w-nav').css('z-index','101')
