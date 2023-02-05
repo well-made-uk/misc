@@ -134,7 +134,9 @@ function heroSetupMobile() {
     const control = $(obj).attr('control')
     switch(control) {
       case 'close':
+      $(obj).click(()=>{
         $(modal).fadeOut(300)
+      })
     }
   })
   console.log('Something will happen here')
