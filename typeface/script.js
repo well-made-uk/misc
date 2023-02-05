@@ -4,7 +4,7 @@ function heroSetup() {
   const controls = $(hero).find('[control]')
 
   // Improved video sizing
-  $('document').append(`<style id='dys'>.expanded {width:100vw;height:100vh}</style>`)
+  $('body').append(`<style id='dys'>.expanded {width:100vw;height:100vh}</style>`)
   function videoSize() {
     $('#dys').replaceWith(`<style id='dys'>.expanded {width:${window.innerWidth}px;height:${window.innerHeight}px}</style>`)
   }
@@ -14,8 +14,8 @@ function heroSetup() {
 
 
 
-  if (connection == 'fast' && window.innerWidth > 767) {
-    $('[data-video-id=main] [data-transport-play]').click()
+  if (connection == 'fast') {
+    $(hero).find('[control=play]').click()
   }
 }
 
