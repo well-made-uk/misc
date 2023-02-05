@@ -117,8 +117,7 @@ function heroSetup() {
 
         if (muted) {$(video).prop('muted','true')}
         $(hero).find('[control=play]').click()
-      })
-
+      }
   }
 
   // if (connection == 'fast' && !heroLoaded) {
