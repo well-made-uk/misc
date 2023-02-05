@@ -130,7 +130,11 @@ function heroSetupMobile() {
   const controls = $(modal).find('[control]')
   const image = $(modal).find('.video-post-inner')
 
-  function loadVideo() {
+  function loadVideo(e) {
+    $(e).replaceWith(`<video controls autoplay class="video-container" style="max-width:100%;height:auto">
+      <source src="${videosrc}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>`)
     $('.video-post-inner').replaceWith(`<video controls class="video-container" style="max-width:100%;height:auto">
       <source src="${videosrc}" type="video/mp4">
       Your browser does not support the video tag.
@@ -142,17 +146,12 @@ function heroSetupMobile() {
     switch(control) {
       case 'close':
       $(obj).click(()=>{
-        $(modal).fadeOut(300)
+        $(modal).fadeOut(300,()=>{$(modal).remove()})
       })
     }
   })
   $('[control=open-modal]').click((e)=>{
-    loadVideo()
-    if ( $(e.target).hasClass('modal') ) {
-      $(modal).find('.video-container').trigger('play')
-    } else {
-      $('.video-container').get(0).trigger('play')
-    }
+    loadVideo(e)
   })
 }
 
