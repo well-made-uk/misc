@@ -240,9 +240,12 @@ Webflow.push(function () {
 
 
   if ( jQuery.browser.mobile ) {
+    if ( $('#video-hero').length > 0 ) {
+      $('.video-inner').remove()
+      $('.video-post-inner').show()
+    }
     if ( $('#video-modal-mobile').length > 0 ) {
       $('#video-modal').remove()
-      $('.video-inner').remove()
       heroSetupMobile()
     }
   } else {
