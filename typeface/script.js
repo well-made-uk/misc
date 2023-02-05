@@ -2,6 +2,7 @@ let videoPostOffset = 100
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
+  console.log(src)
   const videoInner = $(image).closest('.video-inner')
   const ended = $(videoInner).find('.video-post-wrap')
   const section = $(image).closest('.section-layout')
