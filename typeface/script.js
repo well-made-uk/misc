@@ -182,7 +182,7 @@ Webflow.push(function () {
   const videoContentOffset = $('.video-heading').outerHeight()
   videoPostOffset = $('.video-post-wrap').outerHeight()
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
-  $('body').append(`<style>.video-inner {top:${navOffset+videoContentOffset}px;}</style>`)
+  $('body').append(`<style>.video-inner {top:${navOffset+videoContentOffset}px;} .video-links {display:none} .expanded .video-links {display:flex}</style>`)
   $('body').append(`<style id="mod">.video-inner.expanded {width:100vw;height:100vh}</style>`)
   // console.log(connection + ' connection detected.')
 
