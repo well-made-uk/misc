@@ -157,7 +157,6 @@ function heroSetupMobile() {
     }
     $(video).trigger('play')
   })
-  console.log('Something will happen here')
 }
 
 function modalSetup() {
@@ -229,11 +228,11 @@ function modalSetup() {
 var Webflow = Webflow || [];
 Webflow.push(function () {
 
-  $('[control=open-modal]').click(()=>{
-    if ( !modalSetupComplete && (window.innerWidth > 768 && window.innerHeight > 768) ) {modalSetup()}
-  })
   if ( $('#video-hero').length > 0 && window.innerWidth > 769 && window.innerHeight > 769 ) {
     if ( !heroSetupComplete) {heroSetup()}
+    $('[control=open-modal]').click(()=>{
+      if ( !modalSetupComplete ) {modalSetup()}
+    })
   } else if ( $('#video-hero').length > 0 ) {
     $('#video-modal').remove()
     if ( !heroSetupComplete) {heroSetupMobile()}
