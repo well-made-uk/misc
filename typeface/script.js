@@ -116,7 +116,7 @@ function heroSetup() {
         $(hero).find('[control=play]').click()
       }
   // if (connection == 'fast' && !heroLoaded) {
-    loadVideo(true)
+    loadVideo('muted')
   // }
 }
 
@@ -189,6 +189,7 @@ Webflow.push(function () {
   $('[control=open-modal]').click(()=>{
     if ( !modalSetupComplete ) {modalSetup()}
   })
-  if ( $('#video-hero').length > 0  && !heroSetupComplete ) {heroSetup()}
-
+  if ( $('#video-hero').length > 0 ) {
+    if ( !heroSetupComplete) {heroSetup()}
+  }
 })
