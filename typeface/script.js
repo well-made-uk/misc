@@ -34,47 +34,75 @@ function heroSetup() {
         case 'play':
           $(obj).click(()=>{
             $(video).trigger('play')
-            $(obj).hide()
-            $(obj).siblings().show()
+            if ($(obj).siblings().length) {
+              $(obj).hide()
+              $(obj).siblings().show()
+            }
           })
           break;
           case 'pause':
             $(obj).click(()=>{
               $(video).trigger('pause')
-              $(obj).hide()
-              $(obj).siblings().show()
+              if ($(obj).siblings().length) {
+                $(obj).hide()
+                $(obj).siblings().show()
+              }
             })
           break;
           case 'mute':
             $(obj).click(()=>{
               $(video).prop('muted',true)
-              $(obj).hide()
-              $(obj).siblings().show()
+              if ($(obj).siblings().length) {
+                $(obj).hide()
+                $(obj).siblings().show()
+              }
             })
           break;
           case 'unmute':
             $(obj).click(()=>{
               $(video).prop('muted',false)
-              $(obj).hide()
-              $(obj).siblings().show()
+              if ($(obj).siblings().length) {
+                $(obj).hide()
+                $(obj).siblings().show()
+              }
             })
           break;
           case 'minify':
             $(obj).click(()=>{
               $(videoInner).removeClass('expanded')
+              $(links).fadeOut(500)
               $('.w-nav').css('z-index','101')
-              $(obj).hide()
-              $(obj).siblings().show()
+              if ($(obj).siblings().length) {
+                $(obj).hide()
+                $(obj).siblings().show()
+              }
             })
           break;
           case 'expand':
             $(obj).click(()=>{
               $(videoInner).addClass('expanded')
+              $(links).fadeIn(500)
               $('.w-nav').css('z-index','99')
-              $(obj).hide()
-              $(obj).siblings().show()
+              if ($(obj).siblings().length) {
+                $(obj).hide()
+                $(obj).siblings().show()
+              }
             })
-        }
+          }
+        })
+
+        // Set links
+        $(links).each(function(i, obj) {
+          const link = $(obj).attr('link')
+          switch(link) {
+            case 'learn-more':
+              $(obj).click(()=>{
+                $(videoInner).removeClass('expanded')
+                $(links).fadeOut(500)
+                $('.w-nav').css('z-index','101')
+              })
+              }
+            })
 
         // Set ended
         function heroEnd() {
