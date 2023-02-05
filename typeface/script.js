@@ -1,3 +1,6 @@
+let modalSetupComplete = false
+let heroSetupComplete = false
+
 function heroSetup() {
   const hero = $('#video-hero')
   const videoInner = $(hero).find('.video-inner')
@@ -91,8 +94,6 @@ function modalSetup() {
 // Start document.loaded stuff
 var Webflow = Webflow || [];
 Webflow.push(function () {
-  let modalSetupComplete = false
-  let heroSetupComplete = false
 
   $('[control=open-modal]').click(()=>{
     if ( !modalSetupComplete ) {modalSetup()}
