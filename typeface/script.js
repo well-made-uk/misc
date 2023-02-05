@@ -101,11 +101,11 @@ function heroSetup() {
 
         // Set ended
         function heroEnd() {
-          $(postVideo).show()
-          $('.as-seen-on').hide()
-          $('#video-hero').css('padding-bottom','4rem').css('min-height','0')
-          $(links).fadeOut(500)
-          $(videoInner).fadeOut(500,()=>{
+          $(postVideo).slideDown(300)
+          $('.as-seen-on').slideUp(300)
+          $('#video-hero').animate({}'padding-bottom':'4rem','min-height':'0'},300)
+          $(links).fadeOut(300)
+          $(videoInner).fadeOut(300,()=>{
             $(videoInner).remove()
             $('.w-nav').css('z-index','101')
           })
