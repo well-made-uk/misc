@@ -242,6 +242,7 @@ Webflow.push(function () {
   if ( jQuery.browser.mobile ) {
     if ( $('#video-modal-mobile').length > 0 ) {
       $('#video-modal').remove()
+      $('.video-inner').remove()
       heroSetupMobile()
     }
   } else {
