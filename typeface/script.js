@@ -21,6 +21,7 @@ function heroSetup() {
   }
   videoSize()
   $(window).resize(videoSize)
+  $(hero).css('min-height',`${window.innerHeight}px`)
 
   function loadVideo(muted) {
     $(image).replaceWith(`<video class="video-container">
@@ -74,6 +75,7 @@ function heroSetup() {
               $(videoInner).removeClass('expanded')
               $(links).fadeOut(200)
               $('.w-nav').css('z-index','101')
+              $(hero).css('min-height',`0`)
               if ($(obj).siblings().length) {
                 $(obj).hide()
                 $(obj).siblings().show()
@@ -85,6 +87,7 @@ function heroSetup() {
               $(videoInner).addClass('expanded')
               $(links).fadeIn(300)
               $('.w-nav').css('z-index','99')
+              $(hero).css('min-height',`${window.innerHeight}px`)
               if ($(obj).siblings().length) {
                 $(obj).hide()
                 $(obj).siblings().show()
