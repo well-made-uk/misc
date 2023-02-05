@@ -62,7 +62,7 @@ function heroSetup() {
         function heroEnd() {
           $(videoInner).fadeOut(500,()=>{$(videoInner).remove()})
         }
-        $(video).ended(heroEnd)
+        $(video).on('ended',heroEnd)
 
         if (muted) {$(video).prop('muted','true')}
         $(hero).find('[control=play]').click()
