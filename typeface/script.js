@@ -230,29 +230,38 @@ Webflow.push(function () {
       console.log(obj)
       switch(control) {
         case 'play':
-          $(video).trigger('play')
-          $(obj).hide()
-          $(obj).siblings().show()
-          break;
+          $(obj).click(()=>{
+            $(video).trigger('play')
+            $(obj).hide()
+            $(obj).siblings().show()
+          })
+        break;
         case 'pause':
-          $(video).trigger('pause')
-          $(obj).hide()
-          $(obj).siblings().show()
-          break;
+          $(obj).click(()=>{
+            $(video).trigger('pause')
+            $(obj).hide()
+            $(obj).siblings().show()
+          })
+        break;
         case 'mute':
-          $(video).prop('muted',true)
-          $(obj).hide()
-          $(obj).siblings().show()
-          break;
+          $(obj).click(()=>{
+            $(video).prop('muted',false)
+            $(obj).hide()
+            $(obj).siblings().show()
+          })
+        break;
         case 'unmute':
-          $(video).prop('muted',false)
-          $(obj).hide()
-          $(obj).siblings().show()
-          break;
+          $(obj).click(()=>{
+            $(video).prop('muted',false)
+            $(obj).hide()
+            $(obj).siblings().show()
+          })
+        break;
         case 'close':
-          $(video).trigger('pause')
-          $(modal).fadeOut(200)
-          break;
+          $(obj).click(()=>{
+            $(video).trigger('pause')
+            $(modal).fadeOut(200)
+          })
       }
     })
   }
