@@ -2,7 +2,6 @@ let videoPostOffset = 100
 
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
-  console.log(image)
   const videoInner = $(image).closest('.video-inner')
   const ended = $(videoInner).find('.video-post-wrap')
   const section = $(image).closest('.section-layout')
@@ -24,7 +23,6 @@ function initVideo(image) {
 }
 
 function playVideo(video,button) {
-  console.log(video)
   $(video).trigger('play')
   if (button) {
     $(button).hide()
