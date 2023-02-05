@@ -236,13 +236,15 @@ Webflow.push(function () {
     return check;
   };
 
+  console.log($('#video-hero').length)
+
   if ( window.mobileCheck ) {
     if ( $('#video-modal-mobile').length > 0 ) {
       $('#video-modal').remove()
       heroSetupMobile()
     }
   } else {
-    if ( $('#video-hero').length ) {
+    if ( $('#video-hero').length > 1 ) {
       heroSetup()
     }
     $('[control=open-modal]').click(()=>{
