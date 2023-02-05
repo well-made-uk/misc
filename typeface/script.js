@@ -133,12 +133,10 @@ function heroSetupMobile() {
   const videosrc = $(image).attr('video')
 
   function loadVideo() {
-    $('.video-post-inner').replaceWith(`<video controls autoplay class="video-container" style="max-width:100%;height:auto">
+    $('.video-post-inner').replaceWith(`<video controls class="video-container" style="max-width:100%;height:auto">
       <source src="${videosrc}" type="video/mp4">
       Your browser does not support the video tag.
     </video>`)
-
-    return $(modal).find('.video-container')
   }
 
   $(controls).each((i, obj)=>{
