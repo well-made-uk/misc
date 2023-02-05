@@ -190,7 +190,7 @@ Webflow.push(function () {
     console.log('Resized')
     const x = window.innerWidth
     const y = window.innerHeight
-    $('#mod').replaceWith(`<style id="mod">.video-inner {width${x};height:${y}}</style>`)
+    $('#mod').replaceWith(`<style id="mod">.video-inner {width${x}px;height:${y}px}</style>`)
   }
   videoExpandedSize()
   $('window').resize(videoExpandedSize)
