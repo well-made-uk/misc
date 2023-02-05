@@ -110,7 +110,7 @@ function heroSetup() {
           $('.as-seen-on').slideUp(300)
           $('#video-hero').animate({'padding-bottom':'4rem','min-height':'0'},300)
           $(links).fadeOut(300)
-          $(videoInner).fadeOut(300,()=>{
+          $(videoInner).slideUp(300,()=>{
             $(videoInner).remove()
             $('.w-nav').css('z-index','101')
           })
