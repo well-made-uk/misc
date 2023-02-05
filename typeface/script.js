@@ -127,6 +127,16 @@ function heroSetup() {
 }
 
 function heroSetupMobile() {
+  const modal = $('#video-modal-mobile')
+  const controls = $(modal).find('[contro]')
+
+  $(controls).each((i, obj)=>{
+    const control = $(obj).attr('control')
+    switch(control) {
+      case 'close':
+        $(modal).fadeOut(300)
+    }
+  })
   console.log('Something will happen here')
 }
 
