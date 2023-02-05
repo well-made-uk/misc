@@ -9,7 +9,7 @@ function initVideo(image) {
     	<source src="${src}" type="video/mp4">
     	Your browser does not support the video tag.
     </video>`)
-  const video = $(videoInner).find('video')
+  const video = $(videoInner)
   $(video).on('ended',()=>{
       $(ended).fadeIn(300)
       if (window.innerWidth > 767) {
@@ -93,7 +93,7 @@ Webflow.push(function () {
     const button = e.target
     const container = $(button).closest('.video-inner')
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).find('video').length) {
+    if (!$(videoContainer).length) {
       initVideo($(videoContainer))
     }
     expandVideo(container,button)
@@ -102,7 +102,7 @@ Webflow.push(function () {
     const button = e.target
     const container = $(button).closest('.video-inner')
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).find('video').length) {
+    if (!$(videoContainer).length) {
       initVideo($(videoContainer))
     }
     minifyVideo(container,button)
@@ -112,37 +112,37 @@ Webflow.push(function () {
   $('[data-transport-mute]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).find('video').length) {
+    if (!$(videoContainer).length) {
       initVideo($(videoContainer))
     }
-    muteVideo($(videoContainer).find('video'),button)
+    muteVideo($(videoContainer),button)
   })
   $('[data-transport-unmute]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).find('video').length) {
+    if (!$(videoContainer).length) {
       initVideo($(videoContainer))
     }
-    unmuteVideo($(videoContainer).find('video'),button)
+    unmuteVideo($(videoContainer),button)
   })
 
   // Play/Pause buttons
   $('[data-transport-play]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).find('video').length) {
+    if (!$(videoContainer).length) {
       console.log($(videoContainer))
       initVideo($(videoContainer))
     }
-    playVideo($(videoContainer).find('video'),button)
+    playVideo($(videoContainer),button)
   })
   $('[data-transport-pause]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).find('video').length) {
+    if (!$(videoContainer).length) {
       initVideo($(videoContainer))
     }
-    pauseVideo($(videoContainer).find('video'),button)
+    pauseVideo($(videoContainer),button)
   })
   $('.data-learn-more-button').click((e)=>{
     $('[data-transport-minify]').click()
@@ -154,14 +154,14 @@ Webflow.push(function () {
     $('#video-modal').fadeOut(200)
   })
   $('[data-open-modal]').click((e)=>{
-    if ($('#video-modal').find('video').length == 0) {
+    if ($('#video-modal').length == 0) {
       const image = $('#video-modal').find('[data-video-url]')
       const src = image.attr('data-video-url')
       $(image).replaceWith(`<video aria-label="Video" style="width:100%;height:100%;background:black;object-fit:cover">
         	<source src="${src}" type="video/mp4">
         	Your browser does not support the video tag.
         </video>`)
-        $('#video-modal').find('video').on('ended',()=>{
+        $('#video-modal').on('ended',()=>{
           $('#video-modal').find('[data-transport-pause]')[0].click()
           $('#video-modal').fadeOut(200)
         })
@@ -186,7 +186,7 @@ Webflow.push(function () {
       	Your browser does not support the video tag.
       </video>`)
     $('[data-video-ended]').css('display','flex')
-    $('#video-modal').find('video').on('ended',()=>{
+    $('#video-modal').on('ended',()=>{
       $('#video-modal').find('[data-transport-pause]')[0].click()
       $('#video-modal').fadeOut(200)
     })
