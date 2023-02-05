@@ -94,15 +94,10 @@ function heroSetup() {
         // Set links
         $(links).each(function(i, obj) {
           const link = $(obj).attr('link')
-          switch(link) {
-            case 'minify':
-              $(obj).click(()=>{
-                $(videoInner).removeClass('expanded')
-                $(links).fadeOut(500)
-                $('.w-nav').css('z-index','101')
-              })
-              }
-            })
+          $(obj).click(()=>{
+            $(hero).find(`[control=${link}]`).click()
+          })
+        })
 
         // Set ended
         function heroEnd() {
