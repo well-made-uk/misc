@@ -6,7 +6,7 @@ function initVideo(image) {
   const videoInner = $(image).closest('.video-inner')
   const ended = $(videoInner).find('.video-post-wrap')
   const section = $(image).closest('.section-layout')
-  $(image).replaceWith(`<video aria-label="Video" muted style="width:100%;height:100%;background:black;object-fit:cover">
+  $(image).replaceWith(`<video aria-label="Video" class="video-container" muted>
     	<source src="${src}" type="video/mp4">
     	Your browser does not support the video tag.
     </video>`)
@@ -94,18 +94,20 @@ Webflow.push(function () {
   $('[data-transport-expand]').click((e)=>{
     const button = e.target
     const container = $(button).closest('.video-inner')
-    const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
+    let videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
+      videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     }
     expandVideo(container,button)
   })
   $('[data-transport-minify]').click((e)=>{
     const button = e.target
     const container = $(button).closest('.video-inner')
-    const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
+    let videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
+      videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     }
     minifyVideo(container,button)
   })
@@ -113,17 +115,19 @@ Webflow.push(function () {
   // Mute/Unmute buttons
   $('[data-transport-mute]').click((e)=>{
     const button = e.target
-    const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
+    let videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
+      videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     }
     muteVideo(videoContainer,button)
   })
   $('[data-transport-unmute]').click((e)=>{
     const button = e.target
-    const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
+    let videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
+      videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     }
     unmuteVideo(videoContainer,button)
   })
@@ -131,17 +135,19 @@ Webflow.push(function () {
   // Play/Pause buttons
   $('[data-transport-play]').click((e)=>{
     const button = e.target
-    const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
+    let videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
+      videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     }
     playVideo(videoContainer,button)
   })
   $('[data-transport-pause]').click((e)=>{
     const button = e.target
-    const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
+    let videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     if ($(videoContainer).is('img')) {
       initVideo(videoContainer)
+      videoContainer = $(button).closest('.video-transport').siblings('.video-container')
     }
     pauseVideo(videoContainer,button)
   })
@@ -177,7 +183,6 @@ Webflow.push(function () {
   videoPostOffset = $('.video-post-wrap').outerHeight()
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
   $('body').append(`<style>.video-inner {opacity:1;top:${navOffset+videoContentOffset}px;transition:all 0.5s ease;}</style>`)
-  $('body').append(`<style>.video-inner {transition:all 0.5s ease;}</style>`)
   // console.log(connection + ' connection detected.')
 
   if (connection == 'fast' && window.innerWidth > 767) {
