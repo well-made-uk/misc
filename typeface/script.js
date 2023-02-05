@@ -198,7 +198,7 @@ Webflow.push(function () {
   $('[control=open-modal]').click(()=>{
     if ( !modalSetupComplete ) {modalSetup()}
   })
-  if ( $('#video-hero').length > 0 ) {
+  if ( $('#video-hero').length > 0 && window.innerWidth > 476 ) {
     if ( !heroSetupComplete) {heroSetup()}
   }
 })
