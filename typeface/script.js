@@ -10,7 +10,7 @@ function initVideo(image) {
     	Your browser does not support the video tag.
     </video>`)
   const video = $(videoInner).find('video')
-  if ($(videoInner).attr('data-video-id') != 'main') {
+  if (!($(videoInner).attr('data-video-id') == 'main')) {
     $(video).on('ended',()=>{
         $(ended).fadeIn(300)
         if (window.innerWidth > 767) {
