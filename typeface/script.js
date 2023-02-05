@@ -62,6 +62,7 @@ function heroSetup() {
         // Set ended
         function heroEnd() {
           $(postVideo).show()
+          $('.w-nav').css('z-index','101')
           $(videoInner).fadeOut(500,()=>{$(videoInner).remove()})
         }
         $(video).on('ended',heroEnd)
