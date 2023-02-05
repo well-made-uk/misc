@@ -152,7 +152,12 @@ function heroSetupMobile() {
     }
   })
   $('[control=open-modal]').click((e)=>{
-    loadVideo(e.target)
+    if ( $(e.target).hasClass('.video-post-inner') ) {
+      loadVideo(e.target)
+    } else {
+      loadVideo($(e.target).closest('.video-post-inner'))
+    }
+
   })
 }
 
