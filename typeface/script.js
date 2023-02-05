@@ -18,6 +18,7 @@ function initVideo(image) {
           $(videoInner).css('height','auto')
           $('.as-seen-on').slideUp(300)
         }
+        console.log(videoPostOffset)
         $(section).css('padding-bottom',videoPostOffset)
         minifyVideo(videoInner)
     });
@@ -203,7 +204,7 @@ Webflow.push(function () {
       	Your browser does not support the video tag.
       </video>`)
     $('[data-video-ended]').css('display','flex')
-    $('#video-modal').on('ended',()=>{
+    $('#video-modal video').on('ended',()=>{
       $('#video-modal').find('[data-transport-pause]')[0].click()
       $('#video-modal').fadeOut(200)
     })
