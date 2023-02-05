@@ -183,14 +183,14 @@ Webflow.push(function () {
   videoPostOffset = $('.video-post-wrap').outerHeight()
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
   $('body').append(`<style>.video-inner {top:${navOffset+videoContentOffset}px;}</style>`)
-  $('body').append(`<style id="mod">.video-inner {width:100vw;height:100vh}</style>`)
+  $('body').append(`<style id="mod">.video-inner.expanded {width:100vw;height:100vh}</style>`)
   // console.log(connection + ' connection detected.')
 
   function videoExpandedSize() {
     console.log('Resized')
     const x = window.innerWidth
     const y = window.innerHeight
-    $('#mod').replaceWith(`<style id="mod">.video-inner {width${x}px;height:${y}px}</style>`)
+    $('#mod').replaceWith(`<style id="mod">.video-inner.expanded {width${x}px;height:${y}px}</style>`)
   }
   videoExpandedSize()
   $('window').resize(videoExpandedSize)
