@@ -174,9 +174,12 @@ function modalSetup() {
             $(section).fadeOut(200)
           })
       }
-      $('[control=open-modal]').click(()=>{
-        $(section).fadeIn(300,()=>{$(section).find('[control=play]').click()})
-      })
+    })
+    $('[control=open-modal]').click(()=>{
+      $(section).fadeIn(300,()=>{$(section).find('[control=play]').click()})
+    })
+    $(video).on('ended',()=>{
+      $(section).fadeOut(300)
     })
     modalSetupComplete = true
     $(section).fadeIn(300,()=>{$(video).trigger('play')})
