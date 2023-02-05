@@ -95,7 +95,7 @@ function heroSetup() {
         $(links).each(function(i, obj) {
           const link = $(obj).attr('link')
           switch(link) {
-            case 'learn-more':
+            case 'minify':
               $(obj).click(()=>{
                 $(videoInner).removeClass('expanded')
                 $(links).fadeOut(500)
