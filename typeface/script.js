@@ -129,6 +129,16 @@ function heroSetup() {
 function heroSetupMobile() {
   const modal = $('#video-modal-mobile')
   const controls = $(modal).find('[control]')
+  const image = $(modal).find('.video-post-inner')
+
+  function loadVideo() {
+    $(image).replaceWith(`<video class="video-container">
+      <source src="${videosrc}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>`)
+
+    return $(modal).find('.video-container')
+  }
 
   $(controls).each((i, obj)=>{
     const control = $(obj).attr('control')
@@ -140,7 +150,12 @@ function heroSetupMobile() {
     }
   })
   $('[control=open-modal]').click(()=>{
-    $(modal).fadeIn(300)
+    if ( $(model).find(video).length < 1 ) {
+      const video = loadVideo()
+    } else {
+      const video = $(model).find('.video-container')
+    }
+    $(video).trigger('play')
   })
   console.log('Something will happen here')
 }
