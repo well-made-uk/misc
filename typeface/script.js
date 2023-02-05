@@ -151,7 +151,7 @@ function heroSetupMobile() {
     }
   })
   $('[control=open-modal]').click((e)=>{
-    loadVideo(e)
+    loadVideo(e.target)
   })
 }
 
