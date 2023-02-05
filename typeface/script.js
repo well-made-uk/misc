@@ -243,6 +243,7 @@ Webflow.push(function () {
     if ( $('#video-hero').length > 0 ) {
       $('.video-inner').remove()
       $('.video-post-inner').show()
+      $('.w-nav').css('z-index','101')
     }
     if ( $('#video-modal-mobile').length > 0 ) {
       $('#video-modal').remove()
