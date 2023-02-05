@@ -139,6 +139,9 @@ function heroSetupMobile() {
       })
     }
   })
+  $('[control=open-modal]').click(()=>{
+    $(modal).fadeIn(300)
+  })
   console.log('Something will happen here')
 }
 
@@ -212,7 +215,7 @@ var Webflow = Webflow || [];
 Webflow.push(function () {
 
   $('[control=open-modal]').click(()=>{
-    if ( !modalSetupComplete && window.innerWidth > 476 && window.innerHeight > 476 ) {modalSetup()}
+    if ( !modalSetupComplete && (window.innerWidth > 476 || window.innerHeight > 476) ) {modalSetup()}
   })
   if ( $('#video-hero').length > 0 && window.innerWidth > 476 && window.innerHeight > 476 ) {
     if ( !heroSetupComplete) {heroSetup()}
