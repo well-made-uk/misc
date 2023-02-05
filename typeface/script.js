@@ -230,7 +230,7 @@ var Webflow = Webflow || [];
 Webflow.push(function () {
 
   $('[control=open-modal]').click(()=>{
-    if ( !modalSetupComplete && (window.innerWidth > 768 || window.innerHeight > 768) ) {modalSetup()}
+    if ( !modalSetupComplete && (window.innerWidth > 768 && window.innerHeight > 768) ) {modalSetup()}
   })
   if ( $('#video-hero').length > 0 && window.innerWidth > 769 && window.innerHeight > 769 ) {
     if ( !heroSetupComplete) {heroSetup()}
