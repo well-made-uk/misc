@@ -4,7 +4,7 @@ function heroSetup() {
   const controls = $(hero).find('[control]')
 
   // Improved video sizing
-  $(document).append(`<style id='dys'>.expanded {width:100vw;height:100vh}</style>`)
+  $('document').append(`<style id='dys'>.expanded {width:100vw;height:100vh}</style>`)
   function videoSize() {
     $('#dys').replaceWith(`<style id='dys'>.expanded {width:${window.innerWidth}px;height:${window.innerHeight}px}</style>`)
   }
