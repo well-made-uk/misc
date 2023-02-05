@@ -93,7 +93,7 @@ Webflow.push(function () {
     const button = e.target
     const container = $(button).closest('.video-inner')
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).length) {
+    if ($(videoContainer).length < 1) {
       initVideo(videoContainer)
     }
     expandVideo(container,button)
@@ -102,7 +102,7 @@ Webflow.push(function () {
     const button = e.target
     const container = $(button).closest('.video-inner')
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).length) {
+    if ($(videoContainer).length < 1) {
       initVideo(videoContainer)
     }
     minifyVideo(container,button)
@@ -112,7 +112,7 @@ Webflow.push(function () {
   $('[data-transport-mute]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).length) {
+    if ($(videoContainer).length < 1) {
       initVideo(videoContainer)
     }
     muteVideo(videoContainer,button)
@@ -120,7 +120,7 @@ Webflow.push(function () {
   $('[data-transport-unmute]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).length) {
+    if ($(videoContainer).length < 1) {
       initVideo(videoContainer)
     }
     unmuteVideo(videoContainer,button)
@@ -130,7 +130,8 @@ Webflow.push(function () {
   $('[data-transport-play]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).length) {
+    console.log(videoContainer)
+    if ($(videoContainer).length < 1) {
       initVideo(videoContainer)
     }
     playVideo(videoContainer,button)
@@ -138,7 +139,7 @@ Webflow.push(function () {
   $('[data-transport-pause]').click((e)=>{
     const button = e.target
     const videoContainer = $(button).closest('.video-transport').siblings('.video-container')
-    if (!$(videoContainer).length) {
+    if ($(videoContainer).length < 1) {
       initVideo(videoContainer)
     }
     pauseVideo(videoContainer,button)
