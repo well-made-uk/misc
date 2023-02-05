@@ -8,6 +8,7 @@ function heroSetup() {
   const controls = $(hero).find('[control]')
   const image = $(hero).find('.video-container')
   const videosrc = $(image).attr('video')
+  const postVideo = $(hero).find('.video-post-inner')
   let video = $('body')
 
   // Improved video sizing
@@ -60,6 +61,7 @@ function heroSetup() {
 
         // Set ended
         function heroEnd() {
+          $(postVideo).show()
           $(videoInner).fadeOut(500,()=>{$(videoInner).remove()})
         }
         $(video).on('ended',heroEnd)
