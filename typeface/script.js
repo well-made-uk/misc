@@ -126,6 +126,10 @@ function heroSetup() {
   // }
 }
 
+function heroSetupMobile() {
+  console.log('Something will happen here')
+}
+
 function modalSetup() {
     if (modalSetupComplete) {return}
 
@@ -200,5 +204,7 @@ Webflow.push(function () {
   })
   if ( $('#video-hero').length > 0 && window.innerWidth > 476 && window.innerHeight > 476 ) {
     if ( !heroSetupComplete) {heroSetup()}
+  } else if ( $('#video-hero').length > 0 ) {
+    if ( !heroSetupComplete) {heroSetupMobile()}
   }
 })
