@@ -128,7 +128,7 @@ function heroSetup() {
 
 function heroSetupMobile() {
   const modal = $('#video-modal-mobile')
-  const controls = $(modal).find('[contro]')
+  const controls = $(modal).find('[control]')
 
   $(controls).each((i, obj)=>{
     const control = $(obj).attr('control')
