@@ -1,5 +1,3 @@
-let videoPostOffset = 100
-
 function initVideo(image) {
   const src = $(image).attr('data-video-url')
   const videoInner = $(image).closest('.video-inner')
@@ -18,8 +16,7 @@ function initVideo(image) {
           $(videoInner).css('height','auto')
           $('.as-seen-on').slideUp(300)
         }
-        console.log(videoPostOffset)
-        $(section).css('padding-bottom',videoPostOffset)
+        $(section).css('padding-bottom','280px')
         minifyVideo(videoInner)
     });
   }
@@ -181,7 +178,6 @@ Webflow.push(function () {
 
   const navOffset = $('.w-nav').outerHeight()
   const videoContentOffset = $('.video-heading').outerHeight()
-  videoPostOffset = $('.video-post-wrap').outerHeight()
   $('.section-layout.video-parallax').css('padding-top',`calc(${navOffset}px + 2rem)`)
   $('body').append(`<style>.video-inner {top:${navOffset+videoContentOffset}px;} .video-links {display:none} .expanded .video-links {display:flex}</style>`)
   $('body').append(`<style id="mod">.video-inner.expanded {width:100vw;height:100vh}</style>`)
@@ -190,7 +186,7 @@ Webflow.push(function () {
   function videoExpandedSize() {
     const x = window.innerWidth
     const y = window.innerHeight
-    $('#mod').replaceWith(`<style id="mod">.video-inner.expanded {width${x}px;height:${y}px}</style>`)
+    $('#mod').replaceWith(`<style id="mod">.video-inner.expanded {width:${x}px;height:${y}px}</style>`)
   }
   videoExpandedSize()
   $(window).resize(videoExpandedSize)
