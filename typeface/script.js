@@ -150,8 +150,11 @@ function heroSetupMobile() {
   })
   $('[control=open-modal]').click((e)=>{
     loadVideo()
-    const video = $(modal).find('.video-container')
-    $(video).trigger('play')
+    if ( $(e.target).closest('#video-modal-mobile').length > 0 ) {
+      $(modal).find('.video-container').trigger('play')
+    } else {
+      $('#video-hero').find('.video-container').trigger('play')
+    }
   })
 }
 
