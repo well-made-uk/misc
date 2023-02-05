@@ -144,7 +144,9 @@ Webflow.push(function () {
     pauseVideo(videoContainer,button)
   })
   $('.data-learn-more-button').click((e)=>{
-    $('[data-transport-minify]').click()
+    const button = e.target
+    const minify = $(button).closest('.video-links').siblings('.video-transport').find('[data-transport-minify]')
+    $(minify).click()
   })
 
   // Close modal
