@@ -187,6 +187,7 @@ Webflow.push(function () {
   // console.log(connection + ' connection detected.')
 
   function videoExpandedSize() {
+    console.log('Resized')
     const x = window.innerWidth
     const y = window.innerHeight
     $('#mod').replaceWith(`<style id="mod">.video-inner {width${x};height:${y}}</style>`)
