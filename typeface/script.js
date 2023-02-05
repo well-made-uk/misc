@@ -150,14 +150,8 @@ function heroSetupMobile() {
   })
   $('[control=open-modal]').click((e)=>{
     loadVideo()
-    const el = $(e.target).attr('type')
-    if (el == 'modal') {
-      const video = $(modal).find('.video-container')
-      $(video).trigger('play')
-    } else {
-      const video = $('#video-hero').find('.video-container')
-      $(video).trigger('play')
-    }
+    const video = $(modal).find('.video-container')
+    $(video).trigger('play')
   })
 }
 
