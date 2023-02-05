@@ -153,10 +153,11 @@ function heroSetupMobile() {
   $('[control=open-modal]').click(()=>{
     if ( $(modal).find('.video-container').length < 1 ) {
       const video = loadVideo()
+      $(video).trigger('play')
     } else {
       const video = $(modal).find('.video-container')
+      $(video).trigger('play')
     }
-    $(video).trigger('play')
   })
 }
 
