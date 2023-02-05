@@ -10,7 +10,6 @@ function heroSetup() {
   const controls = $(hero).find('[control]')
   const links = $(hero).find('[link]')
   const image = $(hero).find('.video-container')
-  const videosrc = $(image).attr('video')
   const postVideo = $(hero).find('.video-post-inner')
   let video = $('body')
 
@@ -130,7 +129,6 @@ function heroSetupMobile() {
   const modal = $('#video-modal-mobile')
   const controls = $(modal).find('[control]')
   const image = $(modal).find('.video-post-inner')
-  const videosrc = $(image).attr('video')
 
   function loadVideo() {
     $('.video-post-inner').replaceWith(`<video controls class="video-container" style="max-width:100%;height:auto">
@@ -153,7 +151,7 @@ function heroSetupMobile() {
     if ( $(e.target).hasClass('modal') ) {
       $(modal).find('.video-container').trigger('play')
     } else {
-      $('#video-hero').find('.video-container').trigger('play')
+      $('.video-container')[0].trigger('play')
     }
   })
 }
@@ -163,7 +161,6 @@ function modalSetup() {
 
     const section = $('#video-modal')
     const image = $(section).find('.video-container')
-    const videosrc = $(image).attr('video')
 
     // Set video
     $(image).replaceWith(`<video class="video-container">
