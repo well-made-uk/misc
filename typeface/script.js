@@ -293,9 +293,11 @@ Webflow.push(function () {
               autoplay: true,
               path: $(list[e]).attr('data-carousel')
           })
+          console.log(`Loaded ${animation}.`)
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
+          if (e > length) {e = 0}
           animation.addEventListener('complete',lottieCarousel)
         }
         lottieCarousel()
