@@ -223,12 +223,12 @@ function modalSetup() {
     $(section).fadeIn(300,()=>{$(video).trigger('play')})
   }
 
-function carousel(id, lottie, list) {
+function carousel(id, lottieEl, list) {
 
   for (let i = 0; i < list.length; i++) {
     const src = $(list[i]).attr('data-carousel')
     const anim = lottie.loadAnimation({
-        container: lottie,
+        container: lottieEl,
         renderer: 'svg',
         loop: false,
         autoplay: true,
