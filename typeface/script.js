@@ -223,9 +223,21 @@ function modalSetup() {
     $(section).fadeIn(300,()=>{$(video).trigger('play')})
   }
 
-function carousel(id, lottieEl, list) {
+function carousel(lottieEl, list) {
 
   const lottie = Webflow.require('lottie').lottie
+
+  $('[data-carousel]').each((i,obj)=>{
+    lottie.loadAnimation({
+        container: $('[data-carousel-lottie=flow]'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: $(obj).attr('data-carousel')
+    });
+  })
+
+  /*
   let src = $(list[0]).attr('data-carousel')
   lottie.loadAnimation({
     container: lottieEl,
@@ -237,7 +249,7 @@ function carousel(id, lottieEl, list) {
 
   $(lottieEl).on('complete',function () {
       alert('table updated!');
-  });
+  });*/
 }
 
 // Start document.loaded stuff
@@ -271,7 +283,7 @@ Webflow.push(function () {
       const lottieEl = $(obj)
       const listEl = $(`[data-carousel-list=${id}]`)
       const carouselItems = $(listEl).children('[data-carousel]')
-      carousel(id,lottieEl,carouselItems)
+      carousel(lottieEl,carouselItems)
     })
   }
 
