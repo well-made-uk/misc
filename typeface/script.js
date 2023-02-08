@@ -224,7 +224,6 @@ function modalSetup() {
   }
 
 function loadLottie(cont,src) {
-  const lottie = Webflow.require('lottie').lottie;
     return lottie.loadAnimation({
         container: cont,
         renderer: 'svg',
@@ -271,6 +270,7 @@ Webflow.push(function () {
 
 
   // Lottie async
+  const lottie = Webflow.require('lottie').lottie;
   var sc=0;
   window.addEventListener('scroll', function() {
     if(sc == 0){
