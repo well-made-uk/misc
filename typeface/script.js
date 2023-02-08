@@ -226,7 +226,7 @@ function modalSetup() {
 function carousel(id, lottie, list) {
 
   for (let i = 0; i < list.length; i++) {
-    const src = $(list)[i].attr('data-carousel')
+    const src = $(list).get(i).attr('data-carousel')
     const anim = lottie.loadAnimation({
         container: lottie,
         renderer: 'svg',
