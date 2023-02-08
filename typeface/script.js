@@ -287,15 +287,6 @@ Webflow.push(function () {
     })
   }
 
-  var animation = lottie.loadAnimation({
-    container: $('[data-carousel-lottie=flow]'), // Required
-    path: 'https://uploads-ssl.webflow.com/63bcb934c7e2f13b85fd467b/63ddb3426af00be85232410e_Copy.json', // Required
-    renderer: 'svg/canvas/html', // Required
-    loop: true, // Optional
-    autoplay: true, // Optional
-    name: "Hello World", // Name for future reference. Optional.
-  })
-
 
   // Lottie async
   var sc=0;
