@@ -304,7 +304,7 @@ Webflow.push(function () {
       })
       $('[data-carousel]').each((i,obj)=>{
         lottie.loadAnimation({
-            container: $('[data-carousel-lottie=flow]')[i],
+            container: $('[data-carousel-lottie=flow]'),
             renderer: 'svg',
             loop: true,
             autoplay: true,
