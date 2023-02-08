@@ -227,7 +227,7 @@ function loadLottie(cont,src) {
   const lottie = Webflow.require('lottie').lottie;
   $(cont).children('img').remove()
   $(cont).css('min-height',$(cont).height())
-  return const animation = lottie.loadAnimation({
+  return animation = lottie.loadAnimation({
       container: cont,
       renderer: 'svg',
       loop: true,
