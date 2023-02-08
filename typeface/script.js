@@ -225,21 +225,19 @@ function modalSetup() {
 
 function carousel(id, lottieEl, list) {
 
-  const lottie = Webflow.require('lottie').lottie;
-  console.log(list.length)
-  for(let i = 0; i < list.length; i++) {
-    setTimeout(() => {
-      const src = $(list[i]).attr('data-carousel')
-      const anim = lottie.loadAnimation({
-        container: lottieEl,
-        renderer: 'svg',
-        loop: false,
-        autoplay: true,
-        path: src
-      });
-      console.log(`${anim} ${src} ${i}`)
-    }, 6000);
-  }
+  const lottie = Webflow.require('lottie').lottie
+  let src = $(list[0]).attr('data-carousel')
+  let anim = lottie.loadAnimation({
+    container: lottieEl,
+    renderer: 'svg',
+    loop: false,
+    autoplay: true,
+    path: src
+  });
+
+  myEventBus.addListener(function () {
+      alert('table updated!');
+  });
 }
 
 // Start document.loaded stuff
