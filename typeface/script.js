@@ -225,6 +225,10 @@ function modalSetup() {
 
 function carousel(id, lottieEl, list) {
 
+  console.log(id)
+  console.log(lottieEl)
+  console.log(list)
+
   const lottie = Webflow.require('lottie').lottie
   let src = $(list[0]).attr('data-carousel')
   let anim = lottie.loadAnimation({
@@ -266,14 +270,10 @@ Webflow.push(function () {
   }
 
   if ($('[data-carousel-lottie]').length) {
-    console.log($('[data-carousel-lottie]').length)
     $('[data-carousel-lottie]').each((e,obj)=>{
       const id = $(obj).attr('data-carousel-lottie')
-      console.log(id)
       const lottieEl = $(obj)
-      console.log(lottieEl)
       const listEl = $(`[data-carousel-list=${id}]`)
-      console.log(listEl)
       const carouselItems = $(listEl).children('[data-carousel]')
       carousel(id,lottieEl,carouselItems)
     })
