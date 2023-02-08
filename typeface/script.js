@@ -266,6 +266,7 @@ Webflow.push(function () {
   }
 
   if ($('[data-carousel-lottie]').length) {
+    console.log($('[data-carousel-lottie]').length)
     $('[data-carousel-lottie]').each((e,obj)=>{
       const id = $(obj).attr('data-carousel-lottie')
       console.log(id)
