@@ -248,6 +248,15 @@ Webflow.push(function () {
     })
   }
 
+  if ($('[data-carousel-lottie]').length) {
+    $('[data-carousel-lottie]').each((e,obj)=>{
+      const id = $(obj).attr('data-carousel-lottie')
+      const lottieEl = $(obj)
+      const listEl = $(`[data-carousel-list=${id}]`)
+      console.log(`Carousel '${id}'. Lottie container: ${$(lottieEl).length}. List container: ${$(listEl).length}.`)
+    })
+  }
+
   // Lottie async
   var sc=0;
   window.addEventListener('scroll', function() {
