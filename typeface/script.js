@@ -244,7 +244,8 @@ Webflow.push(function () {
       if (connection == 'fast') {
         heroSetup()
       } else {
-        $('document').click(()=>{heroSetup})
+        console.log('Slow connection detected.')
+        $('document').click(()=>{heroSetup()})
       }
     }
 
