@@ -226,7 +226,7 @@ function modalSetup() {
 function loadLottie(cont,src) {
   const lottie = Webflow.require('lottie').lottie;
   $(cont).children('img').remove()
-    return lottie.loadAnimation({
+    const animation = lottie.loadAnimation({
         container: cont,
         renderer: 'svg',
         loop: true,
@@ -239,6 +239,8 @@ function loadLottie(cont,src) {
           hideOnTransparent: true
         }
     });
+    $(cont).css('min-height',$(cont).height())
+    return animation;
 }
 
 // Start document.loaded stuff
