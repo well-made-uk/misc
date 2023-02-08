@@ -291,7 +291,6 @@ Webflow.push(function () {
         const length = list.length
         let e = 0
         function carousel() {
-          console.log(`E=${e}. Length=${length}. Create animation for ${$(list[e]).attr('data-carousel')}`)
           animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(list).removeClass('active')
           $(list[e]).addClass('active')
