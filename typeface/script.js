@@ -286,6 +286,7 @@ Webflow.push(function () {
         });*/
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
+        /*
         const animation = lottie.loadAnimation({
             container: $(obj),
             renderer: 'svg',
@@ -293,6 +294,7 @@ Webflow.push(function () {
             autoplay: true,
             path: $('.carousel-item.active').attr('data-carousel')
         })
+        */
       })
       /*$('[data-carousel-lottie]').each((i,obj)=>{
         console.log(`Working on:`)
