@@ -225,13 +225,9 @@ function modalSetup() {
 
 function carousel(id, lottieEl, list) {
 
-  console.log(id)
-  console.log(lottieEl)
-  console.log(list)
-
   const lottie = Webflow.require('lottie').lottie
   let src = $(list[0]).attr('data-carousel')
-  let anim = lottie.loadAnimation({
+  lottie.loadAnimation({
     container: lottieEl,
     renderer: 'svg',
     loop: false,
