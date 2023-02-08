@@ -226,7 +226,7 @@ function modalSetup() {
 function carousel(id, lottieEl, list) {
 
   const lottie = Webflow.require('lottie').lottie;
-
+  console.log(list.length)
   for(var i = 0; i < list.length; i++) {
     delay(i)
   }
