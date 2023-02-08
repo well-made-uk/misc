@@ -297,7 +297,7 @@ Webflow.push(function () {
           $(list[e]).addClass('active')
           e++
           if (e > length) {e = 0}
-          animation.addEventListener('complete',lottieCarousel)
+          animation.addEventListener('complete',carousel)
         }
         carousel()
 
