@@ -224,7 +224,6 @@ function modalSetup() {
   }
 
 function loadLottie(cont,src) {
-  const lottie = Webflow.require('lottie').lottie;
   $(cont).children('img').remove()
   return animation = lottie.loadAnimation({
       container: cont,
@@ -276,11 +275,15 @@ Webflow.push(function () {
     })
   }
 
+  const lottie = Webflow.require('lottie').lottie;
+  const anims = lottie.getRegisteredAnimations
 
   // Lottie async
+
   var sc=0;
   window.addEventListener('scroll', function() {
     if(sc == 0){
+      anims.destroy()
       sc=1;
       $('[data-lottie]').each((i,obj)=>{
         loadLottie(obj,$(obj).attr('data-lottie'))
