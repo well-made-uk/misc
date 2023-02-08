@@ -303,12 +303,16 @@ Webflow.push(function () {
         });
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
+        console.log(`Working on ${obj}.`)
         const id = $(obj).attr('data-carousel-lottie')
+        console.log(`ID: ${id}.`)
         const list = $(`data-carousel-list=${id}`).children('[data-carousel]')
+        console.log(`${list.length} items.`)
         const length = list.length
         let e = 0
 
         function lottieCarousel() {
+          console.log(`Loading carousel item ${e}.`)
           const animation = lottie.loadAnimation({
               container: $(obj),
               renderer: 'svg',
