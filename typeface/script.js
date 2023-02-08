@@ -130,7 +130,6 @@ function heroSetupMobile() {
   const image = $(modal).find('.video-post-inner')
 
   function loadVideo(e) {
-    console.log(e)
     $(e).replaceWith(`<video controls autoplay class="video-container" style="max-width:100%;height:auto">
       <source src="${videosrc}" type="video/mp4">
       Your browser does not support the video tag.
@@ -252,17 +251,18 @@ Webflow.push(function () {
   // Lottie async
   var sc=0;
   window.addEventListener('scroll', function() {
-      if(sc == 0){
-          sc=1;
-          $('[data-lottie]').each((i,obj)=>{
-            lottie.loadAnimation({
-                container: obj,
-                renderer: 'svg',
-                loop: true,
-                autoplay: true,
-                path: $(obj).attr('data-lottie')
-            });
-          })
-      }
+    if(sc == 0){
+      const lottie = Webflow.require('lottie').lottie;
+      sc=1;
+      $('[data-lottie]').each((i,obj)=>{
+        lottie.loadAnimation({
+            container: obj,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: $(obj).attr('data-lottie')
+        });
+      })
+    }
   });
 })
