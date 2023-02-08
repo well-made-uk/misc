@@ -242,6 +242,7 @@ Webflow.push(function () {
   } else {
     if ( $('#video-hero').length > 0 ) {
       if (connection == 'fast') {
+        console.log('Fast connection detected.')
         heroSetup()
       } else {
         console.log('Slow connection detected.')
