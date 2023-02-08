@@ -285,7 +285,7 @@ Webflow.push(function () {
         $(obj).children().remove()
         loadLottie(obj,$(obj).attr('data-lottie'))
         $(obj).parent().css('height','auto')
-        const lottieHeight = $(obj).height()
+        const lottieHeight = $(obj).parent().height()
         $(obj).parent().css('height',lottieHeight)
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
@@ -297,7 +297,7 @@ Webflow.push(function () {
         function carousel() {
           const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(obj).parent().css('height','auto')
-          const lottieHeight = $(obj).height()
+          const lottieHeight = $(obj).parent().height()
           $(obj).parent().css('height',lottieHeight)
           $(list).removeClass('active')
           $(list[e]).addClass('active')
