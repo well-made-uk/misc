@@ -282,12 +282,10 @@ Webflow.push(function () {
     if(sc == 0){
       sc=1;
       $('[data-lottie]').each((i,obj)=>{
-        $(obj).css('transition','height 0.2s ease')
         $(obj).children().remove()
         loadLottie(obj,$(obj).attr('data-lottie'))
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
-        $(obj).css('transition','height 0.2s ease')
         const id = $(obj).attr('data-carousel-lottie')
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         const length = list.length
