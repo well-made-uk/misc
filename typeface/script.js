@@ -296,8 +296,7 @@ Webflow.push(function () {
           $(list[e]).addClass('active')
           e++
           if (e > length) {e = 0}
-          const lottie = Webflow.require('lottie').lottie;
-          animation.onLoopComplete = () => {lottie.destroy(animation);carousel}
+          animation.addEventListener('loopComplete', function() {animation.destroy();carousel})
         }
         carousel()
 
