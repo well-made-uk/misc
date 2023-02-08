@@ -244,7 +244,7 @@ Webflow.push(function () {
       if (connection == 'fast') {
         heroSetup()
       } else {
-        $(window).click(heroSetup)
+        $('document').click(heroSetup)
       }
     }
 
