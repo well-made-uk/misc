@@ -223,33 +223,6 @@ function modalSetup() {
     $(section).fadeIn(300,()=>{$(video).trigger('play')})
   }
 
-function carousel(lottieEl, list) {
-
-  $('[data-carousel]').each((i,obj)=>{
-    lottie.loadAnimation({
-        container: $('[data-carousel-lottie=flow]'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: $(obj).attr('data-carousel')
-    });
-  })
-
-  /*
-  let src = $(list[0]).attr('data-carousel')
-  lottie.loadAnimation({
-    container: lottieEl,
-    renderer: 'svg',
-    loop: false,
-    autoplay: true,
-    path: src
-  });
-
-  $(lottieEl).on('complete',function () {
-      alert('table updated!');
-  });*/
-}
-
 // Start document.loaded stuff
 var Webflow = Webflow || [];
 Webflow.push(function () {
@@ -306,7 +279,7 @@ Webflow.push(function () {
         console.log(`Working on ${obj}.`)
         const id = $(obj).attr('data-carousel-lottie')
         console.log(`ID: ${id}.`)
-        const list = $(`data-carousel-list=${id}`).children('[data-carousel]')
+        const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         console.log(`${list.length} items.`)
         const length = list.length
         let e = 0
