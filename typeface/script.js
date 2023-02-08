@@ -262,6 +262,7 @@ Webflow.push(function () {
             autoplay: true,
             path: $(obj).attr('data-lottie')
         });
+        console.log(`Loaded ${$(obj).attr('data-lottie')}`)
       })
     }
   });
