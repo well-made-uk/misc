@@ -283,7 +283,7 @@ Webflow.push(function () {
   var sc=0;
   window.addEventListener('scroll', function() {
     if(sc == 0){
-      anims.destroy()
+      lottie.destroy(anims)
       sc=1;
       $('[data-lottie]').each((i,obj)=>{
         loadLottie(obj,$(obj).attr('data-lottie'))
