@@ -285,20 +285,18 @@ Webflow.push(function () {
         loadLottie(obj,$(obj).attr('data-lottie'))
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
-        console.log(`Carousel ${i}`)
         const cont = obj
         const id = $(obj).attr('data-carousel-lottie')
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         const length = list.length
         let e = 0
         function carousel() {
-          console.log(`Loading ${$(list[e]).attr('data-carousel')}`)
+          console.log(`Loading carousel ${i}: ${$(list[e]).attr('data-carousel')}`)
           animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
           if (e >= length) {e = 0}
-          console.log(`Loaded`)
           animation.addEventListener('loopComplete', function() {animation.destroy();carousel()})
         }
         carousel()
