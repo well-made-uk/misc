@@ -275,16 +275,15 @@ Webflow.push(function () {
       // carousel(lottieEl,carouselItems)
     })
   }
-  const anims = lottie.getRegisteredAnimations
 
   // Lottie async
 
   var sc=0;
   window.addEventListener('scroll', function() {
     if(sc == 0){
-      lottie.destroy(anims)
       sc=1;
       $('[data-lottie]').each((i,obj)=>{
+        $(obj).children().remove()
         loadLottie(obj,$(obj).attr('data-lottie'))
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
@@ -292,6 +291,7 @@ Webflow.push(function () {
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         const length = list.length
         let e = 0
+        $(obj).children().remove()
         function carousel() {
           const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(list).removeClass('active')
