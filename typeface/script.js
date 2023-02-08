@@ -239,7 +239,6 @@ function loadLottie(cont,src) {
           hideOnTransparent: true
         }
     });
-    $(cont).css('min-height',$(cont).height())
     return animation;
 }
 
@@ -288,19 +287,19 @@ Webflow.push(function () {
         loadLottie(obj,$(obj).attr('data-lottie'))
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
-        const cont = obj
         const id = $(obj).attr('data-carousel-lottie')
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         const length = list.length
         let e = 0
         function carousel() {
-          console.log(`Loading carousel ${i}: ${$(list[e]).attr('data-carousel')}`)
           const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
           if (e >= length) {e = 0}
           animation.addEventListener('loopComplete', function() {animation.destroy();carousel()})
+
+          $(obj).css('height',$(obj).height())
         }
         carousel()
       })
