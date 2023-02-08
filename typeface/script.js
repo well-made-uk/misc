@@ -240,9 +240,16 @@ Webflow.push(function () {
       heroSetupMobile()
     }
   } else {
-    if ( $('#video-hero').length > 0 ) {
-      heroSetup()
+    if (connection == 'fast' && window.innerWidth > 767) {
+      if ( $('#video-hero').length > 0 ) {
+        heroSetup()
+      }
+    } else {
+      if ( $('#video-hero').length > 0 ) {
+        $(window).click(()=>{heroSetup()})
+      }
     }
+
     $('[control=open-modal]').click(()=>{
       if ( !modalSetupComplete ) {modalSetup()}
     })
