@@ -254,7 +254,7 @@ Webflow.push(function () {
       const lottieEl = $(obj)
       const listEl = $(`[data-carousel-list=${id}]`)
       const carouselItems = $(listEl).children()
-      console.log(`Carousel '${id}'. Lottie container: ${$(lottieEl).length}. List container: ${$(listEl).length}. Items: ${$(listItems).length}.`)
+      console.log(`Carousel '${id}'. Lottie container: ${$(lottieEl).length}. List container: ${$(listEl).length}. Items: ${$(carouselItems).length}.`)
     })
   }
 
