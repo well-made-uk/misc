@@ -225,7 +225,7 @@ function modalSetup() {
 
 function loadLottie(cont,src) {
   const lottie = Webflow.require('lottie').lottie;
-  $(cont).css('background','none')
+  $(cont).children('img').remove()
     return lottie.loadAnimation({
         container: cont,
         renderer: 'svg',
