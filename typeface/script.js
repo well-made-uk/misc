@@ -293,6 +293,13 @@ Webflow.push(function () {
     const lottie = Webflow.require('lottie').lottie;
     if(sc == 0){
       sc=1;
+      lottie.loadAnimation({
+          container: $(['data-carousel-lottie']),
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          path: 'https://uploads-ssl.webflow.com/63bcb934c7e2f13b85fd467b/63ddb3426af00be85232410e_Copy.json'
+      });
       $('[data-lottie]').each((i,obj)=>{
         lottie.loadAnimation({
             container: obj,
