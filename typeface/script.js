@@ -248,4 +248,21 @@ Webflow.push(function () {
       if ( !modalSetupComplete ) {modalSetup()}
     })
   }
+
+  // Lottie async
+  var sc=0;
+  window.addEventListener('scroll', function() {
+      if(sc == 0){
+          sc=1;
+          $('[data-lottie]').each((i,obj)=>{
+            lottie.loadAnimation({
+                container: obj,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: $(obj).attr('data-lottie')
+            });
+          })
+      }
+  });
 })
