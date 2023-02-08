@@ -225,7 +225,7 @@ function modalSetup() {
 
 function loadLottie(cont,src) {
   const lottie = Webflow.require('lottie').lottie;
-    lottie.loadAnimation({
+    return lottie.loadAnimation({
         container: cont,
         renderer: 'svg',
         loop: true,
@@ -292,7 +292,7 @@ Webflow.push(function () {
         console.log(`id: ${id}. list: ${list.length}`)
         let e = 0
         function carousel() {
-          loadLottie(obj,$(list[e]).attr('data-carousel'))
+          animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
