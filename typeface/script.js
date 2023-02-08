@@ -290,6 +290,7 @@ Webflow.push(function () {
         const id = $(obj).attr('data-carousel-lottie')
         const list = $(obj).siblings('[data-carousel-list]').children('[data-carousel]')
         console.log(`id: ${id}. list: ${list.length}`)
+        loadLottie(obj,$(list[0]).attr('data-carousel'))
         /*
         const animation = lottie.loadAnimation({
             container: $(obj),
