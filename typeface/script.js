@@ -230,7 +230,13 @@ function loadLottie(cont,src) {
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        path: src
+        path: src,
+        rendererSettings: {
+          scaleMode: 'noScale',
+          clearCanvas: true,
+          progressiveLoad: true,
+          hideOnTransparent: true
+        }
     });
 }
 
@@ -277,13 +283,6 @@ Webflow.push(function () {
       sc=1;
       $('[data-lottie]').each((i,obj)=>{
         loadLottie(obj,$(obj).attr('data-lottie'))
-        /*lottie.loadAnimation({
-            container: obj,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: $(obj).attr('data-lottie')
-        });*/
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
         const cont = obj
@@ -301,46 +300,7 @@ Webflow.push(function () {
           animation.addEventListener('loopComplete', function() {animation.destroy();carousel()})
         }
         carousel()
-
-        /*
-        const animation = lottie.loadAnimation({
-            container: $(obj),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: $('.carousel-item.active').attr('data-carousel')
-        })
-        */
       })
-      /*$('[data-carousel-lottie]').each((i,obj)=>{
-        console.log(`Working on:`)
-        console.log(obj)
-        const id = $(obj).attr('data-carousel-lottie')
-        console.log(`ID: ${id}.`)
-        const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
-        console.log(`${list.length} items.`)
-        const length = list.length
-        let e = 0
-
-        function lottieCarousel() {
-          console.log(`Loading carousel item ${e}.`)
-          const animation = lottie.loadAnimation({
-              container: $(obj),
-              renderer: 'svg',
-              loop: true,
-              autoplay: true,
-              path: $(list[e]).attr('data-carousel')
-          })
-          console.log(`Loaded:`)
-          console.log(animation)
-          $(list).removeClass('active')
-          $(list[e]).addClass('active')
-          e++
-          if (e > length) {e = 0}
-          animation.addEventListener('complete',lottieCarousel)
-        }
-        lottieCarousel()
-      })*/
     }
   });
 })
