@@ -289,6 +289,7 @@ Webflow.push(function () {
         const cont = obj
         const id = $(obj).attr('data-carousel-lottie')
         const list = $(obj).siblings('[data-carousel-list]').children('[data-carousel]')
+        const length = list.length
         let e = 0
         function carousel() {
           console.log(`E=${e}. Length=${length}. Create animation for ${$(list[e]).attr('data-carousel')}`)
