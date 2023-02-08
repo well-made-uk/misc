@@ -1,6 +1,7 @@
 let modalSetupComplete = false
 let heroSetupComplete = false
 let heroLoaded = false
+const lottie = Webflow.require('lottie').lottie;
 
 function heroSetup() {
   if (heroLoaded) {return}
@@ -274,8 +275,6 @@ Webflow.push(function () {
       // carousel(lottieEl,carouselItems)
     })
   }
-
-  const lottie = Webflow.require('lottie').lottie;
   const anims = lottie.getRegisteredAnimations
 
   // Lottie async
