@@ -286,6 +286,10 @@ Webflow.push(function () {
         });*/
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
+        const cont = obj
+        const id = $(obj).attr('data-carousel-lottie')
+        const list = $(obj).siblings('[data-carousel-list]').children('[data-carousel]')
+        console.log(`id: ${id}. list: ${list.length}`)
         /*
         const animation = lottie.loadAnimation({
             container: $(obj),
