@@ -226,21 +226,20 @@ function modalSetup() {
 function loadLottie(cont,src) {
   const lottie = Webflow.require('lottie').lottie;
   $(cont).children('img').remove()
-    const animation = lottie.loadAnimation({
-        container: cont,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: src,
-        rendererSettings: {
-          scaleMode: 'noScale',
-          clearCanvas: true,
-          progressiveLoad: true,
-          hideOnTransparent: true
-        }
-    });
-    $(obj).css('height',$(obj).height())
-    return animation;
+  $(cont).css('min-height',$(cont).height())
+  return const animation = lottie.loadAnimation({
+      container: cont,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: src,
+      rendererSettings: {
+        scaleMode: 'noScale',
+        clearCanvas: true,
+        progressiveLoad: true,
+        hideOnTransparent: true
+      }
+  });
 }
 
 // Start document.loaded stuff
