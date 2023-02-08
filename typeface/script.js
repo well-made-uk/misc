@@ -239,6 +239,7 @@ function loadLottie(cont,src) {
           hideOnTransparent: true
         }
     });
+    $(obj).css('height',$(obj).height())
     return animation;
 }
 
@@ -298,8 +299,6 @@ Webflow.push(function () {
           e++
           if (e >= length) {e = 0}
           animation.addEventListener('loopComplete', function() {animation.destroy();carousel()})
-
-          $(obj).css('height',$(obj).height())
         }
         carousel()
       })
