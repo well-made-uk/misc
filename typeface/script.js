@@ -229,6 +229,7 @@ function carousel(id, lottieEl, list) {
 
   for (let i = 0; i < list.length; i++) {
     const src = $(list[i]).attr('data-carousel')
+    console.log('Loading...')
     const anim = lottie.loadAnimation({
         container: lottieEl,
         renderer: 'svg',
