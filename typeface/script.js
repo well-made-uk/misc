@@ -283,7 +283,7 @@ Webflow.push(function () {
       const lottieEl = $(obj)
       const listEl = $(`[data-carousel-list=${id}]`)
       const carouselItems = $(listEl).children('[data-carousel]')
-      carousel(lottieEl,carouselItems)
+      // carousel(lottieEl,carouselItems)
     })
   }
 
