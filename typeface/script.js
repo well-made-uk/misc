@@ -297,7 +297,7 @@ Webflow.push(function () {
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
-          if (e > length) {e = 0}
+          if (e >= length) {e = 0}
           animation.addEventListener('loopComplete', function() {animation.destroy();carousel()})
         }
         carousel()
