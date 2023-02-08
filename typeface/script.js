@@ -302,14 +302,26 @@ Webflow.push(function () {
             path: $(obj).attr('data-lottie')
         });
       })
-      $('[data-carousel]').each((i,obj)=>{
-        lottie.loadAnimation({
-            container: $('[data-carousel-lottie=flow]'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: $(obj).attr('data-carousel')
-        });
+      $('[data-carousel-lottie]').each((i,obj)=>{
+        const id = $(obj).attr('data-carousel-lottie')
+        const list = $(`data-carousel-list=${id}`).children('[data-carousel]')
+        const length = list.length
+        let e = 0
+
+        function lottieCarousel() {
+          const animation = lottie.loadAnimation({
+              container: $(obj),
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: $(list[e]).attr('data-carousel')
+          })
+          $(list).removeClass('active')
+          $(list[e]).addClass('active')
+          e++
+          animation.addEventListener('complete',lottieCarousel)
+        }
+        lottieCarousel()
       })
     }
   });
