@@ -281,7 +281,7 @@ Webflow.push(function () {
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            path: $(`[data-carousel-list=flow]`).children('[data-carousel]')[0].attr('data-carousel')
+            path: $(`[data-carousel-list=flow]`).children('[data-carousel]').attr('data-carousel')
         })
       })
       /*$('[data-carousel-lottie]').each((i,obj)=>{
