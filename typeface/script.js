@@ -296,7 +296,7 @@ Webflow.push(function () {
           $(list[e]).addClass('active')
           e++
           if (e > length) {e = 0}
-          animation.addEventListener('loopComplete',carousel)
+          animation.onLoopComplete(carousel)
         }
         carousel()
 
