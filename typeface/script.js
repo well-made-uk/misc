@@ -223,6 +223,23 @@ function modalSetup() {
     $(section).fadeIn(300,()=>{$(video).trigger('play')})
   }
 
+function carousel(id, lottie, list) {
+  console.log(`Carousel '${id}'. Lottie container: ${$(lottieEl).length}. List container: ${$(listEl).length}. Items: ${$(carouselItems).length}.`)
+  const lottie = Webflow.require('lottie').lottie;
+
+  for (let i = 0; i < list.length; i++) {
+    const src = $(list)[i].attr('data-carousel')
+    const anim = lottie.loadAnimation({
+        container: lottie,
+        renderer: 'svg',
+        loop: false,
+        autoplay: true,
+        path: src
+    });
+    $(anim).on('complete',()=>{console.log('Complete')})
+  }
+}
+
 // Start document.loaded stuff
 var Webflow = Webflow || [];
 Webflow.push(function () {
@@ -253,8 +270,8 @@ Webflow.push(function () {
       const id = $(obj).attr('data-carousel-lottie')
       const lottieEl = $(obj)
       const listEl = $(`[data-carousel-list=${id}]`)
-      const carouselItems = $(listEl).children()
-      console.log(`Carousel '${id}'. Lottie container: ${$(lottieEl).length}. List container: ${$(listEl).length}. Items: ${$(carouselItems).length}.`)
+      const carouselItems = $(listEl).children('[data-carousel]')
+      carousel(id,lottieEl,carouselItems)
     })
   }
 
