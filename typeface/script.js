@@ -302,6 +302,15 @@ Webflow.push(function () {
             path: $(obj).attr('data-lottie')
         });
       })
+      $('[data-carousel]').each((i,obj)=>{
+        lottie.loadAnimation({
+            container: $('[data-carousel-lottie=flow]'[i]),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: $(obj).attr('data-carousel')
+        });
+      })
     }
   });
 })
