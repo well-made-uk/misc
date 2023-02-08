@@ -276,6 +276,15 @@ Webflow.push(function () {
         });
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
+        const animation = lottie.loadAnimation({
+            container: $(obj),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: $(`[data-carousel-list=flow]`).children('[data-carousel]')[0].attr('data-carousel')
+        })
+      })
+      /*$('[data-carousel-lottie]').each((i,obj)=>{
         console.log(`Working on:`)
         console.log(obj)
         const id = $(obj).attr('data-carousel-lottie')
@@ -303,7 +312,7 @@ Webflow.push(function () {
           animation.addEventListener('complete',lottieCarousel)
         }
         lottieCarousel()
-      })
+      })*/
     }
   });
 })
