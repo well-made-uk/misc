@@ -227,6 +227,18 @@ function carousel(id, lottieEl, list) {
 
   const lottie = Webflow.require('lottie').lottie;
 
+  function getLottiePromise(item) {
+    return new Promise((resolve) => {
+      const listener = () => {
+        item.removeEventListener('complete', listener);
+        resolve();
+      }
+      item.addEventListener('complete', listener);
+    })
+  }
+
+  waitForLottie()
+
   for (let i = 0; i < list.length; i++) {
     const src = $(list[i]).attr('data-carousel')
     console.log('Loading...')
@@ -237,7 +249,9 @@ function carousel(id, lottieEl, list) {
         autoplay: true,
         path: src
     });
-    $(anim).on('complete',()=>{console.log('Complete')})
+    async function waitForLottie() {
+      await getLottiePromise(anim)
+    }
   }
 }
 
