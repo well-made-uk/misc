@@ -276,7 +276,8 @@ Webflow.push(function () {
         });
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
-        console.log(`Working on ${obj}.`)
+        console.log(`Working on:`)
+        console.log(obj)
         const id = $(obj).attr('data-carousel-lottie')
         console.log(`ID: ${id}.`)
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
@@ -293,7 +294,8 @@ Webflow.push(function () {
               autoplay: true,
               path: $(list[e]).attr('data-carousel')
           })
-          console.log(`Loaded ${animation}.`)
+          console.log(`Loaded:`)
+          console.log(animation)
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
