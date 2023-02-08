@@ -224,7 +224,6 @@ function modalSetup() {
   }
 
 function carousel(id, lottie, list) {
-  console.log(`Carousel '${id}'. Lottie container: ${$(lottieEl).length}. List container: ${$(listEl).length}. Items: ${$(carouselItems).length}.`)
 
   for (let i = 0; i < list.length; i++) {
     const src = $(list)[i].attr('data-carousel')
@@ -289,7 +288,6 @@ Webflow.push(function () {
             autoplay: true,
             path: $(obj).attr('data-lottie')
         });
-        console.log(`Loaded ${$(obj).attr('data-lottie')}`)
       })
     }
   });
