@@ -241,6 +241,7 @@ function carousel(id, lottieEl, list) {
         autoplay: true,
         path: src
       });
+      console.log(`${anim} ${src} ${i}`)
     }, 6000);
   }
 }
