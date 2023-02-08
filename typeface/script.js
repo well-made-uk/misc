@@ -227,31 +227,20 @@ function carousel(id, lottieEl, list) {
 
   const lottie = Webflow.require('lottie').lottie;
 
-  function getLottiePromise(item) {
-    return new Promise((resolve) => {
-      const listener = () => {
-        item.removeEventListener('complete', listener);
-        resolve();
-      }
-      item.addEventListener('complete', listener);
-    })
+  for(var i = 0; i < array.length; i++) {
+    delay(i)
   }
 
-  waitForLottie()
-
-  for (let i = 0; i < list.length; i++) {
-    const src = $(list[i]).attr('data-carousel')
-    console.log('Loading...')
-    const anim = lottie.loadAnimation({
+  function delay(i) {
+    setTimeout(() => {
+      const anim = lottie.loadAnimation({
         container: lottieEl,
         renderer: 'svg',
         loop: false,
         autoplay: true,
         path: src
-    });
-    async function waitForLottie() {
-      await getLottiePromise(anim)
-    }
+      });
+    }, 6000);
   }
 }
 
