@@ -235,7 +235,7 @@ function carousel(id, lottieEl, list) {
     path: src
   });
 
-  myEventBus.addListener(function () {
+  window.addListener(function () {
       alert('table updated!');
   });
 }
