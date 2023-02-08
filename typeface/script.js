@@ -227,13 +227,9 @@ function carousel(id, lottieEl, list) {
 
   const lottie = Webflow.require('lottie').lottie;
   console.log(list.length)
-  for(var i = 0; i < list.length; i++) {
-    delay(i)
-  }
-
-  function delay(i) {
-    const src = $(list[i]).attr('data-carousel')
+  for(let i = 0; i < list.length; i++) {
     setTimeout(() => {
+      const src = $(list[i]).attr('data-carousel')
       const anim = lottie.loadAnimation({
         container: lottieEl,
         renderer: 'svg',
