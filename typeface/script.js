@@ -22,7 +22,7 @@ function heroSetup() {
   $(window).resize(videoSize)
   $(hero).css('min-height',`${window.innerHeight}px`)
 
-  function loadVideo(muted) {
+  function loadVideo() {
     $(image).replaceWith(`<video class="video-container">
       <source src="${videosrc}" type="video/mp4">
       Your browser does not support the video tag.
@@ -116,12 +116,12 @@ function heroSetup() {
         }
         $(video).on('ended',heroEnd)
 
-        if (muted) {$(video).prop('muted','true')}
-        $(hero).find('[control=play]').click()
+        if (connection == 'fast') {
+          $(video).prop('muted','true')
+          $(hero).find('[control=play]').click()
+        }
       }
-  // if (connection == 'fast' && !heroLoaded) {
-    loadVideo('muted')
-  // }
+    loadVideo()
 }
 
 function heroSetupMobile() {
@@ -241,15 +241,8 @@ Webflow.push(function () {
     }
   } else {
     if ( $('#video-hero').length > 0 ) {
-      if (connection == 'fast') {
-        console.log('Fast connection detected.')
-        heroSetup()
-      } else {
-        console.log('Slow connection detected.')
-        $('document').click(()=>{heroSetup()})
-      }
+      heroSetup()
     }
-
     $('[control=open-modal]').click(()=>{
       if ( !modalSetupComplete ) {modalSetup()}
     })
