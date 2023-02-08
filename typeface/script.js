@@ -119,7 +119,7 @@ function heroSetup() {
         if (connection == 'fast') {
           $(video).prop('muted','true')
           $(hero).find('[control=play]').click()
-        }
+        } else {console.log('Slow connection detected.')}
       }
     loadVideo()
 }
