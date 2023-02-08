@@ -289,7 +289,6 @@ Webflow.push(function () {
         const cont = obj
         const id = $(obj).attr('data-carousel-lottie')
         const list = $(obj).siblings('[data-carousel-list]').children('[data-carousel]')
-        console.log(`id: ${id}. list: ${list.length}`)
         let e = 0
         function carousel() {
           animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
@@ -297,7 +296,7 @@ Webflow.push(function () {
           $(list[e]).addClass('active')
           e++
           if (e > length) {e = 0}
-          animation.addEventListener('complete',carousel)
+          animation.addEventListener('loopComplete',carousel)
         }
         carousel()
 
