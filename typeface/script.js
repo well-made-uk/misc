@@ -284,9 +284,9 @@ Webflow.push(function () {
       $('[data-lottie]').each((i,obj)=>{
         $(obj).children().remove()
         loadLottie(obj,$(obj).attr('data-lottie'))
-        $(obj).css('height','auto')
+        $(obj).parent().css('height','auto')
         const lottieHeight = $(obj).height()
-        $(obj).css('height',lottieHeight)
+        $(obj).parent().css('height',lottieHeight)
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
         const id = $(obj).attr('data-carousel-lottie')
@@ -296,9 +296,9 @@ Webflow.push(function () {
         $(obj).children().remove()
         function carousel() {
           const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
-          $(obj).css('height','auto')
+          $(obj).parent().css('height','auto')
           const lottieHeight = $(obj).height()
-          $(obj).css('height',lottieHeight)
+          $(obj).parent().css('height',lottieHeight)
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
