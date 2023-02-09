@@ -287,8 +287,10 @@ Webflow.push(function () {
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
         const id = $(obj).attr('data-carousel-lottie')
+        console.log(id)
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         const length = list.length
+        console.log(length)
         let e = 0
         let run = 0
         $(obj).children().remove()
@@ -298,6 +300,7 @@ Webflow.push(function () {
           carousel()
         }
         function carousel() {
+          console.log('Run carousel')
           const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(list).removeClass('active')
           $(list[e]).addClass('active')
