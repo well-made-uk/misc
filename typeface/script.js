@@ -315,7 +315,7 @@ Webflow.push(function () {
             anim.destroy()
           }
           function advanceCarousel() {
-            if (animation) {destroyLottie(animation)}
+            // if (animation) {destroyLottie(animation)}
             carousel()
           }
           let animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
