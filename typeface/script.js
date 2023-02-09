@@ -224,7 +224,7 @@ function modalSetup() {
   }
 
 function loadLottie(cont,src) {
-  const lottie = Webflow.require('lottie').lottie;
+  const lottie = Webflow.require('lottie').lottie
   return animation = lottie.loadAnimation({
       container: cont,
       renderer: 'svg',
@@ -276,7 +276,6 @@ Webflow.push(function () {
   }
 
   // Lottie async
-
   var sc=0;
   window.addEventListener('scroll', function() {
     if(sc == 0){
@@ -296,6 +295,7 @@ Webflow.push(function () {
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
+          // $(list).click((item)=>{e = list.indexOf(e)})
           if (e >= length) {e = 0}
           animation.addEventListener('loopComplete', function() {
             const height = $(obj).closest('.carousel').height()
