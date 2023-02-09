@@ -333,7 +333,8 @@ Webflow.push(function () {
               advanceCarousel()
             })
           }
-          animation.addEventListener('loopComplete', advanceCarousel})
+          animation.addEventListener('loopComplete', advanceCarousel)
+          
         }
         carousel()
       })
