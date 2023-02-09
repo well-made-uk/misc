@@ -1,7 +1,6 @@
 let modalSetupComplete = false
 let heroSetupComplete = false
 let heroLoaded = false
-const lottie = Webflow.require('lottie').lottie;
 
 function heroSetup() {
   if (heroLoaded) {return}
@@ -225,6 +224,7 @@ function modalSetup() {
   }
 
 function loadLottie(cont,src) {
+  const lottie = Webflow.require('lottie').lottie
   return animation = lottie.loadAnimation({
       container: cont,
       renderer: 'svg',
@@ -276,7 +276,6 @@ Webflow.push(function () {
   }
 
   // Lottie async
-
   var sc=0;
   window.addEventListener('scroll', function() {
     if(sc == 0){
