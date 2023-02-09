@@ -296,7 +296,7 @@ Webflow.push(function () {
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
-          $(list).click((item)=>{e = list.indexOf(e)})
+          // $(list).click((item)=>{e = list.indexOf(e)})
           if (e >= length) {e = 0}
           animation.addEventListener('loopComplete', function() {
             const height = $(obj).closest('.carousel').height()
