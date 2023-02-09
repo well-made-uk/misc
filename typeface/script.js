@@ -295,7 +295,13 @@ Webflow.push(function () {
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
-          $(list).click((item)=>{e = $(item.target).parent().index()})
+          $(list).click((item)=>{
+            e = $(item.target).parent().index()
+            const height = $(obj).closest('.carousel').height()
+            $(obj).closest('.carousel').css('height',height)
+            animation.destroy();
+            carousel()
+          })
           if (e >= length) {e = 0}
           animation.addEventListener('loopComplete', function() {
             const height = $(obj).closest('.carousel').height()
