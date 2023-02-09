@@ -291,18 +291,19 @@ Webflow.push(function () {
         let e = 0
         $(obj).children().remove()
         $(list).click((item)=>{
+          console.log(`Link clicked. Opening animation ${$(item.target).parent().index()}.`)
           animation.destroy()
           e = $(item.target).parent().index()
           carousel()
         })
         function carousel() {
-          console.log('Carousel triggered')
           const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
           if (e >= length) {e = 0}
           animation.addEventListener('loopComplete', function() {
+            console.log(`Loop complete. Proceeding to animation ${e}.`)
             const height = $(obj).closest('.carousel').height()
             $(obj).closest('.carousel').css('height',height)
             animation.destroy()
