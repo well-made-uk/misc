@@ -291,6 +291,11 @@ Webflow.push(function () {
         const length = list.length
         let e = 0
         $(obj).children().remove()
+        $(list).click((item)=>{
+          console.log(`Link clicked. Opening animation ${$(item.target).parent().index()}.`)
+          e = $(item.target).parent().index()
+          advanceCarousel()
+        })
         function carousel() {
           const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(list).removeClass('active')
@@ -298,15 +303,7 @@ Webflow.push(function () {
           e++
           if (e >= length) {e = 0}
           animation.addEventListener('loopComplete', advanceCarousel)
-          if (rn==0){
-            rn = 1
-            $(list).click((item)=>{
-              animation.removeEventListener('loopComplete',advanceCarousel)
-              console.log(`Link clicked. Opening animation ${$(item.target).parent().index()}.`)
-              e = $(item.target).parent().index()
-              carousel()
-            })
-          }
+          
           function advanceCarousel() {
             console.log(`Loop complete. Proceeding to animation ${e}.`)
             const height = $(obj).closest('.carousel').height()
