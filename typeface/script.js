@@ -277,6 +277,7 @@ Webflow.push(function () {
 
   // Lottie async
   var sc=0;
+  var rn=0;
   window.addEventListener('scroll', function() {
     if(sc == 0){
       sc=1;
@@ -297,12 +298,15 @@ Webflow.push(function () {
           e++
           if (e >= length) {e = 0}
           animation.addEventListener('loopComplete', advanceCarousel)
-          $(list).click((item)=>{
-            animation.removeEventListener('loopComplete',advanceCarousel)
-            console.log(`Link clicked. Opening animation ${$(item.target).parent().index()}.`)
-            e = $(item.target).parent().index()
-            carousel()
-          })
+          if (rn==0){
+            rn = 1
+            $(list).click((item)=>{
+              animation.removeEventListener('loopComplete',advanceCarousel)
+              console.log(`Link clicked. Opening animation ${$(item.target).parent().index()}.`)
+              e = $(item.target).parent().index()
+              carousel()
+            })
+          }
           function advanceCarousel() {
             console.log(`Loop complete. Proceeding to animation ${e}.`)
             const height = $(obj).closest('.carousel').height()
