@@ -310,9 +310,7 @@ Webflow.push(function () {
         }
         function carousel() {
           function destroyLottie(anim) {
-            console.log('Animation destroyed:')
-            console.log(anim)
-            anim.destroy()
+            animation.destroy()
           }
           function advanceCarousel(anim) {
             if (anim) {destroyLottie(anim)}
