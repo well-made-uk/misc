@@ -294,6 +294,10 @@ Webflow.push(function () {
         $(obj).children().remove()
         
         function carousel() {
+          
+          let animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
+          
+          
           function loadLottie(cont,src) {
             console.log('Animation loading')
             return animation = lottie.loadAnimation({
@@ -315,7 +319,8 @@ Webflow.push(function () {
             animation.destroy()
             carousel()
           }
-          let animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
+          
+          
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
