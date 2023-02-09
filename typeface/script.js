@@ -298,6 +298,7 @@ Webflow.push(function () {
           carousel()
         }
         function carousel() {
+          console.log($(list[e]).attr('data-carousel'))
           const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(list).removeClass('active')
           $(list[e]).addClass('active')
