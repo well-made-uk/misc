@@ -329,7 +329,6 @@ Webflow.push(function () {
             $(obj).closest('.carousel').css('height',height)
             $(list).click((item)=>{
               console.log('Clicked')
-              destroyLottie(animation)
               e = $(item.target).parent().index()
               advanceCarousel()
             })
