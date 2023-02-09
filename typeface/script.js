@@ -306,11 +306,11 @@ Webflow.push(function () {
             run = 1
             const height = $(obj).closest('.carousel').height()
             $(obj).closest('.carousel').css('height',height)
-            /*$(list).click((item)=>{
+            $(list).click((item)=>{
               animation.destroy()
               e = $(item.target).parent().index()
               advanceCarousel()
-            })*/
+            })
           }
           animation.addEventListener('loopComplete', advanceCarousel)
         }
