@@ -297,9 +297,17 @@ Webflow.push(function () {
           $(list[e]).addClass('active')
           e++
           if (e >= length) {e = 0}
-          animation.addEventListener('loopComplete', function() {
+          const listener = animation.addEventListener('loopComplete', function() {
             const height = $(obj).height()
             $(obj).parent().css('height',height)
+            animation.destroy();
+            carousel()
+          })
+          $(list).click((item)=>{
+            e = $(list).parent().index(item.target)
+            const height = $(obj).height()
+            $(obj).parent().css('height',height)
+            item.target.removeEventListener('loopComplete',listener)
             animation.destroy();
             carousel()
           })
