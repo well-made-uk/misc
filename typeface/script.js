@@ -308,12 +308,12 @@ Webflow.push(function () {
               }
           });
         }
-        function destroyLottie(anim) {
-          anim.removeEventListener('loopComplete', advanceCarousel)
-          anim.destroy()
-          console.log('Animation destroyed')
-        }
         function carousel() {
+          function destroyLottie(anim) {
+            anim.removeEventListener('loopComplete', advanceCarousel)
+            anim.destroy()
+            console.log('Animation destroyed')
+          }
           function advanceCarousel() {
             if (animation) {destroyLottie(animation)}
             carousel()
