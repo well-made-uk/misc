@@ -292,28 +292,27 @@ Webflow.push(function () {
         let e = 0
         let run = 0
         $(obj).children().remove()
-        function loadLottie(cont,src) {
-          console.log('Animation loading')
-          return animation = lottie.loadAnimation({
-              container: cont,
-              renderer: 'svg',
-              loop: true,
-              autoplay: true,
-              path: src,
-              rendererSettings: {
-                scaleMode: 'noScale',
-                clearCanvas: true,
-                progressiveLoad: true,
-                hideOnTransparent: true
-              }
-          });
-        }
+        
         function carousel() {
-          function destroyLottie(anim) {
-            animation.destroy()
+          function loadLottie(cont,src) {
+            console.log('Animation loading')
+            return animation = lottie.loadAnimation({
+                container: cont,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: src,
+                rendererSettings: {
+                  scaleMode: 'noScale',
+                  clearCanvas: true,
+                  progressiveLoad: true,
+                  hideOnTransparent: true
+                },
+                onComplete: advanceCarousel()
+            });
           }
-          function advanceCarousel(anim) {
-            if (anim) {destroyLottie(anim)}
+          function advanceCarousel() {
+            animation.destroy()
             carousel()
           }
           let animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
@@ -331,7 +330,7 @@ Webflow.push(function () {
               advanceCarousel()
             })
           }
-          animation.addEventListener('loopComplete', advanceCarousel)
+          // animation.addEventListener('loopComplete', advanceCarousel)
           
         }
         carousel()
