@@ -299,7 +299,7 @@ Webflow.push(function () {
           if (e >= length) {e = 0}
           animation.addEventListener('loopComplete', function() {
             const height = $(obj).height()
-            $(obj).parent().css('height',height)
+            $(obj).closest('.carousel').css('height',height)
             animation.destroy();
             carousel()
           })
