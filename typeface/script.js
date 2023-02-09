@@ -314,8 +314,8 @@ Webflow.push(function () {
             console.log(anim)
             anim.destroy()
           }
-          function advanceCarousel() {
-            if (animation) {destroyLottie(animation)}
+          function advanceCarousel(anim) {
+            if (anim) {destroyLottie(anim)}
             carousel()
           }
           let animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
@@ -330,7 +330,7 @@ Webflow.push(function () {
             $(list).click((item)=>{
               console.log('Clicked')
               e = $(item.target).parent().index()
-              advanceCarousel()
+              advanceCarousel(animation)
             })
           }
           animation.addEventListener('loopComplete', advanceCarousel)
