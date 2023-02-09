@@ -291,8 +291,8 @@ Webflow.push(function () {
         let e = 0
         $(obj).children().remove()
         $(list).click((item)=>{
+          animation.destroy()
           e = $(item.target).parent().index()
-          animation.destroy();
           carousel()
         })
         function carousel() {
@@ -305,7 +305,7 @@ Webflow.push(function () {
           animation.addEventListener('loopComplete', function() {
             const height = $(obj).closest('.carousel').height()
             $(obj).closest('.carousel').css('height',height)
-            animation.destroy();
+            animation.destroy()
             carousel()
           })
         }
