@@ -288,6 +288,7 @@ Webflow.push(function () {
         const id = $(obj).attr('data-carousel-lottie')
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         const length = list.length
+        console.log(`${id}: ${list.length} items.`)
         let e = 0
         $(obj).children().remove()
         /*$(list).click((item)=>{
