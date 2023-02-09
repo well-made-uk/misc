@@ -267,6 +267,22 @@ Webflow.push(function () {
       sc=1;
       $('[data-lottie]').each((i,obj)=>{
         $(obj).children().remove()
+        function loadLottie(cont,src) {
+          console.log('Animation loading')
+          return animation = lottie.loadAnimation({
+              container: cont,
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: src,
+              rendererSettings: {
+                scaleMode: 'noScale',
+                clearCanvas: true,
+                progressiveLoad: true,
+                hideOnTransparent: true
+              }
+          });
+        }
         loadLottie(obj,$(obj).attr('data-lottie'))
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
