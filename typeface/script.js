@@ -294,8 +294,6 @@ Webflow.push(function () {
         $(obj).children().remove()
         function advanceCarousel() {
           console.log(`Loop complete. Proceeding to animation ${e}.`)
-          const height = $(obj).closest('.carousel').height()
-          $(obj).closest('.carousel').css('height',height)
           if (animation) {animation.destroy()}
           carousel()
         }
@@ -307,6 +305,8 @@ Webflow.push(function () {
           if (e >= length) {e = 0}
           if (run == 0) {
             run = 1
+            const height = $(obj).closest('.carousel').height()
+            $(obj).closest('.carousel').css('height',height)
             $(list).click((item)=>{
               animation.destroy()
               e = $(item.target).parent().index()
