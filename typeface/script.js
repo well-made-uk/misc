@@ -224,6 +224,7 @@ function modalSetup() {
   }
 
 function loadLottie(cont,src) {
+  console.log('Animation loading')
   return animation = lottie.loadAnimation({
       container: cont,
       renderer: 'svg',
@@ -237,6 +238,11 @@ function loadLottie(cont,src) {
         hideOnTransparent: true
       }
   });
+}
+
+function destroyLottie(anim) {
+  anim.destroy()
+  console.log('Animation destroyed')
 }
 
 // Start document.loaded stuff
@@ -294,7 +300,7 @@ Webflow.push(function () {
         $(obj).children().remove()
         function carousel() {
           function advanceCarousel() {
-            if (animation) {animation.destroy()}
+            if (animation) {destroyLottie(animation)}
             carousel()
           }
           let animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
@@ -307,7 +313,8 @@ Webflow.push(function () {
             const height = $(obj).closest('.carousel').height()
             $(obj).closest('.carousel').css('height',height)
             $(list).click((item)=>{
-              animation.destroy()
+              console.log('Clicked')
+              destroyLottie(animation)
               e = $(item.target).parent().index()
               advanceCarousel()
             })
