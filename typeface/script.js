@@ -309,7 +309,7 @@ Webflow.push(function () {
           });
         }
         function destroyLottie(anim) {
-          anim.removeEventListener('loopComplete')
+          anim.removeEventListener('loopComplete', advanceCarousel)
           anim.destroy()
           console.log('Animation destroyed')
         }
