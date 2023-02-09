@@ -223,28 +223,6 @@ function modalSetup() {
     $(section).fadeIn(300,()=>{$(video).trigger('play')})
   }
 
-function loadLottie(cont,src) {
-  console.log('Animation loading')
-  return animation = lottie.loadAnimation({
-      container: cont,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: src,
-      rendererSettings: {
-        scaleMode: 'noScale',
-        clearCanvas: true,
-        progressiveLoad: true,
-        hideOnTransparent: true
-      }
-  });
-}
-
-function destroyLottie(anim) {
-  anim.destroy()
-  console.log('Animation destroyed')
-}
-
 // Start document.loaded stuff
 var Webflow = Webflow || [];
 Webflow.push(function () {
@@ -298,6 +276,26 @@ Webflow.push(function () {
         let e = 0
         let run = 0
         $(obj).children().remove()
+        function loadLottie(cont,src) {
+          console.log('Animation loading')
+          return animation = lottie.loadAnimation({
+              container: cont,
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: src,
+              rendererSettings: {
+                scaleMode: 'noScale',
+                clearCanvas: true,
+                progressiveLoad: true,
+                hideOnTransparent: true
+              }
+          });
+        }
+        function destroyLottie(anim) {
+          anim.destroy()
+          console.log('Animation destroyed')
+        }
         function carousel() {
           function advanceCarousel() {
             if (animation) {destroyLottie(animation)}
