@@ -290,25 +290,26 @@ Webflow.push(function () {
         const length = list.length
         let e = 0
         $(obj).children().remove()
-        $(list).click((item)=>{
-          console.log(`Link clicked. Opening animation ${$(item.target).parent().index()}.`)
-          animation.destroy()
-          e = $(item.target).parent().index()
-          carousel()
-        })
         function carousel() {
           const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
           if (e >= length) {e = 0}
-          animation.addEventListener('loopComplete', function() {
+          animation.addEventListener('loopComplete', advanceCarousel)
+          $(list).click((item)=>{
+            animation.removeEventListener('loopComplete',advanceCarousel)
+            console.log(`Link clicked. Opening animation ${$(item.target).parent().index()}.`)
+            e = $(item.target).parent().index()
+            carousel()
+          })
+          function advanceCarousel() {
             console.log(`Loop complete. Proceeding to animation ${e}.`)
             const height = $(obj).closest('.carousel').height()
             $(obj).closest('.carousel').css('height',height)
             animation.destroy()
             carousel()
-          })
+          }
         }
         carousel()
       })
