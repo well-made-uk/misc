@@ -303,14 +303,6 @@ Webflow.push(function () {
             animation.destroy();
             carousel()
           })
-          $(list).click((item)=>{
-            e = $(list).parent().index(item.target)
-            const height = $(obj).height()
-            $(obj).parent().css('height',height)
-            item.target.removeEventListener('loopComplete',listener)
-            animation.destroy();
-            carousel()
-          })
         }
         carousel()
       })
