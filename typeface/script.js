@@ -330,10 +330,10 @@ Webflow.push(function () {
             $(list).click((item)=>{
               console.log('Clicked')
               e = $(item.target).parent().index()
-              advanceCarousel(animation)
+              advanceCarousel()
             })
           }
-          animation.addEventListener('loopComplete', ()=>{advanceCarousel(animation)})
+          animation.addEventListener('loopComplete', advanceCarousel})
         }
         carousel()
       })
