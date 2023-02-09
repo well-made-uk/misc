@@ -307,7 +307,8 @@ Webflow.push(function () {
           if (e >= length) {e = 0}
           if (run == 0) {
             run = 1
-            console.log(`Closest carousel: ${$(obj).closest('.carousel')}`)
+            console.log(`Closest carousel:`)
+            console.log($(obj).closest('.carousel'))
             const height = $(obj).closest('.carousel').height()
             $(obj).closest('.carousel').css('height',height)
             $(list).click((item)=>{
