@@ -287,28 +287,23 @@ Webflow.push(function () {
       })
       $('[data-carousel-lottie]').each((i,obj)=>{
         const id = $(obj).attr('data-carousel-lottie')
-        const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
+        const list = $(obj).siblings(`[data-carousel-list]`).children('[data-carousel]')
         const length = list.length
-        console.log(`${id}: ${length} items.`)
         let e = 0
         let run = 0
         $(obj).children().remove()
-        function advanceCarousel() {
-          if (animation) {animation.destroy()}
-          carousel()
-        }
         function carousel() {
-          console.log(`Loading ${$(list[e]).attr('data-carousel')} into:`)
-          console.log(obj)
-          const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
+          function advanceCarousel() {
+            if (animation) {animation.destroy()}
+            carousel()
+          }
+          let animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
           if (e >= length) {e = 0}
           if (run == 0) {
             run = 1
-            console.log(`Closest carousel:`)
-            console.log($(obj).closest('.carousel'))
             const height = $(obj).closest('.carousel').height()
             $(obj).closest('.carousel').css('height',height)
             /*$(list).click((item)=>{
