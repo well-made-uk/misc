@@ -359,4 +359,5 @@ Webflow.push(function () {
       }
     })
   })
+  $(window).scroll()
 })
