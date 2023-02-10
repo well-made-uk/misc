@@ -289,7 +289,7 @@ Webflow.push(function () {
         const id = $(obj).attr('data-carousel-lottie')
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         const length = list.length
-        let e = -1
+        let e = 0
         let firstRun = true
         $(obj).children().remove()
         
@@ -297,7 +297,7 @@ Webflow.push(function () {
           if (animation) {
             animation.destroy()
           }
-          e++
+          if (!firstRun) {e++}
           if (e >= length) {e = 0}
           $(list).removeClass('active')
           $(list[e]).addClass('active')
@@ -321,7 +321,7 @@ Webflow.push(function () {
             firstRun = false;
             $(list).on('click',(item)=>{
               e = $(item.target).parent().index(item.target)
-              console.log($(item.target).parent().index(item.target))
+              console.log(list).index(item.target))
               animation.onComplete = ()=>{return}
               advanceCarousel(animation)
             })
