@@ -319,11 +319,10 @@ Webflow.push(function () {
           
           if (firstRun) {
             firstRun = false;
-            $(list).on('click',(item)=>{
-              _this = $(item.currentTarget)
-              e = $(_this).parent().index(_this)
-              console.log(_this)
-              console.log($(_this).parent())
+            $(list).click(function() {
+              e = $(this).parent().index(this)
+              console.log(this)
+              console.log($(this).parent())
               console.log(e)
               animation.onComplete = ()=>{return}
               advanceCarousel(animation)
