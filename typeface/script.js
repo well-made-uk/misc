@@ -290,11 +290,11 @@ Webflow.push(function () {
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         const length = list.length
         let e = 0
-        let firstRun = 1
+        let firstRun = true
         $(obj).children().remove()
         
         function advanceCarousel(animation) {
-          if (firstRun == 0) {
+          if (animation) {
             animation.destroy()
           }
           $(list).removeClass('active')
@@ -315,19 +315,18 @@ Webflow.push(function () {
               onComplete: advanceCarousel(animation)
           });
           
-          if (firstRun == 1) {
+          if (firstRun) {
             $(list).on('click',(item)=>{
               e = $(item.target).parent().index(item.target)
               advanceCarousel(animation)
             })
-            
-            firstRun = 0
+            firstRun = false;
           }
           
           e++
           if (e >= length) {e = 0}
         }
-        
+        advanceCarousel()
         
         
         
