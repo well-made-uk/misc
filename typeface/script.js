@@ -321,6 +321,7 @@ Webflow.push(function () {
             firstRun = false;
             $(list).on('click',(item)=>{
               e = $(item.target).parent().index(item.target)
+              console.log($(item.target).parent().index(item.target))
               animation.onComplete = ()=>{return}
               advanceCarousel(animation)
             })
