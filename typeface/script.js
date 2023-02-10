@@ -361,5 +361,4 @@ Webflow.push(function () {
       }
     })
   })
-  });
 })
