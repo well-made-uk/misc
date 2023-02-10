@@ -304,7 +304,7 @@ Webflow.push(function () {
         const length = list.length
         let e = -1
         let firstRun = true
-        $(obj).children().remove()
+        $(obj).children().fadeOut(50,()=>{$(obj).children().remove()})
         
         let animation = lottie.loadAnimation({
             container: obj,
