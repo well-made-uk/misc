@@ -323,7 +323,7 @@ Webflow.push(function () {
               e = $(this).parent().index(this)
               console.log(this)
               console.log($(this).parent())
-              console.log(e)
+              console.log($(this).parent().index(this))
               animation.onComplete = ()=>{return}
               advanceCarousel(animation)
             })
