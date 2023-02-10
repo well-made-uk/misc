@@ -288,7 +288,7 @@ Webflow.push(function () {
     }
       
     $('[data-carousel-lottie]').each((i,obj)=>{
-      
+      let run = 0
       // This is then function used to detect if the element is scrolled into view
       function elementScrolled(el)
       {
@@ -297,7 +297,7 @@ Webflow.push(function () {
         const elTop = $(el).offset().top;
         return ((elTop <= docViewBottom) && (elTop >= docViewTop));
       }
-      if  (elementScrolled(obj)) {
+      if  (elementScrolled(obj) && run == 0) {
         const id = $(obj).attr('data-carousel-lottie')
         console.log(`${id} in view`)
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
@@ -354,6 +354,7 @@ Webflow.push(function () {
           }
         }
         advanceCarousel()
+        run = 1
       }
     })
   });
