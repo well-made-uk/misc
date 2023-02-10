@@ -292,15 +292,15 @@ Webflow.push(function () {
       // This is then function used to detect if the element is scrolled into view
       function elementScrolled(el)
       {
+        if (run=1) {return}
+        run = 1
         const docViewTop = $(window).scrollTop();
         const docViewBottom = docViewTop + $(window).height();
         const elTop = $(el).offset().top;
         return ((elTop <= docViewBottom) && (elTop >= docViewTop));
       }
       if  (elementScrolled(obj) && run == 0) {
-        run = 1
         const id = $(obj).attr('data-carousel-lottie')
-        console.log(`${id} in view`)
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         const length = list.length
         let e = -1
