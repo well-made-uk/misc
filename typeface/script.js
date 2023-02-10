@@ -349,7 +349,7 @@ Webflow.push(function () {
           
           if (firstRun) {
             firstRun = false;
-            animation.isLoaded = ()=>{setTimeout(()=>{$(obj).parent().css('height',$(obj).parent().height())},200)}
+            animation.onEnterFrame = ()=>{setTimeout(()=>{$(obj).parent().css('height',$(obj).parent().height())},200)}
             $(list).click(function() {
               e = $(this).index() - 1
               advanceCarousel(true)
