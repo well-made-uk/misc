@@ -297,10 +297,10 @@ Webflow.push(function () {
           if (animation) {
             animation.destroy()
           }
-          $(list).removeClass('active')
-          $(list[e]).addClass('active')
           e++
           if (e >= length) {e = 0}
+          $(list).removeClass('active')
+          $(list[e]).addClass('active')
           
           animation = lottie.loadAnimation({
               container: obj,
