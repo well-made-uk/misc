@@ -292,7 +292,7 @@ Webflow.push(function () {
       // This is then function used to detect if the element is scrolled into view
       function elementScrolled(el)
       {
-        if (run=1) {return}
+        if (run==1) {return}
         run = 1
         const docViewTop = $(window).scrollTop();
         const docViewBottom = docViewTop + $(window).height();
