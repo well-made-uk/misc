@@ -224,7 +224,11 @@ function modalSetup() {
     $(section).fadeIn(300,()=>{$(video).trigger('play')})
   }
 
-function loadLottie(cont,src) {
+function loadLottie(cont,src,animation) {
+  if (animation) {
+    $(animation).off('.lc')
+    animation.destroy()
+  }
   return animation = lottie.loadAnimation({
       container: cont,
       renderer: 'svg',
@@ -292,15 +296,16 @@ Webflow.push(function () {
         let e = 0
         $(obj).children().remove()
         function carousel() {
-          const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
+          if (animation) { const animation = loadLottie(obj,$(list[e]).attr('data-carousel'),animation) } else {
+            const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
+          }
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           e++
           if (e >= length) {e = 0}
-          const listener = animation.addEventListener('loopComplete', function() {
+          const listener = $(animation).on('loopComplete.lc', function() {
             const height = $(obj).height()
             $(obj).parent().css('height',height)
-            animation.destroy();
             carousel()
           })
         }
