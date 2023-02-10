@@ -313,7 +313,7 @@ Webflow.push(function () {
                 hideOnTransparent: true
               }
           });
-          animation.onComplete = advanceCarousel(animation)
+          animation.onComplete = ()=>{advanceCarousel(animation)}
           
           if (firstRun) {
             $(list).on('click',(item)=>{
