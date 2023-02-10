@@ -300,7 +300,7 @@ Webflow.push(function () {
             e++
             if (e >= length) {e = 0}
           }
-          console.log(e)
+          console.log(animation.onComplete)
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           
