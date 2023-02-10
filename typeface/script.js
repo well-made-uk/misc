@@ -295,7 +295,7 @@ Webflow.push(function () {
         
         function advanceCarousel(animation) {
           if (animation) {
-            console.log(animation)
+            console.log(typeof animation)
             animation.destroy()
             $(obj).children().remove()
             e++
