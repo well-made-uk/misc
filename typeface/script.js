@@ -299,7 +299,7 @@ Webflow.push(function () {
         let sc2=0
         // This is then function used to detect if the element is scrolled into view
         if(sc2 == 0){
-          if  (elementScrolled(obj) && run == 0) {
+          if  (elementScrolled(obj)) {
             
             sc2=1
             const id = $(obj).attr('data-carousel-lottie')
