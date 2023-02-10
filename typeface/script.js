@@ -303,7 +303,7 @@ Webflow.push(function () {
           animation = lottie.loadAnimation({
               container: obj,
               renderer: 'svg',
-              loop: true,
+              loop: false,
               autoplay: true,
               path: $(list[e]).attr('data-carousel'),
               rendererSettings: {
