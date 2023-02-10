@@ -298,6 +298,7 @@ Webflow.push(function () {
         return ((elTop <= docViewBottom) && (elTop >= docViewTop));
       }
       if  (elementScrolled(obj) && run == 0) {
+        run = 1
         const id = $(obj).attr('data-carousel-lottie')
         console.log(`${id} in view`)
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
@@ -354,7 +355,6 @@ Webflow.push(function () {
           }
         }
         advanceCarousel()
-        run = 1
       }
     })
   });
