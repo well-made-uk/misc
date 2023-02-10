@@ -278,46 +278,33 @@ Webflow.push(function () {
   // Lottie async
 
   var sc=0;
-  window.addEventListener('scroll', function() {
+  $(window).scroll(function() {
     if(sc == 0){
       sc=1;
       $('[data-lottie]').each((i,obj)=>{
         $(obj).children().remove()
         loadLottie(obj,$(obj).attr('data-lottie'))
       })
+      
       $('[data-carousel-lottie]').each((i,obj)=>{
-        const id = $(obj).attr('data-carousel-lottie')
-        const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
-        const length = list.length
-        let e = -1
-        let firstRun = true
-        $(obj).children().remove()
         
-        let animation = lottie.loadAnimation({
-            container: obj,
-            renderer: 'svg',
-            loop: false,
-            autoplay: true,
-            path: $(list[e]).attr('data-carousel'),
-            rendererSettings: {
-              scaleMode: 'noScale',
-              clearCanvas: true,
-              progressiveLoad: true,
-              hideOnTransparent: true
-            }
-        });
-        
-        function advanceCarousel(run) {
-          e++
-          if (e >= length) {e = 0}
+        // This is then function used to detect if the element is scrolled into view
+        function elementScrolled(el)
+        {
+          const docViewTop = $(window).scrollTop();
+          const docViewBottom = docViewTop + $(window).height();
+          const elTop = $(el).offset().top;
+          return ((elTop <= docViewBottom) && (elTop >= docViewTop));
+        }
+        if  (elementScrolled(obj)) {
+          const id = $(obj).attr('data-carousel-lottie')
+          const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
+          const length = list.length
+          let e = -1
+          let firstRun = true
           $(obj).children().remove()
-          animation.onComplete = ()=>{}
-          animation.destroy()
-          console.log(typeof animation)
-          $(list).removeClass('active')
-          $(list[e]).addClass('active')
           
-          animation = lottie.loadAnimation({
+          let animation = lottie.loadAnimation({
               container: obj,
               renderer: 'svg',
               loop: false,
@@ -330,43 +317,42 @@ Webflow.push(function () {
                 hideOnTransparent: true
               }
           });
-          animation.onComplete = ()=>{animation.onComplete = ()=>{};advanceCarousel(true)}
           
-          if (firstRun) {
-            firstRun = false;
-            $(list).click(function() {
-              e = $(this).index() - 1
-              advanceCarousel(true)
-            })
-          }
-        }
-        advanceCarousel()
-        
-        
-        
-        
-        
-        /*
-        
-        function carousel() {
-          if (typeof animation !== 'undefined') {
-            $(animation).off('.lc')
+          function advanceCarousel(run) {
+            e++
+            if (e >= length) {e = 0}
+            $(obj).children().remove()
+            animation.onComplete = ()=>{}
             animation.destroy()
-            const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
-          } else {
-            const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
+            console.log(typeof animation)
+            $(list).removeClass('active')
+            $(list[e]).addClass('active')
+            
+            animation = lottie.loadAnimation({
+                container: obj,
+                renderer: 'svg',
+                loop: false,
+                autoplay: true,
+                path: $(list[e]).attr('data-carousel'),
+                rendererSettings: {
+                  scaleMode: 'noScale',
+                  clearCanvas: true,
+                  progressiveLoad: true,
+                  hideOnTransparent: true
+                }
+            });
+            animation.onComplete = ()=>{animation.onComplete = ()=>{};advanceCarousel(true)}
+            
+            if (firstRun) {
+              firstRun = false;
+              $(list).click(function() {
+                e = $(this).index() - 1
+                advanceCarousel(true)
+              })
+            }
           }
-          $(list).removeClass('active')
-          $(list[e]).addClass('active')
-          e++
-          if (e >= length) {e = 0}
-          const listener = $(animation).on('loopComplete.lc', function() {
-            const height = $(obj).height()
-            $(obj).parent().css('height',height)
-            carousel()
-          })
+          advanceCarousel()
         }
-        carousel()*/
       })
     }
   });
