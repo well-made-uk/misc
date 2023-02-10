@@ -295,12 +295,13 @@ Webflow.push(function () {
         
         function advanceCarousel(animation) {
           if (animation) {
+            console.log(animation)
             animation.destroy()
             $(obj).children().remove()
             e++
             if (e >= length) {e = 0}
           }
-          console.log(animation.onComplete)
+          console.log(typeof animation)
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           
