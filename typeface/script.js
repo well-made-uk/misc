@@ -284,7 +284,8 @@ Webflow.push(function () {
     return ((elTop <= docViewBottom) && (elTop >= docViewTop));
   }
 
-  var sc=0;
+  let sc=0;
+  let done = false
   $(window).scroll(function() {
     if(sc == 0){
       sc=1;
@@ -295,7 +296,6 @@ Webflow.push(function () {
     }
       
     $('[data-carousel-lottie]').each((i,obj)=>{
-      let done = false
       // This is then function used to detect if the element is scrolled into view
       
       if  (elementScrolled(obj)) {
