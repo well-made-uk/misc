@@ -295,12 +295,12 @@ Webflow.push(function () {
         
         function advanceCarousel(animation) {
           if (animation) {
-            animation.onComplete = ()=>{return}
             animation.destroy()
             $(obj).children().remove()
             e++
             if (e >= length) {e = 0}
           }
+          console.log(e)
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           
@@ -317,12 +317,11 @@ Webflow.push(function () {
                 hideOnTransparent: true
               }
           });
-          animation.onComplete = ()=>{console.log('animation complete');advanceCarousel(animation)}
+          animation.onComplete = ()=>{animation.onComplete = ()=>{};advanceCarousel(animation)}
           
           if (firstRun) {
             firstRun = false;
             $(list).click(function() {
-              console.log('animation click');
               e = $(this).index() - 1
               advanceCarousel(animation)
             })
