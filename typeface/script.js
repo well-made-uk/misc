@@ -324,6 +324,7 @@ Webflow.push(function () {
               e = $(_this).parent().index(_this)
               console.log(_this)
               console.log($(_this).parent())
+              console.log(e)
               animation.onComplete = ()=>{return}
               advanceCarousel(animation)
             })
