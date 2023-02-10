@@ -333,13 +333,13 @@ Webflow.push(function () {
                 hideOnTransparent: true
               }
           });
-          animation.onComplete = ()=>{animation.onComplete = ()=>{};advanceCarousel(run)}
+          animation.onComplete = ()=>{animation.onComplete = ()=>{};advanceCarousel(true)}
           
           if (firstRun) {
             firstRun = false;
             $(list).click(function() {
               e = $(this).index() - 1
-              advanceCarousel(animation)
+              advanceCarousel(true)
             })
           }
         }
