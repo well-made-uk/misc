@@ -316,12 +316,12 @@ Webflow.push(function () {
           animation.onComplete = ()=>{advanceCarousel(animation)}
           
           if (firstRun) {
+            firstRun = false;
             $(list).on('click',(item)=>{
               e = $(item.target).parent().index(item.target)
               animation.onComplete = ()=>{return}
               advanceCarousel(animation)
             })
-            firstRun = false;
           }
           
           e++
