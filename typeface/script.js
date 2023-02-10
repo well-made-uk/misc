@@ -290,7 +290,51 @@ Webflow.push(function () {
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         const length = list.length
         let e = 0
+        let firstRun = 1
         $(obj).children().remove()
+        
+        function advanceCarousel(animation) {
+          if (firstRun == 0) {
+            animation.destroy()
+          }
+          $(list).removeClass('active')
+          $(list[e]).addClass('active')
+          
+          animation = lottie.loadAnimation({
+              container: obj,
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: $(list[e]).attr('data-carousel'),
+              rendererSettings: {
+                scaleMode: 'noScale',
+                clearCanvas: true,
+                progressiveLoad: true,
+                hideOnTransparent: true
+              },
+              onComplete: advanceCarousel(animation)
+          });
+          
+          if (firstRun == 1) {
+            $(list).on('click',(item)=>{
+              e = $(item.target).parent().index(item.target)
+              advanceCarousel(animation)
+            })
+            
+            firstRun = 0
+          }
+          
+          e++
+          if (e >= length) {e = 0}
+        }
+        
+        
+        
+        
+        
+        
+        /*
+        
         function carousel() {
           if (typeof animation !== 'undefined') {
             $(animation).off('.lc')
@@ -309,7 +353,7 @@ Webflow.push(function () {
             carousel()
           })
         }
-        carousel()
+        carousel()*/
       })
     }
   });
