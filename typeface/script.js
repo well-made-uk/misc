@@ -292,7 +292,7 @@ Webflow.push(function () {
         let e = 0
         $(obj).children().remove()
         function carousel() {
-          if (animation) {
+          if (typeof animation !== 'undefined') {
             $(animation).off('.lc')
             animation.destroy()
             const animation = loadLottie(obj,$(list[e]).attr('data-carousel'))
