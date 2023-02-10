@@ -296,9 +296,9 @@ Webflow.push(function () {
         function advanceCarousel(animation) {
           if (animation) {
             animation.destroy()
+            e++
+            if (e >= length) {e = 0}
           }
-          if (!firstRun) {e++}
-          if (e >= length) {e = 0}
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           
@@ -321,7 +321,7 @@ Webflow.push(function () {
             firstRun = false;
             $(list).on('click',(item)=>{
               e = $(item.target).parent().index(item.target)
-              console.log(e)
+              console.log($(item.target).parent())
               animation.onComplete = ()=>{return}
               advanceCarousel(animation)
             })
