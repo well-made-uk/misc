@@ -308,7 +308,7 @@ Webflow.push(function () {
         });
         
         function advanceCarousel(run) {
-          if (run) {
+          if (run !== true) {
             console.log(typeof animation)
             e++
             if (e >= length) {e = 0}
