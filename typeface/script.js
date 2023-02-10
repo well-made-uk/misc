@@ -285,7 +285,6 @@ Webflow.push(function () {
   }
 
   let sc=0;
-  let done = false
   $(window).scroll(function() {
     if(sc == 0){
       sc=1;
@@ -294,10 +293,12 @@ Webflow.push(function () {
         loadLottie(obj,$(obj).attr('data-lottie'))
       })
     }
+  })
       
-    $('[data-carousel-lottie]').each((i,obj)=>{
-      // This is then function used to detect if the element is scrolled into view
-      
+  $('[data-carousel-lottie]').each((i,obj)=>{
+    let done = false
+    // This is then function used to detect if the element is scrolled into view
+    $(window).scroll(function() {
       if  (elementScrolled(obj)) {
         if ( done == true) {return}
         done = true
@@ -359,5 +360,6 @@ Webflow.push(function () {
         advanceCarousel(true)
       }
     })
+  })
   });
 })
