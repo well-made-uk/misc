@@ -303,7 +303,6 @@ Webflow.push(function () {
         if ( done == true) {return}
         done = true
         const id = $(obj).attr('data-carousel-lottie')
-        console.log(`${id} in view`)
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
         const length = list.length
         let e = -1
@@ -330,7 +329,6 @@ Webflow.push(function () {
           $(obj).children().remove()
           animation.onComplete = ()=>{}
           animation.destroy()
-          console.log(typeof animation)
           $(list).removeClass('active')
           $(list[e]).addClass('active')
           
