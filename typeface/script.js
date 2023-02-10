@@ -311,13 +311,14 @@ Webflow.push(function () {
                 clearCanvas: true,
                 progressiveLoad: true,
                 hideOnTransparent: true
-              },
-              onComplete: advanceCarousel(animation)
+              }
           });
+          animation.onComplete = advanceCarousel(animation)
           
           if (firstRun) {
             $(list).on('click',(item)=>{
               e = $(item.target).parent().index(item.target)
+              animation.onComplete = ()=>{return}
               advanceCarousel(animation)
             })
             firstRun = false;
