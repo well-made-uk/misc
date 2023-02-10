@@ -320,10 +320,7 @@ Webflow.push(function () {
           if (firstRun) {
             firstRun = false;
             $(list).click(function() {
-              e = $(this).index()
-              console.log(this)
-              console.log($(this).parent())
-              console.log($(this).index())
+              e = $(this).index() - 1
               animation.onComplete = ()=>{return}
               advanceCarousel(animation)
             })
