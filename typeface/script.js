@@ -224,7 +224,7 @@ function modalSetup() {
     $(section).fadeIn(300,()=>{$(video).trigger('play')})
   }
 
-function loadLottie(cont,src,animation) {
+function loadLottie(cont,src) {
   return animation = lottie.loadAnimation({
       container: cont,
       renderer: 'svg',
@@ -295,7 +295,9 @@ Webflow.push(function () {
         
         function advanceCarousel(animation) {
           if (animation) {
+            animation.onComplete = ()=>{return}
             animation.destroy()
+            $(obj).children().remove()
             e++
             if (e >= length) {e = 0}
           }
