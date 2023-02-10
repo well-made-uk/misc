@@ -315,11 +315,12 @@ Webflow.push(function () {
                 hideOnTransparent: true
               }
           });
-          animation.onComplete = ()=>{advanceCarousel(animation)}
+          animation.onComplete = ()=>{console.log('animation complete');advanceCarousel(animation)}
           
           if (firstRun) {
             firstRun = false;
             $(list).click(function() {
+              console.log('animation click');
               e = $(this).index() - 1
               animation.onComplete = ()=>{return}
               advanceCarousel(animation)
