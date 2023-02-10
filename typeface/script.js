@@ -360,6 +360,6 @@ Webflow.push(function () {
           }
         }
       })
-    }
+    })
   });
 })
