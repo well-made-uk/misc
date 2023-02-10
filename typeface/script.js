@@ -293,7 +293,7 @@ Webflow.push(function () {
         let firstRun = true
         $(obj).children().remove()
         
-        animation = lottie.loadAnimation({
+        let animation = lottie.loadAnimation({
             container: obj,
             renderer: 'svg',
             loop: false,
