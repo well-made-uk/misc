@@ -293,14 +293,29 @@ Webflow.push(function () {
         let firstRun = true
         $(obj).children().remove()
         
-        function advanceCarousel(animation) {
-          if (animation) {
+        animation = lottie.loadAnimation({
+            container: obj,
+            renderer: 'svg',
+            loop: false,
+            autoplay: true,
+            path: $(list[e]).attr('data-carousel'),
+            rendererSettings: {
+              scaleMode: 'noScale',
+              clearCanvas: true,
+              progressiveLoad: true,
+              hideOnTransparent: true
+            }
+        });
+        
+        function advanceCarousel(run) {
+          if (run) {
             console.log(typeof animation)
-            animation.destroy()
-            $(obj).children().remove()
             e++
             if (e >= length) {e = 0}
           }
+          $(obj).children().remove()
+          animation.onComplete = ()=>{}
+          animation.destroy()
           console.log(typeof animation)
           $(list).removeClass('active')
           $(list[e]).addClass('active')
@@ -318,7 +333,7 @@ Webflow.push(function () {
                 hideOnTransparent: true
               }
           });
-          animation.onComplete = ()=>{animation.onComplete = ()=>{};advanceCarousel(animation)}
+          animation.onComplete = ()=>{animation.onComplete = ()=>{};advanceCarousel(run)}
           
           if (firstRun) {
             firstRun = false;
