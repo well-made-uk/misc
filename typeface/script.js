@@ -298,6 +298,7 @@ Webflow.push(function () {
         }
         if  (elementScrolled(obj)) {
           const id = $(obj).attr('data-carousel-lottie')
+          console.log(`${id} in view`)
           const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
           const length = list.length
           let e = -1
