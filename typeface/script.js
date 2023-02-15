@@ -1,6 +1,6 @@
-// let modalSetupComplete = false
-let heroSetupComplete = false
-let heroLoaded = false
+let modalSetupComplete = false
+// let heroSetupComplete = false
+// let heroLoaded = false
 const lottie = Webflow.require('lottie').lottie;
 
 // function heroSetup() {
