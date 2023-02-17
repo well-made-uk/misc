@@ -283,24 +283,25 @@ Webflow.push(function() {
     const elTop = $(el).offset().top;
     return ((elTop <= docViewBottom) && (elTop >= docViewTop));
   }
-
-  let sc = 0;
-  $(window).scroll(function() {
-    if (sc == 0) {
-      sc = 1;
-      $('[data-lottie]').each((i, obj) => {
+  
+  $('[data-lottie]').each((i, obj) => {
+    let done = false;
+    $(window).scroll(function() {
+      if (done == true) {return}
+      if (elementScrolled(obj)) {
+        done = true;
         $(obj).children().remove()
         loadLottie(obj, $(obj).attr('data-lottie'))
-      })
-    }
+      }
+    })
   })
 
   $('[data-carousel-lottie]').each((i, obj) => {
     let done = false
     // This is then function used to detect if the element is scrolled into view
     $(window).scroll(function() {
+      if (done == true) { return }
       if (elementScrolled(obj)) {
-        if (done == true) { return }
         done = true
         const id = $(obj).attr('data-carousel-lottie')
         const list = $(`[data-carousel-list=${id}]`).children('[data-carousel]')
