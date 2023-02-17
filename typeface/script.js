@@ -125,40 +125,40 @@ const lottie = Webflow.require('lottie').lottie;
 //     loadVideo()
 // }
 
-function heroSetupMobile() {
-  const modal = $('#video-modal-mobile')
-  const controls = $(modal).find('[control]')
-  const image = $(modal).find('.video-post-inner')
-
-  function loadVideo(e) {
-    $(e).replaceWith(`<video controls autoplay class="video-container" style="max-width:100%;height:auto">
-      <source src="${videosrc}" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>`)
-    $('.video-post-inner').replaceWith(`<video controls class="video-container" style="max-width:100%;height:auto">
-      <source src="${videosrc}" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>`)
-  }
-
-  $(controls).each((i, obj) => {
-    const control = $(obj).attr('control')
-    switch (control) {
-      case 'close':
-        $(obj).click(() => {
-          $(modal).fadeOut(300, () => { $(modal).remove() })
-        })
-    }
-  })
-  $('[control=open-modal]').click((e) => {
-    if ($(e.target).hasClass('.video-post-inner')) {
-      loadVideo(e.target)
-    } else {
-      loadVideo($(e.target).closest('.video-post-inner'))
-    }
-
-  })
-}
+// function heroSetupMobile() {
+//   const modal = $('#video-modal-mobile')
+//   const controls = $(modal).find('[control]')
+//   const image = $(modal).find('.video-post-inner')
+// 
+//   function loadVideo(e) {
+//     $(e).replaceWith(`<video controls autoplay class="video-container" style="max-width:100%;height:auto">
+//       <source src="${videosrc}" type="video/mp4">
+//       Your browser does not support the video tag.
+//     </video>`)
+//     $('.video-post-inner').replaceWith(`<video controls class="video-container" style="max-width:100%;height:auto">
+//       <source src="${videosrc}" type="video/mp4">
+//       Your browser does not support the video tag.
+//     </video>`)
+//   }
+// 
+//   $(controls).each((i, obj) => {
+//     const control = $(obj).attr('control')
+//     switch (control) {
+//       case 'close':
+//         $(obj).click(() => {
+//           $(modal).fadeOut(300, () => { $(modal).remove() })
+//         })
+//     }
+//   })
+//   $('[control=open-modal]').click((e) => {
+//     if ($(e.target).hasClass('.video-post-inner')) {
+//       loadVideo(e.target)
+//     } else {
+//       loadVideo($(e.target).closest('.video-post-inner'))
+//     }
+// 
+//   })
+// }
 
 function modalSetup() {
   if (modalSetupComplete) { return }
