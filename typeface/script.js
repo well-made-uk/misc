@@ -312,7 +312,7 @@ Webflow.push(function() {
 
         let animation = lottie.loadAnimation({
           container: obj,
-          renderer: 'svg',
+          renderer: 'canvas',
           loop: false,
           autoplay: true,
           path: $(list[e]).attr('data-carousel'),
@@ -335,7 +335,7 @@ Webflow.push(function() {
 
           animation = lottie.loadAnimation({
             container: obj,
-            renderer: 'svg',
+            renderer: 'canvas',
             loop: false,
             autoplay: true,
             path: $(list[e]).attr('data-carousel'),
