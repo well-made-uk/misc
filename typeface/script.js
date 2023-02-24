@@ -1,4 +1,4 @@
-let modalSetupComplete = false
+// let modalSetupComplete = false
 // let heroSetupComplete = false
 // let heroLoaded = false
 const lottie = Webflow.require('lottie').lottie;
@@ -160,69 +160,69 @@ const lottie = Webflow.require('lottie').lottie;
 //   })
 // }
 
-function modalSetup() {
-  if (modalSetupComplete) { return }
-
-  const section = $('#video-modal')
-  const image = $(section).find('.video-container')
-
-  // Set video
-  $(image).replaceWith(`<video class="video-container">
-      <source src="${videosrc}" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>`)
-
-  const video = $(section).find('.video-container')
-  const controls = $(section).find('[control]')
-
-  // Set controls
-  $(controls).each(function(i, obj) {
-    const control = $(obj).attr('control')
-    switch (control) {
-      case 'play':
-        $(obj).click(() => {
-          $(video).trigger('play')
-          $(obj).hide()
-          $(obj).siblings().show()
-        })
-        break;
-      case 'pause':
-        $(obj).click(() => {
-          $(video).trigger('pause')
-          $(obj).hide()
-          $(obj).siblings().show()
-        })
-        break;
-      case 'mute':
-        $(obj).click(() => {
-          $(video).prop('muted', true)
-          $(obj).hide()
-          $(obj).siblings().show()
-        })
-        break;
-      case 'unmute':
-        $(obj).click(() => {
-          $(video).prop('muted', false)
-          $(obj).hide()
-          $(obj).siblings().show()
-        })
-        break;
-      case 'close':
-        $(obj).click(() => {
-          $(section).find('[control=pause]').click()
-          $(section).fadeOut(200)
-        })
-    }
-  })
-  $('[control=open-modal]').click(() => {
-    $(section).fadeIn(300, () => { $(section).find('[control=play]').click() })
-  })
-  $(video).on('ended', () => {
-    $(section).fadeOut(300)
-  })
-  modalSetupComplete = true
-  $(section).fadeIn(300, () => { $(video).trigger('play') })
-}
+// function modalSetup() {
+//   if (modalSetupComplete) { return }
+// 
+//   const section = $('#video-modal')
+//   const image = $(section).find('.video-container')
+// 
+//   // Set video
+//   $(image).replaceWith(`<video class="video-container">
+//       <source src="${videosrc}" type="video/mp4">
+//       Your browser does not support the video tag.
+//     </video>`)
+// 
+//   const video = $(section).find('.video-container')
+//   const controls = $(section).find('[control]')
+// 
+//   // Set controls
+//   $(controls).each(function(i, obj) {
+//     const control = $(obj).attr('control')
+//     switch (control) {
+//       case 'play':
+//         $(obj).click(() => {
+//           $(video).trigger('play')
+//           $(obj).hide()
+//           $(obj).siblings().show()
+//         })
+//         break;
+//       case 'pause':
+//         $(obj).click(() => {
+//           $(video).trigger('pause')
+//           $(obj).hide()
+//           $(obj).siblings().show()
+//         })
+//         break;
+//       case 'mute':
+//         $(obj).click(() => {
+//           $(video).prop('muted', true)
+//           $(obj).hide()
+//           $(obj).siblings().show()
+//         })
+//         break;
+//       case 'unmute':
+//         $(obj).click(() => {
+//           $(video).prop('muted', false)
+//           $(obj).hide()
+//           $(obj).siblings().show()
+//         })
+//         break;
+//       case 'close':
+//         $(obj).click(() => {
+//           $(section).find('[control=pause]').click()
+//           $(section).fadeOut(200)
+//         })
+//     }
+//   })
+//   $('[control=open-modal]').click(() => {
+//     $(section).fadeIn(300, () => { $(section).find('[control=play]').click() })
+//   })
+//   $(video).on('ended', () => {
+//     $(section).fadeOut(300)
+//   })
+//   modalSetupComplete = true
+//   $(section).fadeIn(300, () => { $(video).trigger('play') })
+// }
 
 function loadLottie(cont, src) {
   return animation = lottie.loadAnimation({
@@ -261,9 +261,9 @@ Webflow.push(function() {
     // if ( $('#video-hero').length > 0 ) {
     //   heroSetup()
     // }
-    $('[control=open-modal]').click(() => {
-      if (!modalSetupComplete) { modalSetup() }
-    })
+    // $('[control=open-modal]').click(() => {
+    //   if (!modalSetupComplete) { modalSetup() }
+    // })
   // }
 
   if ($('[data-carousel-lottie]').length) {
@@ -346,8 +346,7 @@ Webflow.push(function() {
               hideOnTransparent: true
             }
           });
-          animation.onComplete = () => { animation.onComplete = () => {};
-            advanceCarousel(true) }
+          animation.onComplete = () => { animation.onComplete = () => {};advanceCarousel(true) }
 
           if (firstRun) {
             firstRun = false;
