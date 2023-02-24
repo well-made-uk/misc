@@ -224,6 +224,7 @@ const lottie = Webflow.require('lottie').lottie;
 //   $(section).fadeIn(300, () => { $(video).trigger('play') })
 // }
 
+// Helper function to load Lotties consistently
 function loadLottie(cont, src) {
   return animation = lottie.loadAnimation({
     container: cont,
@@ -238,6 +239,14 @@ function loadLottie(cont, src) {
       hideOnTransparent: true
     }
   });
+}
+
+// Helper function to determine scroll position
+function elementScrolled(el) {
+  const docViewTop = $(window).scrollTop();
+  const docViewBottom = docViewTop + $(window).height();
+  const elTop = $(el).offset().top;
+  return ((elTop <= docViewBottom) && (elTop >= docViewTop));
 }
 
 // Start document.loaded stuff
@@ -266,24 +275,17 @@ Webflow.push(function() {
     // })
   // }
 
-  if ($('[data-carousel-lottie]').length) {
-    $('[data-carousel-lottie]').each((e, obj) => {
-      const id = $(obj).attr('data-carousel-lottie')
-      const lottieEl = $(obj)
-      const listEl = $(`[data-carousel-list=${id}]`)
-      const carouselItems = $(listEl).children('[data-carousel]')
-      // carousel(lottieEl,carouselItems)
-    })
-  }
-
-  // Lottie async
-  function elementScrolled(el) {
-    const docViewTop = $(window).scrollTop();
-    const docViewBottom = docViewTop + $(window).height();
-    const elTop = $(el).offset().top;
-    return ((elTop <= docViewBottom) && (elTop >= docViewTop));
-  }
+  // if ($('[data-carousel-lottie]').length) {
+  //   $('[data-carousel-lottie]').each((e, obj) => {
+  //     const id = $(obj).attr('data-carousel-lottie')
+  //     const lottieEl = $(obj)
+  //     const listEl = $(`[data-carousel-list=${id}]`)
+  //     const carouselItems = $(listEl).children('[data-carousel]')
+  //     // carousel(lottieEl,carouselItems)
+  //   })
+  // }
   
+  // Render the normal lotties
   $('[data-lottie]').each((i, obj) => {
     let done = false;
     $(window).scroll(function() {
@@ -295,7 +297,8 @@ Webflow.push(function() {
       }
     })
   })
-
+  
+  // Render the carousel lotties
   $('[data-carousel-lottie]').each((i, obj) => {
     let done = false
     // This is then function used to detect if the element is scrolled into view
@@ -361,5 +364,7 @@ Webflow.push(function() {
       }
     })
   })
+  
+  // Trigger a scroll event immediately
   $(window).scroll()
 })
